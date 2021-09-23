@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+ 
+ <%@ taglib uri="http://java.sun.com/jstl/core" prefix="c" %>
+ 
     
     
     
@@ -11,7 +14,9 @@
 </head>
 <body>
 
-<h1></h1>
+<h1>Welcome to Helping Hand</h1>
+
+${DEBUG}
 
 </body>
 </html>
