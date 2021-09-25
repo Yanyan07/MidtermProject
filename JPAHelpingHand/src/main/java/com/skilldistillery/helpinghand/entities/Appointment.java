@@ -8,6 +8,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Appointment {
@@ -21,14 +24,16 @@ public class Appointment {
 	@Column(name = "appointment_date")
 	private LocalDateTime appointmentDate;
 
-	@Column(name = "user_id")
-	private int userId;
+	@ManyToOne
+	@JoinColumn(name = "user_id")
+	private User user;
 
-	@Column(name = "pantry_id")
-	private int pantryId;
+	@ManyToOne
+	@JoinColumn(name = "pantry_id")
+	private Pantry pantry;
 
-	@Column(name = "cart_id")
-	private int cartId;
+	@OneToOne
+	private Cart cart;
 
 	private int rating;
 
@@ -55,28 +60,28 @@ public class Appointment {
 		this.appointmentDate = appointmentDate;
 	}
 
-	public int getUserId() {
-		return userId;
+	public User getUser() {
+		return user;
 	}
 
-	public void setUserId(int userId) {
-		this.userId = userId;
+	public void setUser(User user) {
+		this.user = user;
 	}
 
-	public int getPantryId() {
-		return pantryId;
+	public Pantry getPantry() {
+		return pantry;
 	}
 
-	public void setPantryId(int pantryId) {
-		this.pantryId = pantryId;
+	public void setPantry(Pantry pantry) {
+		this.pantry = pantry;
 	}
 
-	public int getCartId() {
-		return cartId;
+	public Cart getCart() {
+		return cart;
 	}
 
-	public void setCartId(int cartId) {
-		this.cartId = cartId;
+	public void setCart(Cart cart) {
+		this.cart = cart;
 	}
 
 	public int getRating() {
@@ -104,20 +109,20 @@ public class Appointment {
 	}
 
 //	No Arg Constructor
+
 	public Appointment() {
-		super();
 	}
 
 //	Constructor with all Fields
 
-	public Appointment(int id, LocalDateTime appointmentDate, int userId, int pantryId, int cartId, int rating,
+	public Appointment(int id, LocalDateTime appointmentDate, User user, Pantry pantry, Cart cart, int rating,
 			String comment, LocalDateTime createDate) {
 		super();
 		this.id = id;
 		this.appointmentDate = appointmentDate;
-		this.userId = userId;
-		this.pantryId = pantryId;
-		this.cartId = cartId;
+		this.user = user;
+		this.pantry = pantry;
+		this.cart = cart;
 		this.rating = rating;
 		this.comment = comment;
 		this.createDate = createDate;
