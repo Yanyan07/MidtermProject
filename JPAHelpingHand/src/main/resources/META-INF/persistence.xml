@@ -6,6 +6,8 @@
     </provider>
     
     <class>com.skilldistillery.helpinghand.entities.User</class> 
+    <class>com.skilldistillery.helpinghand.entities.Pantry</class> 
+    <class>com.skilldistillery.helpinghand.entities.PantryComment</class> 
 
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/helpinghanddb?useSSL=false&amp;useLegacyDatetimeCode=false&amp;serverTimezone=US/Mountain" />
@@ -26,9 +28,6 @@
       <property name="hibernate.c3p0.max_statements" value="0" />
       <property name="hibernate.c3p0.timeout" value="60" />
     </properties>
-	
-	
-	
 	
 	
 	</persistence-unit>
