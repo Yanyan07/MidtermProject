@@ -1,6 +1,7 @@
 package om.skilldistillery.helpinghand.entities;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -12,13 +13,13 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import com.skilldistillery.helpinghand.entities.User;
+import com.skilldistillery.helpinghand.entities.PantryComment;
 
-class UserTest {
-	
+class PpantryCommentCommentCommentTest {
+
 	private static EntityManagerFactory emf;
 	private EntityManager em;
-	private User user;
+	private PantryComment pantryComment;
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
@@ -33,20 +34,20 @@ class UserTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
-		user = em.find(User.class, 1);
+		pantryComment = em.find(PantryComment.class, 1);
 	}
 
 	@AfterEach
 	void tearDown() throws Exception {
 		em.close();
-		user = null;
+		pantryComment = null;
 	}
 
 	@Test
 	void test() {
-		assertNotNull(user);
-		assertEquals("admin", user.getUsername());
-		assertEquals("helping", user.getPassword());
+		assertNotNull(pantryComment);
+		assertEquals("admin", pantryComment.getComment());
+		assertEquals(6, pantryComment.getCreateDate().getMonthValue());
 	}
 
 }
