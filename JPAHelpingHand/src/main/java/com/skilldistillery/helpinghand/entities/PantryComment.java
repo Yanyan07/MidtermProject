@@ -7,23 +7,30 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 @Entity
+@Table(name="pantry_comment")
 public class PantryComment {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	
-	@Column(name="pantry_id")
-	private int pantryId;
-	@Column(name="user_id")
-	private int userId;
 	private String comment;
 	@Column(name="create_date")
 	private LocalDateTime createDate;
 	@Column(name="in_reply_to")
 	private Integer inReplyTo;
+	
+	@ManyToOne
+	@JoinColumn(name="pantry_id")
+	private Pantry pantry;
+	@ManyToOne
+	@JoinColumn(name="user_id")
+	private User user;
 	
 	public PantryComment() {
 		super();
@@ -34,20 +41,6 @@ public class PantryComment {
 	}
 	public void setId(int id) {
 		this.id = id;
-	}
-
-	public int getPantryId() {
-		return pantryId;
-	}
-	public void setPantryId(int pantryId) {
-		this.pantryId = pantryId;
-	}
-
-	public int getUserId() {
-		return userId;
-	}
-	public void setUserId(int userId) {
-		this.userId = userId;
 	}
 
 	public String getComment() {
@@ -69,6 +62,20 @@ public class PantryComment {
 	}
 	public void setInReplyTo(Integer inReplyTo) {
 		this.inReplyTo = inReplyTo;
+	}
+	
+	public Pantry getPantry() {
+		return pantry;
+	}
+	public void setPantry(Pantry pantry) {
+		this.pantry = pantry;
+	}
+
+	public User getUser() {
+		return user;
+	}
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 	@Override
