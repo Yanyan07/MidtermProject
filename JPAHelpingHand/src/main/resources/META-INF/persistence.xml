@@ -5,9 +5,15 @@
 	<provider>org.hibernate.jpa.HibernatePersistenceProvider
     </provider>
     
+    <class>com.skilldistillery.helpinghand.entities.Address</class>
+    <class>com.skilldistillery.helpinghand.entities.Appointment</class>
+    <class>com.skilldistillery.helpinghand.entities.Cart</class>
+    <class>com.skilldistillery.helpinghand.entities.Inventory</class>
+    <class>com.skilldistillery.helpinghand.entities.InventoryItem</class>
+    <class>com.skilldistillery.helpinghand.entities.Pantry</class>
+    <class>com.skilldistillery.helpinghand.entities.PantryComment</class>
+    <class>com.skilldistillery.helpinghand.entities.ShoppingCartItem</class>
     <class>com.skilldistillery.helpinghand.entities.User</class> 
-    <class>com.skilldistillery.helpinghand.entities.Pantry</class> 
-    <class>com.skilldistillery.helpinghand.entities.PantryComment</class> 
 
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/helpinghanddb?useSSL=false&amp;useLegacyDatetimeCode=false&amp;serverTimezone=US/Mountain" />
