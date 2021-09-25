@@ -8,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Cart {
@@ -18,8 +20,9 @@ public class Cart {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 
-	@Column(name = "user_id")
-	private int userId;
+	@ManyToOne
+	@JoinColumn(name = "user_id")
+	private User user;
 
 	@Column(name = "create_date")
 	private LocalDateTime createDate;
@@ -36,13 +39,6 @@ public class Cart {
 		this.id = id;
 	}
 
-	public int getUserId() {
-		return userId;
-	}
-
-	public void setUserId(int userId) {
-		this.userId = userId;
-	}
 
 	public LocalDateTime getCreateDate() {
 		return createDate;
@@ -71,18 +67,13 @@ public class Cart {
 	public Cart(int id, int userId, LocalDateTime createDate, boolean completed) {
 		super();
 		this.id = id;
-		this.userId = userId;
 		this.createDate = createDate;
 		this.completed = completed;
 	}
 
 // To String
 
-	@Override
-	public String toString() {
-		return "Cart [id=" + id + ", userId=" + userId + ", createDate=" + createDate + ", completed=" + completed
-				+ "]";
-	}
+
 
 // Hash Code and Equals 
 
