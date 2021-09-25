@@ -1,6 +1,7 @@
 package om.skilldistillery.helpinghand.entities;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -10,16 +11,17 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import com.skilldistillery.helpinghand.entities.User;
+import com.skilldistillery.helpinghand.entities.Address;
 
-class UserTest {
-	
+public class AddressTest {
+
 	private static EntityManagerFactory emf;
 	private EntityManager em;
-	private User user;
-
+	private Address address;
+	
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
 		emf = Persistence.createEntityManagerFactory("JPAHelpingHand");
@@ -33,20 +35,26 @@ class UserTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
-		user = em.find(User.class, 1);
+		address = em.find(Address.class, 1);
 	}
 
 	@AfterEach
 	void tearDown() throws Exception {
 		em.close();
-		user = null;
+		address = null;
 	}
 
 	@Test
+	@DisplayName("test Address entity mappings")
 	void test() {
-		assertNotNull(user);
-		assertEquals("admin", user.getUsername());
-		assertEquals("helping", user.getPassword());
+		assertNotNull(address);
+		assertEquals("2030 SE 16th St", address.getStreetAddress());
+		assertEquals("Ames", address.getCity());
+		assertEquals("IA", address.getState());
+		assertEquals("50010", address.getZipCode());
+		
+
 	}
 
+	
 }
