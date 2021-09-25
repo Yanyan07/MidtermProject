@@ -48,9 +48,9 @@ public class CartTest {
 	@DisplayName("test appointment entity mappings")
 	void test() {
 		assertNotNull(cart);
-		assertEquals(, cart.getUserId());
-		assertEquals(, cart.getCreateDate());
-		assertEquals(, cart.isCompleted());
+		assertEquals(1, cart.getUserId());
+		assertEquals(2021-09-24 17:18:33, cart.getCreateDate());
+		assertEquals(0, cart.isCompleted());
 		
 	}
 

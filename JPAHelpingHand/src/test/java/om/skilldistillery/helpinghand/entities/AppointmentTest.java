@@ -48,13 +48,13 @@ public class AppointmentTest {
 	@DisplayName("test appointment entity mappings")
 	void test() {
 		assertNotNull(appointment);
-		assertEquals(, appointment.getAppointmentDate());
-		assertEquals(, appointment.getUserId());
-		assertEquals(, appointment.getPantryId());
-		assertEquals(, appointment.getCartId());
-		assertEquals(, appointment.getRating());
-		assertEquals(, appointment.getComment());
-		assertEquals(, appointment.getCreateDate());
+		assertEquals(2021-09-25 17:18:33, appointment.getAppointmentDate());
+		assertEquals(1, appointment.getUserId());
+		assertEquals(1, appointment.getPantryId());
+		assertEquals(1, appointment.getCartId());
+		assertEquals(4, appointment.getRating());
+		assertEquals("this is a comment from the appointment", appointment.getComment());
+		assertEquals(2021-09-24 17:18:33, appointment.getCreateDate());
 		
 	}
 
