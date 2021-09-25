@@ -48,7 +48,7 @@ public class AddressTest {
 	@DisplayName("test Address entity mappings")
 	void test() {
 		assertNotNull(address);
-		assertEquals("2030 SE 16th St", address.getStreetAddress());
+		assertEquals("230 SE 16th Street", address.getStreetAddress());
 		assertEquals("Ames", address.getCity());
 		assertEquals("IA", address.getState());
 		assertEquals("50010", address.getZipCode());
