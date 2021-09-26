@@ -2,26 +2,30 @@ package com.skilldistillery.helpinghand.entities;
 
 import java.util.Objects;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "shopping_cart_item")
 public class ShoppingCartItem {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
-	@Column(name = "inventory_item_id")
-	private int inventoryItemId;
-	
-	@Column(name = "cart_id")
-	private int cartId;
+
+	@OneToOne
+	@JoinColumn(name = "inventory_item_id")
+	private InventoryItem inventoryItem;
+
+	@ManyToOne
+	@JoinColumn(name = "cart_id")
+	private Cart cart;
 
 	public ShoppingCartItem() {
 		super();
@@ -35,25 +39,25 @@ public class ShoppingCartItem {
 		this.id = id;
 	}
 
-	public int getInventoryItemId() {
-		return inventoryItemId;
+	public InventoryItem getInvetoryItem() {
+		return inventoryItem;
 	}
 
-	public void setInventoryItemId(int inventoryItemId) {
-		this.inventoryItemId = inventoryItemId;
+	public void setInvetoryItem(InventoryItem invetoryItem) {
+		this.inventoryItem = invetoryItem;
 	}
 
-	public int getCartId() {
-		return cartId;
+	public Cart getCart() {
+		return cart;
 	}
 
-	public void setCartId(int cartId) {
-		this.cartId = cartId;
+	public void setCart(Cart cart) {
+		this.cart = cart;
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(cartId, id, inventoryItemId);
+		return Objects.hash(id);
 	}
 
 	@Override
@@ -65,16 +69,12 @@ public class ShoppingCartItem {
 		if (getClass() != obj.getClass())
 			return false;
 		ShoppingCartItem other = (ShoppingCartItem) obj;
-		return cartId == other.cartId && id == other.id && inventoryItemId == other.inventoryItemId;
+		return id == other.id;
 	}
 
 	@Override
 	public String toString() {
-		return "ShoppingCartItem [id=" + id + ", inventoryItemId=" + inventoryItemId + ", cartId=" + cartId + "]";
+		return "ShoppingCartItem [id=" + id + ", invetoryItem=" + inventoryItem + ", cart=" + cart + "]";
 	}
-
-	
-
-	
 
 }
