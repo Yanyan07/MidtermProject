@@ -1,5 +1,6 @@
 package com.skilldistillery.helpinghand.entities;
 
+import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Column;
@@ -7,23 +8,37 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Inventory {
+
+	public Inventory() {
+		super();
+	}
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 
 	private String name;
-	private int limit;
-	private String description;
 
-	public Inventory() {
-		super();
-	}
 	@Column(name = "image_url")
 	private String imageURL;
+
+	private Integer limit;
+
+	private String description;
+	
+	@ManyToOne
+	@JoinColumn(name = "pantry_id")
+	private Pantry pantry;
+	
+	@OneToMany(mappedBy = "inventory")
+	private List<InventoryItem> inventoryItems;
+	
 	
 	public int getId() {
 		return id;
@@ -49,11 +64,11 @@ public class Inventory {
 		this.imageURL = imageURL;
 	}
 
-	public int getLimit() {
+	public Integer getLimit() {
 		return limit;
 	}
 
-	public void setLimit(int limit) {
+	public void setLimit(Integer limit) {
 		this.limit = limit;
 	}
 
@@ -65,17 +80,27 @@ public class Inventory {
 		this.description = description;
 	}
 
-	public int getPantryId() {
-		return pantryId;
+	
+
+	public Pantry getPantry() {
+		return pantry;
 	}
 
-	public void setPantryId(int pantryId) {
-		this.pantryId = pantryId;
+	public void setPantry(Pantry pantry) {
+		this.pantry = pantry;
+	}
+
+	public List<InventoryItem> getInventoryItems() {
+		return inventoryItems;
+	}
+
+	public void setInventoryItems(List<InventoryItem> inventoryItems) {
+		this.inventoryItems = inventoryItems;
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(description, id, imageURL, limit, name, pantryId);
+		return Objects.hash(id);
 	}
 
 	@Override
@@ -87,15 +112,16 @@ public class Inventory {
 		if (getClass() != obj.getClass())
 			return false;
 		Inventory other = (Inventory) obj;
-		return Objects.equals(description, other.description) && id == other.id
-				&& Objects.equals(imageURL, other.imageURL) && limit == other.limit && Objects.equals(name, other.name)
-				&& pantryId == other.pantryId;
+		return id == other.id;
 	}
 
 	@Override
 	public String toString() {
 		return "Inventory [id=" + id + ", name=" + name + ", imageURL=" + imageURL + ", limit=" + limit
-				+ ", description=" + description + ", pantryId=" + pantryId + "]";
+				+ ", description=" + description + ", pantry=" + pantry + ", inventoryItems=" + inventoryItems + "]";
 	}
+
+	
+	
 
 }

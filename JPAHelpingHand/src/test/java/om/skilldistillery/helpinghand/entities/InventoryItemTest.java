@@ -48,7 +48,7 @@ class InventoryItemTest {
 	@Test
 	void test() {
 		assertNotNull(inventoryItem);
-		assertEquals(1, inventoryItem.getAvailable());
+		assertEquals(true, inventoryItem.isAvailable());
 		assertEquals(LocalDate.of(2021, 9, 24), inventoryItem.getExpiration());
 		
 

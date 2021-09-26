@@ -1,36 +1,44 @@
 package com.skilldistillery.helpinghand.entities;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.Objects;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "inventory_item")
 public class InventoryItem {
-	
-	
-	
-	public InventoryItem() {
-		super();
-	}
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
-	@Column(name = "inventory_id")
-	private int inventoryId;
-	
-	private Integer available;
-	
+
+	private Boolean available;
+
 	private LocalDate expiration;
-	
+
 	@Column(name = "create_date")
 	private LocalDateTime createDate;
+
+	@ManyToOne
+	@JoinColumn(name = "inventory_id")
+	private Inventory inventory;
+
+	@OneToOne(mappedBy = "inventoryItem")
+	private ShoppingCartItem shoppingCartItem;
+
+	public InventoryItem() {
+		super();
+	}
 
 	public int getId() {
 		return id;
@@ -40,19 +48,27 @@ public class InventoryItem {
 		this.id = id;
 	}
 
-	public int getInventoryId() {
-		return inventoryId;
+	public Inventory getInventory() {
+		return inventory;
 	}
 
-	public void setInventoryId(int inventoryId) {
-		this.inventoryId = inventoryId;
+	public void setInventory(Inventory inventory) {
+		this.inventory = inventory;
 	}
 
-	public Integer getAvailable() {
+	public ShoppingCartItem getShoppingCartItem() {
+		return shoppingCartItem;
+	}
+
+	public void setShoppingCartItem(ShoppingCartItem shoppingCartItem) {
+		this.shoppingCartItem = shoppingCartItem;
+	}
+
+	public Boolean isAvailable() {
 		return available;
 	}
 
-	public void setAvailable(Integer available) {
+	public void setAvailable(Boolean available) {
 		this.available = available;
 	}
 
@@ -74,7 +90,7 @@ public class InventoryItem {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(available, createDate, expiration, id, inventoryId);
+		return Objects.hash(id);
 	}
 
 	@Override
@@ -86,21 +102,13 @@ public class InventoryItem {
 		if (getClass() != obj.getClass())
 			return false;
 		InventoryItem other = (InventoryItem) obj;
-		return Objects.equals(available, other.available) && Objects.equals(createDate, other.createDate)
-				&& Objects.equals(expiration, other.expiration) && id == other.id && inventoryId == other.inventoryId;
+		return id == other.id;
 	}
 
 	@Override
 	public String toString() {
-		return "InventoryItem [id=" + id + ", inventoryId=" + inventoryId + ", available=" + available + ", expiration="
-				+ expiration + ", createDate=" + createDate + "]";
+		return "InventoryItem [id=" + id + ", available=" + available + ", expiration=" + expiration + ", createDate="
+				+ createDate + ", inventory=" + inventory + ", shoppingCartItem=" + shoppingCartItem + "]";
 	}
-	
-	
-
-	
-	
-
 
 }
->>>>>>> f0f51ad5dcc6996d55af465e3456bb710c3d40eb
