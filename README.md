@@ -9,11 +9,12 @@
 
 # Overview
 
+In this project, we agreed to create a food pantry project called "Helping Hand."  
 # How to Use
 
 # Technologies Used
 
-Using ip address: xx:/
+
 
 * Spring Boot
 * Kanban board (Trello)
