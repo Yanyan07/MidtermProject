@@ -1,12 +1,16 @@
 package com.skilldistillery.helpinghand.entities;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Pantry {
@@ -21,10 +25,19 @@ public class Pantry {
 	private String description;
 	@Column(name="image_url")
 	private String imageUrl;
-	@Column(name="address_id")
-	private int addressId;
+	
 	@Column(name="user_id")
 	private int userId;
+	
+	@OneToOne
+	@JoinColumn(name="address_id")
+	private Address address;
+	
+	@OneToMany(mappedBy="pantry")
+	private List<PantryComment> pantryComments;
+	
+	@OneToMany(mappedBy="pantry")
+	private List<Inventory> inventories;
 	
 	public Pantry() {
 		super();
@@ -72,20 +85,34 @@ public class Pantry {
 		this.imageUrl = imageUrl;
 	}
 
-	public int getAddressId() {
-		return addressId;
-	}
-	public void setAddressId(int addressId) {
-		this.addressId = addressId;
-	}
-
 	public int getUserId() {
 		return userId;
 	}
 	public void setUserId(int userId) {
 		this.userId = userId;
 	}
+	
+	public Address getAddress() {
+		return address;
+	}
+	public void setAddress(Address address) {
+		this.address = address;
+	}
 
+	public List<PantryComment> getPantryComments() {
+		return pantryComments;
+	}
+	public void setPantryComments(List<PantryComment> pantryComments) {
+		this.pantryComments = pantryComments;
+	}
+
+	public List<Inventory> getInventories() {
+		return inventories;
+	}
+	public void setInventories(List<Inventory> inventories) {
+		this.inventories = inventories;
+	}
+	
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);

@@ -45,17 +45,51 @@ public class AppointmentTest {
 	}
 
 	@Test
-	@DisplayName("test appointment entity mappings")
+	@DisplayName("Test appointment entity mappings")
 	void test() {
 		assertNotNull(appointment);
-		assertEquals(, appointment.getAppointmentDate());
-		assertEquals(, appointment.getUserId());
-		assertEquals(, appointment.getPantryId());
-		assertEquals(, appointment.getCartId());
-		assertEquals(, appointment.getRating());
-		assertEquals(, appointment.getComment());
-		assertEquals(, appointment.getCreateDate());
+		assertEquals(2021, appointment.getAppointmentDate().getYear());
+		assertEquals(9, appointment.getAppointmentDate().getMonthValue());
+		assertEquals(25, appointment.getAppointmentDate().getDayOfMonth());
+		assertEquals(17, appointment.getAppointmentDate().getHour());
+		assertEquals(18, appointment.getAppointmentDate().getMinute());
+		assertEquals(33, appointment.getAppointmentDate().getSecond());
+		assertEquals(4, appointment.getRating());
+		assertEquals("this is a comment from the appointment", appointment.getComment());
+		assertEquals(2021, appointment.getCreateDate().getYear());
+		assertEquals(9, appointment.getCreateDate().getMonthValue());
+		assertEquals(24, appointment.getCreateDate().getDayOfMonth());
+		assertEquals(17, appointment.getCreateDate().getHour());
+		assertEquals(18, appointment.getCreateDate().getMinute());
+		assertEquals(33, appointment.getCreateDate().getSecond());
 		
+	}
+	
+	@Test
+	@DisplayName("Test ManyToOne User to Appointment")
+	void test_manytoone_user_to_appointment() {
+//		 SELECT appointment.id from appointment JOIN user on user.id=appointment.user_id;
+		assertNotNull(appointment);
+		assertNotNull(appointment.getUser());
+		assertEquals(1, appointment.getUser().getId());
+	}
+	
+	@Test
+	@DisplayName("Test ManyToOne Pantry to Appointment")
+	void test_manytoone_pantry_to_appointment() {
+//		SELECT pantry.id from appointment JOIN pantry on pantry.id=appointment.pantry_id;
+		assertNotNull(appointment);
+		assertNotNull(appointment.getPantry());
+		assertEquals(1, appointment.getPantry().getId());
+	}
+	
+	@Test
+	@DisplayName("Test Cart to Appointment")
+	void test_cart_to_appointment(){
+//		SELECT cart.id from appointment JOIN cart on cart.id=appointment.cart_id;	
+		assertNotNull(appointment);
+		assertNotNull(appointment.getCart());
+		assertEquals(1, appointment.getCart().getId());
 	}
 
 }

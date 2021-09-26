@@ -1,12 +1,14 @@
 package com.skilldistillery.helpinghand.entities;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class User {
@@ -31,6 +33,13 @@ public class User {
 	private Integer addressId;
 	@Column(name="create_date")
 	private LocalDateTime createDate;
+	
+	@OneToMany(mappedBy="user")
+	private List<Appointment> appointments;
+	@OneToMany(mappedBy="user")
+	private List<PantryComment> pantryComments;
+	@OneToMany(mappedBy="user")
+	private List<Cart> carts;
 
 	public User() {
 		super();
@@ -119,7 +128,28 @@ public class User {
 	public void setCreateDate(LocalDateTime createDate) {
 		this.createDate = createDate;
 	}
+	
+	public List<Appointment> getAppointments() {
+		return appointments;
+	}
+	public void setAppointments(List<Appointment> appointments) {
+		this.appointments = appointments;
+	}
 
+	public List<PantryComment> getPantryComments() {
+		return pantryComments;
+	}
+	public void setPantryComments(List<PantryComment> pantryComments) {
+		this.pantryComments = pantryComments;
+	}
+
+	public List<Cart> getCarts() {
+		return carts;
+	}
+	public void setCarts(List<Cart> carts) {
+		this.carts = carts;
+	}
+	
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
