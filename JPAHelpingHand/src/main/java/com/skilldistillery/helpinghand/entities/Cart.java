@@ -27,7 +27,7 @@ public class Cart {
 	@Column(name = "create_date")
 	private LocalDateTime createDate;
 
-	private boolean completed;
+	private Boolean completed;
 
 //	Getters and Setters
 
@@ -54,10 +54,15 @@ public class Cart {
 	public void setCreateDate(LocalDateTime createDate) {
 		this.createDate = createDate;
 	}
-
-	public boolean isCompleted() {
+	
+	public Boolean isCompleted() {
 		return completed;
 	}
+
+	public void setCompleted(Boolean completed) {
+		this.completed = completed;
+	}
+
 
 //	No Arg Constructor
 
