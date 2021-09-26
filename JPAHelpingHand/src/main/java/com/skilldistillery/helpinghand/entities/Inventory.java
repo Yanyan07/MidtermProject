@@ -25,7 +25,6 @@ public class Inventory {
 	@Column(name = "image_url")
 	private String imageURL;
 	
-
 	public int getId() {
 		return id;
 	}
@@ -73,9 +72,6 @@ public class Inventory {
 	public void setPantryId(int pantryId) {
 		this.pantryId = pantryId;
 	}
-
-	@Column(name = "pantry_id")
-	private int pantryId;
 
 	@Override
 	public int hashCode() {

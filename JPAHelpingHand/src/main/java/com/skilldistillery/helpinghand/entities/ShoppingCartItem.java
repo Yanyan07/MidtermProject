@@ -7,17 +7,20 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "shopping_cart_item")
 public class ShoppingCartItem {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
-	@Column(name = "inventory_item")
-	private int inventoryItem;
+	@Column(name = "inventory_item_id")
+	private int inventoryItemId;
 	
+	@Column(name = "cart_id")
 	private int cartId;
 
 	public ShoppingCartItem() {
@@ -32,12 +35,12 @@ public class ShoppingCartItem {
 		this.id = id;
 	}
 
-	public int getInventoryItem() {
-		return inventoryItem;
+	public int getInventoryItemId() {
+		return inventoryItemId;
 	}
 
-	public void setInventoryItem(int inventoryItem) {
-		this.inventoryItem = inventoryItem;
+	public void setInventoryItemId(int inventoryItemId) {
+		this.inventoryItemId = inventoryItemId;
 	}
 
 	public int getCartId() {
@@ -50,7 +53,7 @@ public class ShoppingCartItem {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(cartId, id, inventoryItem);
+		return Objects.hash(cartId, id, inventoryItemId);
 	}
 
 	@Override
@@ -62,13 +65,16 @@ public class ShoppingCartItem {
 		if (getClass() != obj.getClass())
 			return false;
 		ShoppingCartItem other = (ShoppingCartItem) obj;
-		return cartId == other.cartId && id == other.id && inventoryItem == other.inventoryItem;
+		return cartId == other.cartId && id == other.id && inventoryItemId == other.inventoryItemId;
 	}
 
 	@Override
 	public String toString() {
-		return "ShoppingCartItem [id=" + id + ", inventoryItem=" + inventoryItem + ", cartId=" + cartId + "]";
+		return "ShoppingCartItem [id=" + id + ", inventoryItemId=" + inventoryItemId + ", cartId=" + cartId + "]";
 	}
+
+	
+
 	
 
 }
