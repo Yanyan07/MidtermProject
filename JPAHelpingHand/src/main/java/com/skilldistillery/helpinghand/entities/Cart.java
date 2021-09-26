@@ -39,18 +39,6 @@ public class Cart {
 		this.id = id;
 	}
 
-
-	public LocalDateTime getCreateDate() {
-		return createDate;
-	}
-
-	public void setCreateDate(LocalDateTime createDate) {
-		this.createDate = createDate;
-	}
-
-
-//	No Arg Constructor
-
 	public User getUser() {
 		return user;
 	}
@@ -59,6 +47,14 @@ public class Cart {
 		this.user = user;
 	}
 
+	public LocalDateTime getCreateDate() {
+		return createDate;
+	}
+
+	public void setCreateDate(LocalDateTime createDate) {
+		this.createDate = createDate;
+	}
+	
 	public Boolean isCompleted() {
 		return completed;
 	}
@@ -67,22 +63,29 @@ public class Cart {
 		this.completed = completed;
 	}
 
+
+//	No Arg Constructor
+
 	public Cart() {
 		super();
 	}
 
 // Constructor with all Fields
 
-	public Cart(int id, int userId, LocalDateTime createDate, boolean completed) {
-		super();
-		this.id = id;
-		this.createDate = createDate;
-		this.completed = completed;
-	}
+	public Cart(int id, User user, LocalDateTime createDate, boolean completed) {
+	super();
+	this.id = id;
+	this.user = user;
+	this.createDate = createDate;
+	this.completed = completed;
+}
 
 // To String
 
-
+	@Override
+	public String toString() {
+		return "Cart [id=" + id + ", user=" + user + ", createDate=" + createDate + ", completed=" + completed + "]";
+	}
 
 // Hash Code and Equals 
 
