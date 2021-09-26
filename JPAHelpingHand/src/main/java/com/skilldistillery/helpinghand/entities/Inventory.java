@@ -15,10 +15,6 @@ import javax.persistence.OneToMany;
 @Entity
 public class Inventory {
 
-	public Inventory() {
-		super();
-	}
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
@@ -39,6 +35,9 @@ public class Inventory {
 	@OneToMany(mappedBy = "inventory")
 	private List<InventoryItem> inventoryItems;
 	
+	public Inventory() {
+		super();
+	}
 	
 	public int getId() {
 		return id;
@@ -79,8 +78,6 @@ public class Inventory {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-
-	
 
 	public Pantry getPantry() {
 		return pantry;
