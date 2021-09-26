@@ -53,7 +53,8 @@ class InventoryTest {
 //		assertEquals(, inventory.getImageURL());
 		assertEquals(1, inventory.getLimit());
 		assertEquals("This brown bag contains a lunch", inventory.getDescription());
-		assertEquals(1, inventory.getPantryId());
+		assertEquals(1, inventory.getPantry().getId());
+		
 		
 		
 	}

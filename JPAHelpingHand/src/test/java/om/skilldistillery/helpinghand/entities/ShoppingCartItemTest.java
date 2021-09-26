@@ -47,8 +47,8 @@ class ShoppingCartItemTest {
 	@Test
 	void test() {
 		assertNotNull(shoppingCartItem);
-		assertEquals(1, shoppingCartItem.getInventoryItemId());
-		assertEquals(1, shoppingCartItem.getCartId());
+		assertEquals(1, shoppingCartItem.getInvetoryItem().getId());
+		assertEquals(1, shoppingCartItem.getCart().getId());
 	}
 
 }
