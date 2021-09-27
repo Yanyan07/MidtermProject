@@ -133,5 +133,5 @@ public class Inventory {
 		return "Inventory [id=" + id + ", name=" + name + "]";
 	}
 
-}
 
+}
