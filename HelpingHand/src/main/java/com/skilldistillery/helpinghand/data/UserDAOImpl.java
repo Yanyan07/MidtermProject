@@ -1,10 +1,19 @@
 package com.skilldistillery.helpinghand.data;
 
 import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
+
 import org.springframework.stereotype.Service;
+
+import com.skilldistillery.helpinghand.entities.Appointment;
+import com.skilldistillery.helpinghand.entities.Cart;
+import com.skilldistillery.helpinghand.entities.Inventory;
+import com.skilldistillery.helpinghand.entities.InventoryItem;
+import com.skilldistillery.helpinghand.entities.Pantry;
+import com.skilldistillery.helpinghand.entities.ShoppingCartItem;
 import com.skilldistillery.helpinghand.entities.User;
 
 @Service
@@ -29,9 +38,9 @@ public class UserDAOImpl implements UserDAO {
 		return user;
 	}
 
-	@Override
+	@Override //login with username and password
 	public User findUserByUsernameAndPassword(String username, String password) {
-		String spql = "select u from User u where u.username = :username and u.password = :password";
+		String spql = "select u from User u where u.username=:username and u.password=:password";
 		User user = null;
 		List<User> users = em.createQuery(spql, User.class)
 					  .setParameter("username", username)
@@ -42,5 +51,60 @@ public class UserDAOImpl implements UserDAO {
 		}
 		return user;
 	}
+	
+	@Override //list all food available
+	public List<Inventory> getInventory(int pantryId){
+		String spql = "select i from Inventory i where i.pantry.id = :id";
+		List<Inventory> inventories = em.createQuery(spql, Inventory.class)
+						.setParameter("id", pantryId)
+					    .getResultList();
+		return inventories;
+	}
+
+	@Override
+	public Cart createCart(int userId) {
+		User user = em.find(User.class, userId);
+		Cart cart = new Cart();
+		cart.setUser(user);
+	    Appointment appointment = new Appointment();
+	    appointment.setPantry(em.find(Pantry.class, 1));
+	    appointment.setUser(user);
+	    cart.setAppointment(appointment);
+	    appointment.setCart(cart);
+		user.addCart(cart);
+		em.persist(appointment);
+		em.persist(cart);
+		return cart;
+	}
+	
+	@Override
+	public boolean addItemToCart(int inventoryId, Cart cart) {
+		List<InventoryItem> items = null;
+		String itemsSql = "select item from InventoryItem item where item.inventory_id = :inventoryId";
+		
+		items = em.createQuery(itemsSql, InventoryItem.class)
+				  .setParameter("inventoryId", inventoryId)
+				  .getResultList();
+		if(items==null || items.size()==0) {
+			return false;
+		}
+		InventoryItem item = items.get(0);
+		Inventory i = em.find(Inventory.class, inventoryId);
+		item.setInventory(i);
+		i.addInventoryItem(item);
+		
+		if(item != null) { //add item to cart
+			ShoppingCartItem cartItem = new ShoppingCartItem();
+			cartItem.setInvetoryItem(item);
+			cartItem.setCart(cart);
+			em.persist(cartItem);
+			return true;
+		}
+		return false;
+	}
+	
+	
+	
+	
 
 }

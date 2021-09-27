@@ -3,6 +3,8 @@ package com.skilldistillery.helpinghand.entities;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -26,11 +28,8 @@ public class Pantry {
 	@Column(name="image_url")
 	private String imageUrl;
 	
-	@Column(name="user_id")
-	private int userId;
-	
 	@OneToOne
-	@JoinColumn(name="address_id")
+	@JoinColumn(name="address_id1")
 	private Address address;
 	
 	@OneToMany(mappedBy="pantry")
@@ -38,6 +37,10 @@ public class Pantry {
 	
 	@OneToMany(mappedBy="pantry")
 	private List<Inventory> inventories;
+	
+	@OneToOne
+	@JoinColumn(name="user_id")
+	private User user;
 	
 	public Pantry() {
 		super();
@@ -85,13 +88,14 @@ public class Pantry {
 		this.imageUrl = imageUrl;
 	}
 
-	public int getUserId() {
-		return userId;
+	public User getUser() {
+		return user;
 	}
-	public void setUserId(int userId) {
-		this.userId = userId;
+
+	public void setUser(User user) {
+		this.user = user;
 	}
-	
+
 	public Address getAddress() {
 		return address;
 	}

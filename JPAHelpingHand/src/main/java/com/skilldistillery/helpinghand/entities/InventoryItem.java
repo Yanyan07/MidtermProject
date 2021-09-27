@@ -112,7 +112,7 @@ public class InventoryItem {
 	@Override
 	public String toString() {
 		return "InventoryItem [id=" + id + ", available=" + available + ", expiration=" + expiration + ", createDate="
-				+ createDate + ", inventory=" + inventory + ", shoppingCartItem=" + shoppingCartItem + "]";
+				+ createDate + "]";
 	}
 
 }

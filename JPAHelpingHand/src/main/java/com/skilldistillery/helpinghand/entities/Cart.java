@@ -1,6 +1,8 @@
 package com.skilldistillery.helpinghand.entities;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Column;
@@ -10,6 +12,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Cart {
@@ -28,6 +32,13 @@ public class Cart {
 	private LocalDateTime createDate;
 
 	private Boolean completed;
+	
+	@OneToMany(mappedBy="cart")
+	private List<ShoppingCartItem> shoppingCartItems;
+	
+	@OneToOne
+	@JoinColumn(name="appointment_id")
+	private Appointment appointment;
 
 //	Getters and Setters
 
@@ -62,9 +73,44 @@ public class Cart {
 	public void setCompleted(Boolean completed) {
 		this.completed = completed;
 	}
+	
+	public Boolean getCompleted() {
+		return completed;
+	}
+	
+	public List<ShoppingCartItem> getShoppingCartItems() {
+		return shoppingCartItems;
+	}
 
+	public void setShoppingCartItems(List<ShoppingCartItem> shoppingCartItems) {
+		this.shoppingCartItems = shoppingCartItems;
+	}
+	
+	public void addShoppingCartItem(ShoppingCartItem item) {
+		if(shoppingCartItems == null) {
+			shoppingCartItems = new ArrayList<>();
+		}
+		if(!shoppingCartItems.contains(item)) {
+			shoppingCartItems.add(item);
+			item.setCart(this);
+		}
+	}
+	public void deleteShoppingCartItem(ShoppingCartItem item) {
+		if(shoppingCartItems!=null && shoppingCartItems.contains(item)) {
+			shoppingCartItems.remove(item);
+			item.setCart(null);
+		}
+	}
 
 //	No Arg Constructor
+
+	public Appointment getAppointment() {
+		return appointment;
+	}
+
+	public void setAppointment(Appointment appointment) {
+		this.appointment = appointment;
+	}
 
 	public Cart() {
 		super();
