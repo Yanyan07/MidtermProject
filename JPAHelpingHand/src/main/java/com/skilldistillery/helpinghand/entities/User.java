@@ -11,6 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class User {
@@ -42,6 +43,9 @@ public class User {
 	private List<PantryComment> pantryComments;
 	@OneToMany(mappedBy="user")
 	private List<Cart> carts;
+	@OneToOne(mappedBy="user")
+	private Pantry pantry;
+	
 
 	public User() {
 		super();
@@ -152,6 +156,14 @@ public class User {
 		this.carts = carts;
 	}
 	
+	public Pantry getPantry() {
+		return pantry;
+	}
+
+	public void setPantry(Pantry pantry) {
+		this.pantry = pantry;
+	}
+
 	public void addCart(Cart cart) {
 		if(carts == null) {
 			carts = new ArrayList<>();

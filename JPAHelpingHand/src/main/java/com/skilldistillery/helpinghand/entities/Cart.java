@@ -13,6 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Cart {
@@ -34,6 +35,10 @@ public class Cart {
 	
 	@OneToMany(mappedBy="cart")
 	private List<ShoppingCartItem> shoppingCartItems;
+	
+	@OneToOne
+	@JoinColumn(name="appointment_id")
+	private Appointment appointment;
 
 //	Getters and Setters
 
@@ -97,8 +102,15 @@ public class Cart {
 		}
 	}
 
-
 //	No Arg Constructor
+
+	public Appointment getAppointment() {
+		return appointment;
+	}
+
+	public void setAppointment(Appointment appointment) {
+		this.appointment = appointment;
+	}
 
 	public Cart() {
 		super();

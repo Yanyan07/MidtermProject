@@ -28,9 +28,6 @@ public class Pantry {
 	@Column(name="image_url")
 	private String imageUrl;
 	
-	@Column(name="user_id")
-	private int userId;
-	
 	@OneToOne
 	@JoinColumn(name="address_id1")
 	private Address address;
@@ -40,6 +37,10 @@ public class Pantry {
 	
 	@OneToMany(mappedBy="pantry")
 	private List<Inventory> inventories;
+	
+	@OneToOne
+	@JoinColumn(name="user_id")
+	private User user;
 	
 	public Pantry() {
 		super();
@@ -87,13 +88,14 @@ public class Pantry {
 		this.imageUrl = imageUrl;
 	}
 
-	public int getUserId() {
-		return userId;
+	public User getUser() {
+		return user;
 	}
-	public void setUserId(int userId) {
-		this.userId = userId;
+
+	public void setUser(User user) {
+		this.user = user;
 	}
-	
+
 	public Address getAddress() {
 		return address;
 	}

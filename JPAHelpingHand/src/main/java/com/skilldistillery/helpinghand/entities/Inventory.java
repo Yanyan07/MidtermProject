@@ -1,9 +1,9 @@
 package com.skilldistillery.helpinghand.entities;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -96,6 +96,22 @@ public class Inventory {
 		this.inventoryItems = inventoryItems;
 	}
 
+	public void addInventoryItem(InventoryItem item) {
+		if(inventoryItems == null) {
+			inventoryItems = new ArrayList<>();
+		}
+		if(!inventoryItems.contains(item)) {
+			inventoryItems.add(item);
+			item.setInventory(this);
+		}
+	}
+	public void deleteInventoryItem(InventoryItem item) {
+		if(inventoryItems!=null && inventoryItems.contains(item)) {
+			inventoryItems.remove(item);
+			item.setInventory(null);
+		}
+	}
+	
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);

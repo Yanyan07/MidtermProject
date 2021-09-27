@@ -8,9 +8,11 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 
+import com.skilldistillery.helpinghand.entities.Appointment;
 import com.skilldistillery.helpinghand.entities.Cart;
 import com.skilldistillery.helpinghand.entities.Inventory;
 import com.skilldistillery.helpinghand.entities.InventoryItem;
+import com.skilldistillery.helpinghand.entities.Pantry;
 import com.skilldistillery.helpinghand.entities.ShoppingCartItem;
 import com.skilldistillery.helpinghand.entities.User;
 
@@ -64,7 +66,13 @@ public class UserDAOImpl implements UserDAO {
 		User user = em.find(User.class, userId);
 		Cart cart = new Cart();
 		cart.setUser(user);
+	    Appointment appointment = new Appointment();
+	    appointment.setPantry(em.find(Pantry.class, 1));
+	    appointment.setUser(user);
+	    cart.setAppointment(appointment);
+	    appointment.setCart(cart);
 		user.addCart(cart);
+		em.persist(appointment);
 		em.persist(cart);
 		return cart;
 	}
@@ -81,6 +89,10 @@ public class UserDAOImpl implements UserDAO {
 			return false;
 		}
 		InventoryItem item = items.get(0);
+		Inventory i = em.find(Inventory.class, inventoryId);
+		item.setInventory(i);
+		i.addInventoryItem(item);
+		
 		if(item != null) { //add item to cart
 			ShoppingCartItem cartItem = new ShoppingCartItem();
 			cartItem.setInvetoryItem(item);
