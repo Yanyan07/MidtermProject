@@ -73,17 +73,17 @@ CREATE TABLE IF NOT EXISTS `pantry` (
   `description` TEXT NULL,
   `image_url` VARCHAR(3000) NULL,
   `user_id` INT NOT NULL,
-  `address_id1` INT NOT NULL,
+  `address_id` INT NOT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_pantry_user1_idx` (`user_id` ASC),
-  INDEX `fk_pantry_address1_idx` (`address_id1` ASC),
+  INDEX `fk_pantry_address1_idx` (`address_id` ASC),
   CONSTRAINT `fk_pantry_user1`
     FOREIGN KEY (`user_id`)
     REFERENCES `user` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_pantry_address1`
-    FOREIGN KEY (`address_id1`)
+    FOREIGN KEY (`address_id`)
     REFERENCES `address` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
@@ -172,7 +172,7 @@ CREATE TABLE IF NOT EXISTS `cart` (
   `user_id` INT NOT NULL,
   `create_date` DATETIME NULL,
   `completed` TINYINT NULL,
-  `appointment_id` INT NOT NULL,
+  `appointment_id` INT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_cart_user1_idx` (`user_id` ASC),
   INDEX `fk_cart_appointment1_idx` (`appointment_id` ASC),
@@ -322,11 +322,11 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `helpinghanddb`;
-INSERT INTO `pantry` (`id`, `name`, `phone`, `hours`, `description`, `image_url`, `user_id`, `address_id1`) VALUES (1, 'Mid-Iowa Community Action (MICA) Food Pantry', '515-956-3333', '8:00 AM - 8:00 PM daily', 'pre baged items use back entrance for curbside delivery willing to deliver tohome if needed please call ', 'https://www.energyassistance.us/gallery/192_1610426352.pnghttps://www.energyassistance.us/gallery/192_1610426352.png', 1, 1);
-INSERT INTO `pantry` (`id`, `name`, `phone`, `hours`, `description`, `image_url`, `user_id`, `address_id1`) VALUES (2, 'Greater Harvest', '515-955-1349', '9:00 AM - 7:00 PM daily', 'pre baged and individual items available', NULL, 2, 2);
-INSERT INTO `pantry` (`id`, `name`, `phone`, `hours`, `description`, `image_url`, `user_id`, `address_id1`) VALUES (3, 'Souper Heroes', '515-756-1452', '10:00AM - 5:00 PM daily', 'pre bagged and individual items available. Hot meals available on the weekends.', NULL, 3, 3);
-INSERT INTO `pantry` (`id`, `name`, `phone`, `hours`, `description`, `image_url`, `user_id`, `address_id1`) VALUES (4, 'Giving Gang', '515-763-9876', '7:00 AM - 7:00 PM daily ', 'pre bagged and individual gorcery items available based on current inventory', NULL, 7, 7);
-INSERT INTO `pantry` (`id`, `name`, `phone`, `hours`, `description`, `image_url`, `user_id`, `address_id1`) VALUES (5, 'Curbside Pantry', '515-779-1815', '9:00 AM - 6:00 PM daily', 'pre bagged items only', NULL, 9, 9);
+INSERT INTO `pantry` (`id`, `name`, `phone`, `hours`, `description`, `image_url`, `user_id`, `address_id`) VALUES (1, 'Mid-Iowa Community Action (MICA) Food Pantry', '515-956-3333', '8:00 AM - 8:00 PM daily', 'pre baged items use back entrance for curbside delivery willing to deliver tohome if needed please call ', 'https://www.energyassistance.us/gallery/192_1610426352.pnghttps://www.energyassistance.us/gallery/192_1610426352.png', 1, 1);
+INSERT INTO `pantry` (`id`, `name`, `phone`, `hours`, `description`, `image_url`, `user_id`, `address_id`) VALUES (2, 'Greater Harvest', '515-955-1349', '9:00 AM - 7:00 PM daily', 'pre baged and individual items available', NULL, 2, 2);
+INSERT INTO `pantry` (`id`, `name`, `phone`, `hours`, `description`, `image_url`, `user_id`, `address_id`) VALUES (3, 'Souper Heroes', '515-756-1452', '10:00AM - 5:00 PM daily', 'pre bagged and individual items available. Hot meals available on the weekends.', NULL, 3, 3);
+INSERT INTO `pantry` (`id`, `name`, `phone`, `hours`, `description`, `image_url`, `user_id`, `address_id`) VALUES (4, 'Giving Gang', '515-763-9876', '7:00 AM - 7:00 PM daily ', 'pre bagged and individual gorcery items available based on current inventory', NULL, 7, 7);
+INSERT INTO `pantry` (`id`, `name`, `phone`, `hours`, `description`, `image_url`, `user_id`, `address_id`) VALUES (5, 'Curbside Pantry', '515-779-1815', '9:00 AM - 6:00 PM daily', 'pre bagged items only', NULL, 9, 9);
 
 COMMIT;
 
