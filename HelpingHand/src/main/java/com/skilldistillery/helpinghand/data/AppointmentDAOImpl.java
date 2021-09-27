@@ -78,16 +78,14 @@ public class AppointmentDAOImpl implements AppointmentDAO {
 		em.close();
 		return appointment;
 	}
-//	@Override
-//	public Appointment UpdateAppointment(int id, Appointment appointment) {
-//		Appointment dbAppointment = em.find(Appointment.class, id);
-//		
-////	update Day	dbAppointment.set(appointment.se;
-//		dbAppointment.setAppointmentDate(appointment.getYear));
-////		update Hour
-////		update Min
-//		return dbAppointment;	
-//	}
+	@Override
+	public Appointment UpdateAppointment(int id, Appointment appointment) {
+		Appointment dbAppointment = em.find(Appointment.class, id);
+		
+
+		dbAppointment.setAppointmentDate(appointment.getAppointmentDate());
+		return dbAppointment;	
+	}
 	@Override
 	public boolean deleteAppointment(int id) {
 		boolean result = false;

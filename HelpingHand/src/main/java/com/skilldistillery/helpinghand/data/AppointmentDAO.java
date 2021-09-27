@@ -12,7 +12,7 @@ public interface AppointmentDAO {
 	List<Appointment> findAppointmentByAppointmentDate(LocalDateTime appointmentDate);
 	List<Appointment> findAppointmentsWithRatingsOrComments(int appointmentId);
 	Appointment CreateAppointment(Appointment appointment);
-//	Appointment UpdateAppointment(int id, Appointment appointment);
 	boolean deleteAppointment(int id);
+	Appointment UpdateAppointment(int id, Appointment appointment);
 
 }

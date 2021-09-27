@@ -8,13 +8,13 @@ public interface CartDAO {
 
 	List<Cart> findCartByUserId(int userId);
 
-	List<Cart> findCompletedCarts(Boolean completed);
-
-	List<Cart> findIncompleteCarts(Boolean completed);
-
 	Cart createCart(Cart cart);
 
 	Cart UpdateCart(int id, Cart cart);
 
 	boolean deleteCart(int id);
+
+	List<Cart> findCompletedCarts(int id, Boolean completed);
+
+	List<Cart> findIncompleteCarts(int id, Boolean completed);
 }

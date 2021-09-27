@@ -3,6 +3,8 @@ package com.skilldistillery.helpinghand.data;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 
@@ -32,8 +34,8 @@ public class CartDAOImpl implements CartDAO {
 	}
 	
 	@Override
-	public List<Cart> findCompletedCarts(Boolean completed){
-			String jpql = "SELECT c From Cart c WHERE c.completed =:fulfilled";
+	public List<Cart> findCompletedCarts(int id, Boolean completed){
+			String jpql = "SELECT c From Cart c WHERE (c.completed = 1) =:fulfilled";
 			List<Cart> carts = em.createQuery(jpql, Cart.class)
 			.setParameter("fulfilled", completed)
 			.getResultList();
@@ -43,9 +45,9 @@ public class CartDAOImpl implements CartDAO {
 		return null;
 	}
 	@Override
-	public List<Cart> findIncompleteCarts(Boolean completed){
-		String jpql = "SELECT c From Cart c WHERE (c.completed!=1)=:unfulfilled";
-		List<Cart> carts = em.createQuery(jpql; Cart.class)
+	public List<Cart> findIncompleteCarts(int id, Boolean completed){
+		String jpql = "SELECT c From Cart c WHERE (c.completed =0)=:unfulfilled";
+		List<Cart> carts = em.createQuery(jpql, Cart.class)
 				.setParameter("unfulfilled", completed)
 				.getResultList();
 		if (carts != null && carts.size()>0) {
@@ -74,7 +76,6 @@ public class CartDAOImpl implements CartDAO {
 		
 	}
 	
-	@Override
 	@Override
 	public boolean deleteCart(int id) {
 		boolean result = false;
