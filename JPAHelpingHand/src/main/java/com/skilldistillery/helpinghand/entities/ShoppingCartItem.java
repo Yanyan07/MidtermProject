@@ -42,8 +42,8 @@ public class ShoppingCartItem {
 		return inventoryItem;
 	}
 
-	public void setInventoryItem(InventoryItem invetoryItem) {
-		this.inventoryItem = invetoryItem;
+	public void setInventoryItem(InventoryItem InventoryItem) {
+		this.inventoryItem = InventoryItem;
 	}
 
 	public Cart getCart() {
