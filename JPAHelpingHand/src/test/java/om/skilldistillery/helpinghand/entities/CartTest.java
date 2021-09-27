@@ -63,6 +63,7 @@ import com.skilldistillery.helpinghand.entities.Cart;
 			assertNotNull(cart.getUser());
 			assertEquals(1, cart.getUser().getId());
 
+
 		}
 
 	}
