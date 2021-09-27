@@ -1,7 +1,6 @@
 package com.skilldistillery.helpinghand.entities;
 
 import java.util.Objects;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -74,7 +73,7 @@ public class ShoppingCartItem {
 
 	@Override
 	public String toString() {
-		return "ShoppingCartItem [id=" + id + ", invetoryItem=" + inventoryItem + ", cart=" + cart + "]";
+		return "ShoppingCartItem [id=" + id + ", inventoryItem=" + inventoryItem + ", cart=" + cart + "]";
 	}
 
 }

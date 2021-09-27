@@ -195,7 +195,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `shopping_cart_item` ;
 
 CREATE TABLE IF NOT EXISTS `shopping_cart_item` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `inventory_item_id` INT NOT NULL,
   `cart_id` INT NOT NULL,
   PRIMARY KEY (`id`),
