@@ -36,4 +36,4 @@ We spent at least a day on planning and developing our project to set the vision
 
 <p align="center"> Collaboration </p>
 
-Working as a group remotely poses its challenges.  We come from a variety of backgrounds, circumstances, and skill levels and have had to learn to integrate well as a team.  
+Working as a group remotely poses its challenges.  We come from a variety of backgrounds, circumstances, and skill levels and have had to learn to integrate well as a team.  As with our classes and methods
