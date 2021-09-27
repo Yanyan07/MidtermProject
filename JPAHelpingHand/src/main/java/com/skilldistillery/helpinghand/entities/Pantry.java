@@ -29,7 +29,7 @@ public class Pantry {
 	private String imageUrl;
 	
 	@OneToOne
-	@JoinColumn(name="address_id1")
+	@JoinColumn(name="address_id")
 	private Address address;
 	
 	@OneToMany(mappedBy="pantry")

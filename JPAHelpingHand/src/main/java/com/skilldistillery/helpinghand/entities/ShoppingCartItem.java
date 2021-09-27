@@ -76,5 +76,4 @@ public class ShoppingCartItem {
 	public String toString() {
 		return "ShoppingCartItem [id=" + id + ", inventoryItem=" + inventoryItem + ", cart=" + cart + "]";
 	}
-
 }

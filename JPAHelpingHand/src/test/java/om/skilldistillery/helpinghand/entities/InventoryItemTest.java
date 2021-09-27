@@ -49,7 +49,7 @@ class InventoryItemTest {
 	void test() {
 		assertNotNull(inventoryItem);
 		assertEquals(true, inventoryItem.isAvailable());
-		assertEquals(LocalDate.of(2021, 9, 24), inventoryItem.getExpiration());
+		assertEquals(2022, inventoryItem.getExpiration().getYear());
 		
 
 	}

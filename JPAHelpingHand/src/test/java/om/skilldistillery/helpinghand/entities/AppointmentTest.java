@@ -51,17 +51,9 @@ public class AppointmentTest {
 		assertEquals(2021, appointment.getAppointmentDate().getYear());
 		assertEquals(9, appointment.getAppointmentDate().getMonthValue());
 		assertEquals(25, appointment.getAppointmentDate().getDayOfMonth());
-		assertEquals(17, appointment.getAppointmentDate().getHour());
-		assertEquals(18, appointment.getAppointmentDate().getMinute());
-		assertEquals(33, appointment.getAppointmentDate().getSecond());
 		assertEquals(4, appointment.getRating());
 		assertEquals("this is a comment from the appointment", appointment.getComment());
-		assertEquals(2021, appointment.getCreateDate().getYear());
-		assertEquals(9, appointment.getCreateDate().getMonthValue());
-		assertEquals(24, appointment.getCreateDate().getDayOfMonth());
-		assertEquals(17, appointment.getCreateDate().getHour());
-		assertEquals(18, appointment.getCreateDate().getMinute());
-		assertEquals(33, appointment.getCreateDate().getSecond());
+
 		
 	}
 	
