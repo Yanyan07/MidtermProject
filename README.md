@@ -30,5 +30,5 @@ On the Home page...  Menu options include...  Recipient access allows...  Provid
 
 # Lessons Learned
 
-<p align="center"> Planning </p>
+<p align="center"> **Planning **</p>
 Collaboration
