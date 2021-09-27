@@ -3,7 +3,6 @@ package com.skilldistillery.helpinghand.entities;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Objects;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -64,11 +63,7 @@ public class InventoryItem {
 		this.shoppingCartItem = shoppingCartItem;
 	}
 
-<<<<<<< HEAD
-	public Boolean getAvailable() {
-=======
 	public Boolean isAvailable() {
->>>>>>> ecf6afa5fb5b4bcf80b82afbcdeae1eef0be0b6e
 		return available;
 	}
 

@@ -17,6 +17,6 @@ public interface UserDAO {
 	
 	boolean addItemToCart(int inventoryid, Cart cart);
 	
-	
+	Cart getCart(int cartId);
 	
 }

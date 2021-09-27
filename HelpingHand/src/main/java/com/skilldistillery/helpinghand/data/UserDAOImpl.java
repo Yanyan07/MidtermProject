@@ -80,7 +80,7 @@ public class UserDAOImpl implements UserDAO {
 	@Override
 	public boolean addItemToCart(int inventoryId, Cart cart) {
 		List<InventoryItem> items = null;
-		String itemsSql = "select item from InventoryItem item where item.inventory_id = :inventoryId";
+		String itemsSql = "select item from InventoryItem item where item.inventory.id = :inventoryId";
 		
 		items = em.createQuery(itemsSql, InventoryItem.class)
 				  .setParameter("inventoryId", inventoryId)
@@ -95,7 +95,7 @@ public class UserDAOImpl implements UserDAO {
 		
 		if(item != null) { //add item to cart
 			ShoppingCartItem cartItem = new ShoppingCartItem();
-			cartItem.setInvetoryItem(item);
+			cartItem.setInventoryItem(item);
 			cartItem.setCart(cart);
 			em.persist(cartItem);
 			return true;
@@ -103,7 +103,10 @@ public class UserDAOImpl implements UserDAO {
 		return false;
 	}
 	
-	
+	@Override
+	public Cart getCart(int cartId) {
+		return em.find(Cart.class, cartId);
+	}
 	
 	
 
