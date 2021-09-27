@@ -30,7 +30,7 @@ On the Home page...  Menu options include...  Recipient access allows...  Provid
 
 # Lessons Learned
 
-<p align="center" style="bold"> Planning </p>
+<p align="center" > **Planning** </p>
 
 We spent at least a day on planning and developing our project to set the vision for what user stories we would like to contain in the project.  While we were eager to code and complete the project, we knew how critical planning would be to having a good project with 
 <p align="center"> **Collaboration** </p>
