@@ -55,6 +55,7 @@ class InventoryTest {
 		assertEquals(1, inventory.getLimit());
 		assertEquals("This brown bag contains a lunch", inventory.getDescription());
 		assertEquals(1, inventory.getPantry().getId());
+<<<<<<< HEAD
 	}
 	
 	@Test
@@ -62,6 +63,8 @@ class InventoryTest {
 	void test_manytoone_pantry_to_inventory() {
 		SELECT pantry.id from inventory Join pantry on pantry.id = inventory;
 	}
+=======
+>>>>>>> ecf6afa5fb5b4bcf80b82afbcdeae1eef0be0b6e
 		
 		
 		

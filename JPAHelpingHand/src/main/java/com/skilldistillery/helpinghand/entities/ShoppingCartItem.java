@@ -21,7 +21,11 @@ public class ShoppingCartItem {
 
 	@OneToOne
 	@JoinColumn(name = "inventory_item_id")
+<<<<<<< HEAD
 	private InventoryItem invetoryItem;
+=======
+	private InventoryItem inventoryItem;
+>>>>>>> ecf6afa5fb5b4bcf80b82afbcdeae1eef0be0b6e
 
 	@ManyToOne
 	@JoinColumn(name = "cart_id")
@@ -40,11 +44,19 @@ public class ShoppingCartItem {
 	}
 
 	public InventoryItem getInvetoryItem() {
+<<<<<<< HEAD
 		return invetoryItem;
 	}
 
 	public void setInvetoryItem(InventoryItem invetoryItem) {
 		this.invetoryItem = invetoryItem;
+=======
+		return inventoryItem;
+	}
+
+	public void setInvetoryItem(InventoryItem invetoryItem) {
+		this.inventoryItem = invetoryItem;
+>>>>>>> ecf6afa5fb5b4bcf80b82afbcdeae1eef0be0b6e
 	}
 
 	public Cart getCart() {
@@ -74,7 +86,14 @@ public class ShoppingCartItem {
 
 	@Override
 	public String toString() {
+<<<<<<< HEAD
 		return "ShoppingCartItem [id=" + id + ", invetoryItem=" + invetoryItem + ", cart=" + cart + "]";
 	}
 
 }
+=======
+		return "ShoppingCartItem [id=" + id + ", invetoryItem=" + inventoryItem + ", cart=" + cart + "]";
+	}
+
+}
+>>>>>>> ecf6afa5fb5b4bcf80b82afbcdeae1eef0be0b6e

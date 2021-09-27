@@ -48,7 +48,7 @@ import com.skilldistillery.helpinghand.entities.Cart;
 		@DisplayName("Test appointment entity mappings")
 		void test() {
 			assertNotNull(cart);
-			assertEquals(1, cart.getuserId());
+			assertEquals(1, cart.getId());
 			assertEquals(2021, cart.getCreateDate().getYear());
 			assertEquals(9, cart.getCreateDate().getMonthValue());
 			assertEquals(24, cart.getCreateDate().getDayOfMonth());
@@ -63,8 +63,9 @@ import com.skilldistillery.helpinghand.entities.Cart;
 		@DisplayName("Test user ManyToOne cart mappings")
 		void test_user_ManyToOne_cart_mappings() {
 			assertNotNull(cart);
-			assertNotNull(cart.getuserId());
-			assertEquals(1, cart.getuserId());
+			assertNotNull(cart.getUser());
+			assertEquals(1, cart.getUser().getId());
+
 		}
 
 	}

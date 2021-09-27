@@ -27,7 +27,7 @@ public class Cart {
 	@Column(name = "create_date")
 	private LocalDateTime createDate;
 
-	private boolean completed;
+	private Boolean completed;
 
 //	Getters and Setters
 
@@ -39,6 +39,13 @@ public class Cart {
 		this.id = id;
 	}
 
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
 
 	public LocalDateTime getCreateDate() {
 		return createDate;
@@ -47,14 +54,15 @@ public class Cart {
 	public void setCreateDate(LocalDateTime createDate) {
 		this.createDate = createDate;
 	}
-
-	public boolean isCompleted() {
+	
+	public Boolean isCompleted() {
 		return completed;
 	}
 
-	public void setCompleted(boolean completed) {
+	public void setCompleted(Boolean completed) {
 		this.completed = completed;
 	}
+
 
 //	No Arg Constructor
 
@@ -64,16 +72,20 @@ public class Cart {
 
 // Constructor with all Fields
 
-	public Cart(int id, int userId, LocalDateTime createDate, boolean completed) {
-		super();
-		this.id = id;
-		this.createDate = createDate;
-		this.completed = completed;
-	}
+	public Cart(int id, User user, LocalDateTime createDate, boolean completed) {
+	super();
+	this.id = id;
+	this.user = user;
+	this.createDate = createDate;
+	this.completed = completed;
+}
 
 // To String
 
-
+	@Override
+	public String toString() {
+		return "Cart [id=" + id + ", user=" + user + ", createDate=" + createDate + ", completed=" + completed + "]";
+	}
 
 // Hash Code and Equals 
 
