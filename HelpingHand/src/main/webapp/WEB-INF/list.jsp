@@ -11,10 +11,17 @@
 <body>
 
 	<h2>Show List:</h2>
-	<c:forEach var="i" items="inventories">
-		${i.id}
-		${i.name}
+	${list} <br/>
+	<%-- <ul>
+	<c:forEach var="i" items="list">
+		<li>${i.id} ${i.name}</li><br/>
 	</c:forEach>
-
+	</ul> --%>
+ 
+ 	<form action="addToCart.do" method="post">
+ 		<input type="hidden" name="inventoryId" value="23"/>
+ 		<input type="submit" value="Add Item To Cart" />
+ 	</form>
+ 	
 </body>
 </html>

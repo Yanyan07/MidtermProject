@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Address {
@@ -26,6 +27,9 @@ public class Address {
 	
 	@Column(name="zip_code")
 	private String zipCode;
+	
+	@OneToOne(mappedBy="address")
+	private Pantry pantry;
 	
 //	Setters and Getters
 	
@@ -62,6 +66,12 @@ public class Address {
 	
 //	No Arg Contstructor
 	
+	public Pantry getPantry() {
+		return pantry;
+	}
+	public void setPantry(Pantry pantry) {
+		this.pantry = pantry;
+	}
 	public Address() {
 		super();
 	}

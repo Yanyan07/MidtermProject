@@ -1,8 +1,10 @@
 package com.skilldistillery.helpinghand.entities;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -149,6 +151,23 @@ public class User {
 	public void setCarts(List<Cart> carts) {
 		this.carts = carts;
 	}
+	
+	public void addCart(Cart cart) {
+		if(carts == null) {
+			carts = new ArrayList<>();
+		}
+		if(!carts.contains(cart)) {
+			carts.add(cart);
+			cart.setUser(this);
+		}
+	}
+	public void deleteCart(Cart cart) {
+		if(carts!=null && carts.contains(cart)) {
+			carts.remove(cart);
+			cart.setUser(null);
+		}
+	}
+
 	
 	@Override
 	public int hashCode() {

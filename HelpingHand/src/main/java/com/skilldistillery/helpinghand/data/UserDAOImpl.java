@@ -1,6 +1,5 @@
 package com.skilldistillery.helpinghand.data;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -53,24 +52,27 @@ public class UserDAOImpl implements UserDAO {
 	
 	@Override //list all food available
 	public List<Inventory> getInventory(int pantryId){
-//		String spql = "select i from Inventory i where i.pantry_id = :id";
-		String spql = "select i from Inventory i";
-//		List<Inventory> inventories = em.createQuery(spql, Inventory.class)
-//						.setParameter("id", pantryId)
-//					    .getResultList();
-//		List<Inventory> inventories = em.createQuery(spql, Inventory.class)
-//				.getResultList();
-		Inventory i = em.find(Inventory.class, pantryId);
-		List<Inventory> inventories = new ArrayList<>();
-		inventories.add(i);
+		String spql = "select i from Inventory i where i.pantry.id = :id";
+		List<Inventory> inventories = em.createQuery(spql, Inventory.class)
+						.setParameter("id", pantryId)
+					    .getResultList();
 		return inventories;
 	}
 
 	@Override
-	public boolean addItemToCart(int inventoryId, int cartId) {
+	public Cart createCart(int userId) {
+		User user = em.find(User.class, userId);
+		Cart cart = new Cart();
+		cart.setUser(user);
+		user.addCart(cart);
+		em.persist(cart);
+		return cart;
+	}
+	
+	@Override
+	public boolean addItemToCart(int inventoryId, Cart cart) {
 		List<InventoryItem> items = null;
-		String itemsSql = "select item from InventoryItem item join Inventory i on item.inventory_id = i.id "
-				+ "where i.id = :inventoryId";
+		String itemsSql = "select item from InventoryItem item where item.inventory_id = :inventoryId";
 		
 		items = em.createQuery(itemsSql, InventoryItem.class)
 				  .setParameter("inventoryId", inventoryId)
@@ -80,10 +82,10 @@ public class UserDAOImpl implements UserDAO {
 		}
 		InventoryItem item = items.get(0);
 		if(item != null) { //add item to cart
-			Cart cart = em.find(Cart.class, cartId);
 			ShoppingCartItem cartItem = new ShoppingCartItem();
 			cartItem.setInvetoryItem(item);
 			cartItem.setCart(cart);
+			em.persist(cartItem);
 			return true;
 		}
 		return false;

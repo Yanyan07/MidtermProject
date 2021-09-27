@@ -3,6 +3,8 @@ package com.skilldistillery.helpinghand.entities;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -30,7 +32,7 @@ public class Pantry {
 	private int userId;
 	
 	@OneToOne
-	@JoinColumn(name="address_id")
+	@JoinColumn(name="address_id1")
 	private Address address;
 	
 	@OneToMany(mappedBy="pantry")
