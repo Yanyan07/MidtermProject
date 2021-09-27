@@ -20,8 +20,8 @@ public class RecipientController {
 	@RequestMapping(path ="addToCart.do")
 	public String addToCart(HttpSession session, Model model, int inventoryId) {
 		User user = (User) session.getAttribute("user");
-//		Cart cart = userDao.createCart(user.getId());
-		Cart cart = userDao.getCart(2);
+		Cart cart = userDao.createCart(user.getId());
+//		Cart cart = userDao.getCart(2);
 		boolean isAdded = userDao.addItemToCart(inventoryId, cart);
 		model.addAttribute("isAdded", isAdded);
 		

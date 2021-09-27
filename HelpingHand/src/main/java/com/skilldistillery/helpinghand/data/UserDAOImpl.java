@@ -89,9 +89,9 @@ public class UserDAOImpl implements UserDAO {
 			return false;
 		}
 		InventoryItem item = items.get(0);
-		Inventory i = em.find(Inventory.class, inventoryId);
-		item.setInventory(i);
-		i.addInventoryItem(item);
+//		Inventory i = em.find(Inventory.class, inventoryId);
+//		item.setInventory(i);
+//		i.addInventoryItem(item);
 		
 		if(item != null) { //add item to cart
 			ShoppingCartItem cartItem = new ShoppingCartItem();
