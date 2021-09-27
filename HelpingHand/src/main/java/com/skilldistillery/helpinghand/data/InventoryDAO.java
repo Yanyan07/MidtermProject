@@ -4,8 +4,14 @@ import com.skilldistillery.helpinghand.entities.Inventory;
 
 public interface InventoryDAO {
 	
-	Inventory findInventoryByName(String name);
+	Inventory InventoryByName(String name);
 	
 	Inventory findInventoryById(int id);
+	
+	boolean deleteIventory(int id);
+	
+	Inventory addInventory(int id, Inventory inventory);
+	
+	
 
 }
