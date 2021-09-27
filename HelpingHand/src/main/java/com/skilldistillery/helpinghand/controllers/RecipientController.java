@@ -21,7 +21,7 @@ public class RecipientController {
 	public String addToCart(HttpSession session, Model model, int inventoryId) {
 		User user = (User) session.getAttribute("user");
 		Cart cart = userDao.createCart(user.getId());
-		
+//		Cart cart = userDao.getCart(2);
 		boolean isAdded = userDao.addItemToCart(inventoryId, cart);
 		model.addAttribute("isAdded", isAdded);
 		
