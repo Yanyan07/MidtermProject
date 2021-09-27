@@ -1,5 +1,6 @@
 package com.skilldistillery.helpinghand.entities;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -14,10 +15,6 @@ import javax.persistence.OneToMany;
 
 @Entity
 public class Inventory {
-
-	public Inventory() {
-		super();
-	}
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -39,6 +36,9 @@ public class Inventory {
 	@OneToMany(mappedBy = "inventory")
 	private List<InventoryItem> inventoryItems;
 	
+	public Inventory() {
+		super();
+	}
 	
 	public int getId() {
 		return id;
@@ -80,8 +80,6 @@ public class Inventory {
 		this.description = description;
 	}
 
-	
-
 	public Pantry getPantry() {
 		return pantry;
 	}
@@ -98,6 +96,22 @@ public class Inventory {
 		this.inventoryItems = inventoryItems;
 	}
 
+	public void addInventoryItem(InventoryItem item) {
+		if(inventoryItems == null) {
+			inventoryItems = new ArrayList<>();
+		}
+		if(!inventoryItems.contains(item)) {
+			inventoryItems.add(item);
+			item.setInventory(this);
+		}
+	}
+	public void deleteInventoryItem(InventoryItem item) {
+		if(inventoryItems!=null && inventoryItems.contains(item)) {
+			inventoryItems.remove(item);
+			item.setInventory(null);
+		}
+	}
+	
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
@@ -117,8 +131,7 @@ public class Inventory {
 
 	@Override
 	public String toString() {
-		return "Inventory [id=" + id + ", name=" + name + ", imageURL=" + imageURL + ", limit=" + limit
-				+ ", description=" + description + ", pantry=" + pantry + ", inventoryItems=" + inventoryItems + "]";
+		return "Inventory [id=" + id + ", name=" + name + "]";
 	}
 
 	
