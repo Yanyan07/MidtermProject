@@ -34,29 +34,29 @@ import com.skilldistillery.helpinghand.entities.Address;
 		}
 
 		@Override
-		public Address findAddressByZipcode(String zipCode) {
+		public List<Address> findAddressByZipcode(String zipCode) {
 		 String zipaddress = "SELECT a FROM Address a where a.zipCode= :zipcode";
-		 Address address = null;
+	
 		 List<Address> addresses = em.createQuery(zipaddress, Address.class)
 				 .setParameter("zipcode", zipCode)
 				 .getResultList();
 		 if(addresses!=null && addresses.size()>0) {
-			 address = addresses.get(0);
+			 return addresses;
 		 }
-		 return address;
+		 return null;
 		}
 		
 		@Override
-		public Address findAddressByCity(String city) {
+		public List<Address> findAddressByCity(String city) {
 			String citysearch = "SELECT a FROM Address a where a.city= :city";
 			Address address = null;
 			List<Address> addresses= em.createQuery(citysearch, Address.class)
 					.setParameter("city", city)
 					.getResultList();
 			if(addresses!=null && addresses.size()>0) {
-				address = addresses.get(0);
+				return addresses;
 			}
-			return address;
+			return null;
 		}
 		
 		@Override
