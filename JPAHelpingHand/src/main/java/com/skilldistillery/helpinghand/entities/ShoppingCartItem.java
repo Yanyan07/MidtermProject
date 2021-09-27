@@ -43,8 +43,8 @@ public class ShoppingCartItem {
 		return inventoryItem;
 	}
 
-	public void setInventoryItem(InventoryItem InventoryItem) {
-		this.inventoryItem = InventoryItem;
+	public void setInventoryItem(InventoryItem inventoryItem) {
+		this.inventoryItem = inventoryItem;
 	}
 
 	public Cart getCart() {
@@ -76,5 +76,4 @@ public class ShoppingCartItem {
 	public String toString() {
 		return "ShoppingCartItem [id=" + id + ", inventoryItem=" + inventoryItem + ", cart=" + cart + "]";
 	}
-
 }
