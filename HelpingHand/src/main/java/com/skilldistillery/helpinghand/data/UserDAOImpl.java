@@ -95,7 +95,7 @@ public class UserDAOImpl implements UserDAO {
 		
 		if(item != null) { //add item to cart
 			ShoppingCartItem cartItem = new ShoppingCartItem();
-			cartItem.setInvetoryItem(item);
+			cartItem.setInventoryItem(item);
 			cartItem.setCart(cart);
 			em.persist(cartItem);
 			return true;

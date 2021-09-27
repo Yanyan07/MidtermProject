@@ -39,12 +39,12 @@ public class ShoppingCartItem {
 		this.id = id;
 	}
 
-	public InventoryItem getInvetoryItem() {
+	public InventoryItem getInventoryItem() {
 		return inventoryItem;
 	}
 
-	public void setInvetoryItem(InventoryItem invetoryItem) {
-		this.inventoryItem = invetoryItem;
+	public void setInventoryItem(InventoryItem InventoryItem) {
+		this.inventoryItem = InventoryItem;
 	}
 
 	public Cart getCart() {
