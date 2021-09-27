@@ -137,4 +137,8 @@ public class Inventory {
 	
 	
 
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> ecf6afa5fb5b4bcf80b82afbcdeae1eef0be0b6e

@@ -11,6 +11,7 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import com.skilldistillery.helpinghand.entities.Inventory;
@@ -54,9 +55,18 @@ class InventoryTest {
 		assertEquals(1, inventory.getLimit());
 		assertEquals("This brown bag contains a lunch", inventory.getDescription());
 		assertEquals(1, inventory.getPantry().getId());
-		
-		
-		
+<<<<<<< HEAD
 	}
+	
+	@Test
+	@DisplayName("Test ManyToOne Pantry to Invetory")
+	void test_manytoone_pantry_to_inventory() {
+		SELECT pantry.id from inventory Join pantry on pantry.id = inventory;
+	}
+=======
+>>>>>>> ecf6afa5fb5b4bcf80b82afbcdeae1eef0be0b6e
+		
+		
+		
 
 }
