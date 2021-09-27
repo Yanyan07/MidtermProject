@@ -52,9 +52,6 @@ import com.skilldistillery.helpinghand.entities.Cart;
 			assertEquals(2021, cart.getCreateDate().getYear());
 			assertEquals(9, cart.getCreateDate().getMonthValue());
 			assertEquals(24, cart.getCreateDate().getDayOfMonth());
-			assertEquals(18, cart.getCreateDate().getHour());
-			assertEquals(18, cart.getCreateDate().getMinute());
-			assertEquals(33, cart.getCreateDate().getSecond());
 			assertEquals(false, cart.isCompleted());
 			
 		}
@@ -65,6 +62,7 @@ import com.skilldistillery.helpinghand.entities.Cart;
 			assertNotNull(cart);
 			assertNotNull(cart.getUser());
 			assertEquals(1, cart.getUser().getId());
+
 
 		}
 
