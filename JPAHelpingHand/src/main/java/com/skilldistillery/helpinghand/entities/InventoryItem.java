@@ -64,7 +64,6 @@ public class InventoryItem {
 		this.shoppingCartItem = shoppingCartItem;
 	}
 
-
 	public Boolean isAvailable() {
 		return available;
 	}

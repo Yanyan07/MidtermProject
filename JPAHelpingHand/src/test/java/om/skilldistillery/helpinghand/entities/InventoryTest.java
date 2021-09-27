@@ -62,10 +62,6 @@ class InventoryTest {
 //	@DisplayName("Test ManyToOne Pantry to Inventory")
 //	void test_manytoone_pantry_to_inventory() {
 ////		SELECT pantry.id from inventory Join pantry on pantry.id = inventory;
-//	}
-
-		
-		
-		
+//	}		
 
 }
