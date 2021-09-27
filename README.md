@@ -30,8 +30,10 @@ On the Home page...  Menu options include...  Recipient access allows...  Provid
 
 # Lessons Learned
 
-<p align="center" > **Planning** </p>
+<p align="center" > Planning </p>
 
-We spent at least a day on planning and developing our project to set the vision for what user stories we would like to contain in the project.  While we were eager to code and complete the project, we knew how critical planning would be to having a good project with 
-<p align="center"> **Collaboration** </p>
+We spent at least a day on planning and developing our project to set the vision for what user stories we would like to contain in the project.  While we were eager to code and complete the project, we knew how critical planning would be to having a good project with a well articulated roadmap to better see how we could then implement agile methodologies and complete our work.  We had to rethink our mappings in between pantry and address and cart to appointment.  This was very early on and allowed us a better strategy in laying out our data structure and database schema.
 
+<p align="center"> Collaboration </p>
+
+Working as a group remotely poses its challenges.  We come from a variety of backgrounds, circumstances, and skill levels and have had to learn to integrate well as a team.  
