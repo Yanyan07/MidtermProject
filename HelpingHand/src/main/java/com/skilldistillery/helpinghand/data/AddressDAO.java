@@ -11,4 +11,8 @@ public interface AddressDAO {
 	Address findAddressByZipcode(String zipCode);
 
 	Address CreateAddress(Address address);
+	
+	Address UpdateAddress(int id, Address address);
+	
+	public boolean deleteAddress(int id);
 }

@@ -70,5 +70,28 @@ import com.skilldistillery.helpinghand.entities.Address;
 			return address;
 		}
 		
+		@Override
+		public Address UpdateAddress(int id, Address address){
+			Address dbAddress = em.find(Address.class, id);
+			
+			dbAddress.setStreetAddress(address.getStreetAddress());
+			dbAddress.setCity(address.getCity());
+			dbAddress.setState(address.getState());
+			dbAddress.setZipCode(address.getZipCode());
+			
+			return dbAddress;
+		}
+		
+		@Override
+		public boolean deleteAddress(int id) {
+			boolean result = false;
+			Address address = em.find(Address.class, id);
+			em.remove(address);
+			
+			address = em.find(Address.class, id);
+			result = !em.contains(address);
+			return result;
+		}
+		
 	}
 
