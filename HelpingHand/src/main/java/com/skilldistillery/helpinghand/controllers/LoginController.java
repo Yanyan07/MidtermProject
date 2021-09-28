@@ -14,18 +14,30 @@ public class LoginController {
 
 	@Autowired
 	private UserDAO userDao;
-	
-	@RequestMapping(path="login.do")
+
+	@RequestMapping(path = "login.do")
 	public String login(HttpSession session, String username, String password) {
 		User user = userDao.findUserByUsernameAndPassword(username, password);
-		session.setAttribute("user", user);
-		if("1".equals(user.getRole())) {
-			return "recipientLogin";
-		}else if("2".equals(user.getRole())) {
-			return "providerLogin";
-		}else {
+		if (user != null) {
+
+			session.setAttribute("user", user);
+			if ("1".equals(user.getRole())) {
+				return "recipientLogin";
+			} else if ("2".equals(user.getRole())) {
+				return "providerLogin";
+			} else {
+				return "home";
+			}
+		} else {
 			return "home";
 		}
 	}
-	
+
+	@RequestMapping(path = "logout.do")
+	public String logout(HttpSession session) {
+		session.removeAttribute("user");
+//		TO DO remove CART from session If more than one cart exists, it would remove all from session.  If only one, okay.
+		return "home";
+	}
+
 }

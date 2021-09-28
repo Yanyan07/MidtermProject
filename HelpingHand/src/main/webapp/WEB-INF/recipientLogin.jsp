@@ -23,7 +23,7 @@
 	</form>
 	
 	<h3>Schedule a Pickup Appointment</h3>
-	<form action="appointments.do" method="post">
+	<form action="newappointment.do" method="get">
 	<input type="submit"/>
 	</form>
 </body>

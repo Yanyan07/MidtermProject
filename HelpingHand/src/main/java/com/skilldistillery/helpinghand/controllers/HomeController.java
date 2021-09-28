@@ -21,7 +21,7 @@ public class HomeController {
 	
 	@RequestMapping(path = {"/", "home.do"})
 	public String home(Model model) {
-		model.addAttribute("DEBUG", userDao.findUserById("sportsbetter"));
+//		model.addAttribute("DEBUG", userDao.findUserById("sportsbetter"));
 		
 //		List<Inventory> list = userDao.getInventory(1);
 //		model.addAttribute("list", list);
