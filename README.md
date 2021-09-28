@@ -39,3 +39,13 @@ We spent at least a day on planning and developing our project to set the vision
 Working as a group remotely poses its challenges.  We come from a variety of backgrounds, circumstances, and skill levels and have had to learn to integrate well as a team.  At times, we expressed creative differences and had to compromise, particularly with brainstorming the project, mapping our database schema, and creating our wireframes.  Communication, we learned, is key to ensuring that efforts aren't duplicated and that conflicts didn't arise with code commits.  When we didn't communicate well, frustration rose and productivity decreased.  An example of this would be when two members of our group were pair programming entity mapping for a list with on our Inventory entity and another member had already updated the add and remove methods along with creating protective copies of the corresponding getters and setters. Encountering merge conflicts was also easier to work through when we explicitly knew which files any one member of our group was working in and responsible for.  When code was at a place where it worked successfully, that member working in his/her own branch would commit and push and another member would pull and merge it into our main branch and then from main it would be pulled into every other member's own branch.
 
 <p align="center"> Execution </p>
+
+Within our planning stage, we created a vision for our project.  We focused on two aspects: what we ideally would like our finished site to look like and also a minimum viable product based on our midterm's criteria.  Throughout the project we had daily standup meetings that focused on three questions:
+
+  1.  "What did you accomplish since the last meeting?"
+  2.  "What are you working on until the next meeting?"
+  3.  "What is getting in your way or keeping you from doing your job?"
+
+These questions along with our kanban board served as a metric to refocus our priorities as we ran into challenges and needed to move developers to help pair program or assist with questions that came up regarding our buildout of the application.  It has been incredibly rewarding to see our kanban checklists get completed and for more facets of our work go from code to application.  Lastly, we have created accountability within the team and hold each otehr to the expectation that "you do what you say you are going to do and own your progress."  As a team, we are more capable than anyone individual and able to realize way more creative potential.
+
+5. 
