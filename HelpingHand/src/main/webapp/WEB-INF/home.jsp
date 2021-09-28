@@ -12,8 +12,7 @@
 
 	<h1>Welcome to Helping Hand</h1>
 
-	${DEBUG.firstName} <br/>
-	${DEBUG.lastName} <br/>
+	User: ${sessionScope.user }
 	<hr/>
 	
 	<h3>Show List</h3>
@@ -24,6 +23,10 @@
 	</c:forEach>
 	</ul> --%>
 	<hr/>
+	
+	<form action="logout.do" method="get" >
+		<input type="submit" value="Logout" >
+	</form>
 	
 	<form action="login.do" method="get" >
 		Username: <input type="text" name="username" /><br/>
