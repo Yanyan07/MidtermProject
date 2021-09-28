@@ -47,5 +47,3 @@ Within our planning stage, we created a vision for our project.  We focused on t
   3.  "What is getting in your way or keeping you from doing your job?"
 
 These questions along with our kanban board served as a metric to refocus our priorities as we ran into challenges and needed to move developers to help pair program or assist with questions that came up regarding our buildout of the application.  It has been incredibly rewarding to see our kanban checklists get completed and for more facets of our work go from code to application.  Lastly, we have created accountability within the team and hold each otehr to the expectation that "you do what you say you are going to do and own your progress."  As a team, we are more capable than anyone individual and able to realize way more creative potential.
-
-5. 
