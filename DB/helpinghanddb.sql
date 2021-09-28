@@ -437,7 +437,9 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `helpinghanddb`;
-INSERT INTO `appointment` (`id`, `appointment_date`, `user_id`, `pantry_id`, `rating`, `comment`, `create_date`) VALUES (1, '2021-09-25 17:18:33.001', 1, 1, 4, 'this is a comment from the appointment', '2021-09-24 17:18:33.001');
+INSERT INTO `appointment` (`id`, `appointment_date`, `user_id`, `pantry_id`, `rating`, `comment`, `create_date`) VALUES (1, '2021-09-25 17:18:33.001', 1, 1, 4, 'this is a comment from Biff in the appointment', '2021-09-24 17:18:33.001');
+INSERT INTO `appointment` (`id`, `appointment_date`, `user_id`, `pantry_id`, `rating`, `comment`, `create_date`) VALUES (2, '2021-09-25 17:18:33.001', 2, 2, 5, 'this is a comment from Ralph Larson', '2021-09-24 17:18:33.001');
+INSERT INTO `appointment` (`id`, `appointment_date`, `user_id`, `pantry_id`, `rating`, `comment`, `create_date`) VALUES (3, '2021-09-25 17:18:33.001', 4, 2, 3, 'this is a comment from Cruz Barnes', '2021-09-24 17:18:33.001');
 
 COMMIT;
 
