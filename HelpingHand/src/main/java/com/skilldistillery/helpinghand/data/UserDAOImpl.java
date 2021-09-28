@@ -1,13 +1,10 @@
 package com.skilldistillery.helpinghand.data;
 
 import java.util.List;
-
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
-
 import org.springframework.stereotype.Service;
-
 import com.skilldistillery.helpinghand.entities.Appointment;
 import com.skilldistillery.helpinghand.entities.Cart;
 import com.skilldistillery.helpinghand.entities.Inventory;
@@ -97,6 +94,7 @@ public class UserDAOImpl implements UserDAO {
 			ShoppingCartItem cartItem = new ShoppingCartItem();
 			cartItem.setInventoryItem(item);
 			cartItem.setCart(cart);
+//			em.remove(item);
 			em.persist(cartItem);
 			return true;
 		}
@@ -108,6 +106,62 @@ public class UserDAOImpl implements UserDAO {
 		return em.find(Cart.class, cartId);
 	}
 	
+	@Override
+	public List<Inventory> getItemsInCart(int cartId){
+		List<Inventory> items = null;
+		String spql = "select i from Inventory i join InventoryItem ii on i.id=ii.inventory.id "
+				+ "join ShoppingCartItem s on ii.id=s.inventoryItem.id "
+				+ "where s.cart.id= :cartId";
+		items = em.createQuery(spql, Inventory.class)
+				  .setParameter("cartId", cartId)
+				  .getResultList();
+		return items;
+	}
 	
+	@Override
+	public boolean deleteItem(int inventoryId, int pantryId) {
+		List<ShoppingCartItem> items = null;
+		String spql = "select s from ShoppingCartItem s "
+				+ "join InventoryItem ii on ii.id=s.inventoryItem.id "
+				+ "join Inventory i on i.id=ii.inventory.id "
+				+ "where ii.inventory.id= :inventoryId and i.pantry.id=:pantryId";
+		items = em.createQuery(spql, ShoppingCartItem.class)
+				  .setParameter("inventoryId", inventoryId)
+				  .setParameter("pantryId", pantryId)
+				  .getResultList();
+		
+		ShoppingCartItem item = null;
+		if(items!=null && items.size()>0) {
+			item = items.get(0);
+		}
+//		String sql = "select ii from InventoryItem ii join ShoppingCartItem s "
+//				+ "on s.inventoryItem.id=ii.id where s.id = : sItemId";
+//		InventoryItem ii = em.createQuery(sql, InventoryItem.class)
+//							 .setParameter("sItemId", item.getId())
+//							 .getSingleResult();
+		em.remove(item);
+//		em.persist(ii);
+		
+		return false;
+	}
+
+	@Override
+	public List<Pantry> findPantries() {
+		String spql = "select p from Pantry p";
+		return em.createQuery(spql, Pantry.class).getResultList();
+	}
+	
+	@Override
+	public List<Inventory> getOrderHistory(User user){
+		String spql = "select i from Inventory i join InventoryItem ii on i.id=ii.inventory.id "
+				+ "join ShoppingCartItem s on ii.id=s.inventoryItem.id "
+				+ "join Cart c on s.cart.id=c.id "
+				+ "join User u on c.user.id=u.id "
+				+ "where u.id = :uId";
+		List<Inventory> lists = em.createQuery(spql, Inventory.class)
+				  .setParameter("uId", user.getId())
+				  .getResultList();
+		return lists;
+	}
 
 }

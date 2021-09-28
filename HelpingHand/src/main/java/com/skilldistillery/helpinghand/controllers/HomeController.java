@@ -1,12 +1,14 @@
 package com.skilldistillery.helpinghand.controllers;
 
 import java.util.List;
+import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import com.skilldistillery.helpinghand.data.UserDAO;
 import com.skilldistillery.helpinghand.entities.Inventory;
+import com.skilldistillery.helpinghand.entities.Pantry;
 
 @Controller
 public class HomeController {
@@ -16,20 +18,21 @@ public class HomeController {
 	
 	@RequestMapping(path = {"/", "home.do"})
 	public String home(Model model) {
-		model.addAttribute("DEBUG", userDao.findUserById("sportsbetter"));
-		
-//		List<Inventory> list = userDao.getInventory(1);
-//		model.addAttribute("list", list);
-		
 		return "home";
 	}
 	
 	@RequestMapping(path ="list.do")
-	public String showList(Model model) {
-		List<Inventory> inventories = userDao.getInventory(1);
-		if(inventories.size() > 0) {
-			model.addAttribute("list", inventories);
+	public String showList(HttpSession session, Model model) {
+		Pantry pantry = (Pantry) session.getAttribute("pantry");
+		List<Inventory> inventories = userDao.getInventory(pantry.getId());
+		if(session.getAttribute("list") == null) {
+			session.setAttribute("list", inventories);
 		}
+		return "list";
+	}
+	
+	@RequestMapping(path ="backList.do")
+	public String backToList() {
 		return "list";
 	}
 
