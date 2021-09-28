@@ -16,5 +16,15 @@
 	<form action="list.do" method="get">
 	 <input type="submit" />
 	</form>
+	
+	<h3>Find My Pickup Appointment/s</h3>
+	<form action="appointments.do" method="get">
+	<input type="submit"/>
+	</form>
+	
+	<h3>Schedule a Pickup Appointment</h3>
+	<form action="appointments.do" method="post">
+	<input type="submit"/>
+	</form>
 </body>
 </html>
