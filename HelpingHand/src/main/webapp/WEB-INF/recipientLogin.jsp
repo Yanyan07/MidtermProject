@@ -18,5 +18,15 @@
 		<input type="submit" value="Search The Closest Pantry" />
 	</form>
 	
+	<h3>Find My Pickup Appointment/s</h3>
+	<form action="appointments.do" method="get">
+	<input type="submit"/>
+	</form>
+	
+	<h3>Schedule a Pickup Appointment</h3>
+	<form action="newappointment.do" method="get">
+	<input type="submit"/>
+	</form>
+	
 </body>
 </html>
