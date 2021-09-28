@@ -70,12 +70,9 @@ public class AppointmentDAOImpl implements AppointmentDAO {
 	}
 	@Override
 	public Appointment CreateAppointment(Appointment appointment) {
-		em.getTransaction().begin();
 		System.out.println("Before persist, apppointment: " + appointment);
 		em.persist(appointment);
 		em.flush();
-		em.getTransaction().commit();
-		em.close();
 		return appointment;
 	}
 	@Override

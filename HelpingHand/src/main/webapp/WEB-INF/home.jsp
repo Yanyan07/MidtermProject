@@ -18,7 +18,5 @@
 	
 	<p>Some Text to introduce Helpinghand here</p>
 
-	
-
 </body>
 </html>
