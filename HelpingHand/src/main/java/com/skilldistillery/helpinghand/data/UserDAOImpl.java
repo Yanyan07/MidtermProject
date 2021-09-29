@@ -77,13 +77,13 @@ public class UserDAOImpl implements UserDAO {
 		User user = em.find(User.class, userId);
 		Cart cart = new Cart();
 		cart.setUser(user);
-	    Appointment appointment = new Appointment();
-	    appointment.setPantry(em.find(Pantry.class, 1));
-	    appointment.setUser(user);
-	    cart.setAppointment(appointment);
-	    appointment.setCart(cart);
+//	    Appointment appointment = new Appointment();
+//	    appointment.setPantry(em.find(Pantry.class, 1));
+//	    appointment.setUser(user);
+//	    cart.setAppointment(appointment);
+//	    appointment.setCart(cart);
 		user.addCart(cart);
-		em.persist(appointment);
+//		em.persist(appointment);
 		em.persist(cart);
 		return cart;
 	}

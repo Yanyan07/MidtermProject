@@ -61,14 +61,7 @@
 	<hr />
 	
 	<p>Some Text to introduce Helpinghand here</p>
-
-	<form action="list.do" method="get">
-		ID: <input type="text" value="id" />
-		<input type="submit" value="Show List" />
-	</form>
-	</div>
-	
-	
+		
 
 </body>
 </html>

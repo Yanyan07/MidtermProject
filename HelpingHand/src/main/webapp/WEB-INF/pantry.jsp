@@ -29,11 +29,6 @@
 
 	<hr />
 	
-	<!-- <form action="orderHistory.do" method="get">
-		<input type="submit" value="Show Order History" />
-	</form> -->
-	
-	
 	<h3>Your Order Is Placed!</h3>
 	<form>
 		
