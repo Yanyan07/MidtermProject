@@ -4,7 +4,6 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-
 import com.skilldistillery.helpinghand.data.UserDAO;
 import com.skilldistillery.helpinghand.entities.User;
 
@@ -40,8 +39,8 @@ public class LoginController {
 	@RequestMapping(path = "logout.do")
 	public String logout(HttpSession session) {
 		session.removeAttribute("user");
-//		TO DO remove CART from session If more than one cart exists, it would remove all from session.  If only one, okay.
-//		session.removeAttribute("cart");
+		session.removeAttribute("cart");
+		session.removeAttribute("pantry");
 		return "logout";
 	}
 
