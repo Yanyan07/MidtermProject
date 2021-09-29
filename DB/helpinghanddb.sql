@@ -461,7 +461,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `helpinghanddb`;
-INSERT INTO `inventory_item` (`id`, `inventory_id`, `available`, `expiration`, `create_date`) VALUES (1, 1, 1, '2022-09-24', '2021-09-24 17:18:33.001');
+INSERT INTO `inventory_item` (`id`, `inventory_id`, `available`, `expiration`, `create_date`) VALUES (1, 1, 0, '2022-09-24', '2021-09-24 17:18:33.001');
 INSERT INTO `inventory_item` (`id`, `inventory_id`, `available`, `expiration`, `create_date`) VALUES (2, 2, 1, '2022-09-25', '2021-09-25 17:18:35.001');
 INSERT INTO `inventory_item` (`id`, `inventory_id`, `available`, `expiration`, `create_date`) VALUES (3, 3, 1, '2022-09-26', '2021-09-25 17:18:36.001');
 INSERT INTO `inventory_item` (`id`, `inventory_id`, `available`, `expiration`, `create_date`) VALUES (4, 4, 1, '2022-09-27', '2021-09-25 17:18:37.001');
