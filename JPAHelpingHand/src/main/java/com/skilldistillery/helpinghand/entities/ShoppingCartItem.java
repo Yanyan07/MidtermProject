@@ -19,7 +19,8 @@ public class ShoppingCartItem {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 
-	@OneToOne(fetch = FetchType.LAZY)
+//	@OneToOne(fetch = FetchType.LAZY)
+	@OneToOne
 	@JoinColumn(name = "inventory_item_id")
 	private InventoryItem inventoryItem;
 

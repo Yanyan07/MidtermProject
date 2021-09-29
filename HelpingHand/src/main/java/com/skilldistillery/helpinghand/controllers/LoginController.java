@@ -1,7 +1,6 @@
 package com.skilldistillery.helpinghand.controllers;
 
 import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,7 +24,6 @@ public class LoginController {
 	public String login(HttpSession session, String username, String password) {
 		User user = userDao.findUserByUsernameAndPassword(username, password);
 		if (user != null) {
-
 			session.setAttribute("user", user);
 			if ("1".equals(user.getRole())) {
 				return "recipientLogin";
@@ -43,7 +41,8 @@ public class LoginController {
 	public String logout(HttpSession session) {
 		session.removeAttribute("user");
 //		TO DO remove CART from session If more than one cart exists, it would remove all from session.  If only one, okay.
-		return "home";
+//		session.removeAttribute("cart");
+		return "logout";
 	}
 
 }

@@ -38,7 +38,6 @@ public class Cart {
 	
 	@OneToOne(mappedBy="cart")
 	private Appointment appointment;
-	
 
 //	Getters and Setters
 
