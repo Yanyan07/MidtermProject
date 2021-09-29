@@ -25,6 +25,7 @@ import com.skilldistillery.helpinghand.entities.Appointment;
 import com.skilldistillery.helpinghand.entities.Cart;
 import com.skilldistillery.helpinghand.entities.Pantry;
 import com.skilldistillery.helpinghand.entities.User;
+import com.skilldistillery.helpinghand.entities.Pantry;
 
 @Controller
 public class AppointmentsController {
@@ -58,9 +59,8 @@ public class AppointmentsController {
 		Pantry pantry = (Pantry) session.getAttribute("pantry");
 		if (user != null) {
 			appointment.setUser(user);
-			appointment.setCart(cart);
 			appointment.setPantry(pantry);
-//			FIX ME NEED CART & PANTRY
+			appointment.setCart(cart);
 		Appointment create = dao.CreateAppointment(appointment);
 		model.addAttribute("appointment", create);
 		
