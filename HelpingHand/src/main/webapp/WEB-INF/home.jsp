@@ -54,6 +54,10 @@
 	<form action="signin.do" method="post" >
 		<input type="submit" value="Sign In" />
 	</form>
+	<br/>
+	<form action="logout.do" method="post" >
+		<input type="submit" value="Sign Out" />
+	</form>
 	<hr />
 	
 	<p>Some Text to introduce Helpinghand here</p>
@@ -61,7 +65,7 @@
 	<form action="list.do" method="get">
 		ID: <input type="text" value="id" />
 		<input type="submit" value="Show List" />
-	</form> -->
+	</form>
 	</div>
 	
 	

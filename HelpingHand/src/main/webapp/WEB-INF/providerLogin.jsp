@@ -17,6 +17,10 @@
 	<input type="submit"/>
 	</form>
 	
+	<h3>Clear Order History</h3>
+	<form action="clear.do" >
+		<input type="submit" value="Clear" />
+	</form>
 	
 </body>
 </html>

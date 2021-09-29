@@ -15,6 +15,7 @@ import com.skilldistillery.helpinghand.data.UserDAO;
 import com.skilldistillery.helpinghand.entities.Cart;
 import com.skilldistillery.helpinghand.entities.Inventory;
 import com.skilldistillery.helpinghand.entities.Pantry;
+import com.skilldistillery.helpinghand.entities.ShoppingCartItem;
 import com.skilldistillery.helpinghand.entities.User;
 
 @Controller
@@ -24,41 +25,42 @@ public class RecipientController {
 	private UserDAO userDao;
 
 	@RequestMapping(path = "addToCart.do")
-	public String addToCart(HttpSession session, Model model, int inventoryId) {
+	public String addToCart(HttpSession session, Model model, int inventoryItemId) {
 		User user = (User) session.getAttribute("user");
 		Cart cart = (Cart) session.getAttribute("cart");
 		if (cart == null) {
 			cart = userDao.createCart(user.getId());
 			session.setAttribute("cart", cart);
 		}
-		boolean isAdded = userDao.addItemToCart(inventoryId, cart);
+//		Cart cart = userDao.getCart(4);
+//		session.setAttribute("cart", cart);
+		boolean isAdded = userDao.addItemToCart(inventoryItemId, cart);
 		model.addAttribute("isAdded", isAdded);
-
-		return "addCart";
+		return "redirect:list.do";
 	}
 
 	@RequestMapping(path = "showOrder.do")
-	public String showOrder(HttpSession session, Model model, Integer cartId) {
+	public String showOrder(HttpSession session, Model model) {
 		Cart cart = (Cart) session.getAttribute("cart");
-		cartId = cart.getId();
-		List<Inventory> items = userDao.getItemsInCart(cartId);
-		Map<Inventory, Integer> map = new HashMap<>();
+		List<ShoppingCartItem> items = userDao.getCartItemsInCart(cart.getId());
+//		Map<Inventory, Integer> map = new HashMap<>();
 
-		for (Inventory i : items) {
-			if (!map.keySet().contains(i)) {
-				map.put(i, 1);
-			} else {
-				map.put(i, map.get(i) + 1);
-			}
-		}
-		model.addAttribute("orderMap", map);
+//		for (Inventory i : items) {
+//			if (!map.keySet().contains(i)) {
+//				map.put(i, 1);
+//			} else {
+//				map.put(i, map.get(i) + 1);
+//			}
+//		}
+		model.addAttribute("orderItems", items);
 		return "order";
 	}
 
 	@RequestMapping(path = "delete.do")
-	public String deleteItem(HttpSession session, int inventoryId) {
+	public String deleteItem(HttpSession session, int cartItemId) {
 		Pantry pantry = (Pantry) session.getAttribute("pantry");
-		userDao.deleteItem(inventoryId, pantry.getId());
+		User user = (User) session.getAttribute("user");
+		userDao.deleteCartItem(cartItemId, user);
 		return "redirect:showOrder.do";
 	}
 
@@ -85,6 +87,11 @@ public class RecipientController {
 	public String placeOrder() {
 		return "pantry";
 	}
+	
+	@RequestMapping(path = {"backRecipient.do"})
+	public String backRecipent() {
+		return "recipientLogin";
+	}
 
 	@RequestMapping(path = "orderHistory.do")
 	public String getOrderHistory(HttpSession session, Model model) {
@@ -101,6 +108,7 @@ public class RecipientController {
 		}
 		model.addAttribute("orderHistory", map);
 		return "history";
+//		return "recipientLogin";
 	}
 
 }

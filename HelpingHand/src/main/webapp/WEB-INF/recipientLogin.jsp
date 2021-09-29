@@ -28,5 +28,10 @@
 	<input type="submit"/>
 	</form>
 	
+	<h3>Show the Order History</h3>
+	<form action="orderHistory.do" method="get">
+		<input type="submit" value="Show Order History" />
+	</form>
+	
 </body>
 </html>
