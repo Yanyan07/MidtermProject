@@ -35,6 +35,7 @@ public class Inventory {
 	@OneToMany(mappedBy = "inventory")
 	private List<InventoryItem> inventoryItems;
 	
+	
 	public Inventory() {
 		super();
 	}
