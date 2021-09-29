@@ -14,7 +14,13 @@ public class LoginController {
 
 	@Autowired
 	private UserDAO userDao;
-
+	
+	@RequestMapping(path="signin.do")
+	public String signIn() {
+		
+		return "login";
+	}
+	
 	@RequestMapping(path = "login.do")
 	public String login(HttpSession session, String username, String password) {
 		User user = userDao.findUserByUsernameAndPassword(username, password);

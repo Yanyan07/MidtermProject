@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <!DOCTYPE html>
 <html>
@@ -11,39 +11,14 @@
 <body>
 
 	<h1>Welcome to Helping Hand</h1>
+	<form action="signin.do" method="post" >
+		<input type="submit" value="Sign In" />
+	</form>
+	<hr />
+	
+	<p>Some Text to introduce Helpinghand here</p>
 
-	User: ${sessionScope.user }
-	<hr/>
 	
-	<h3>Show List</h3>
-	${list} <br/>
-	<%-- <ul>
-	<c:forEach var="i" items="list">
-		<li>${i}</li><br/>
-	</c:forEach>
-	</ul> --%>
-	<hr/>
-	
-	<form action="logout.do" method="get" >
-		<input type="submit" value="Logout" >
-	</form>
-	
-	<form action="login.do" method="get" >
-		Username: <input type="text" name="username" /><br/>
-		Password: <input type="text" name="password" /><br/>
-		<input type="submit" value="Login as Recipient" >
-	</form>
-	<br/>
-	<form action="login.do" method="get" >
-		Username: <input type="text" name="username" /><br/>
-		Password: <input type="text" name="password" /><br/>
-		<input type="submit" value="Login as Provider" >
-	</form>
-
-	<form action="list.do" method="get">
-		ID: <input type="text" value="id" />
-		<input type="submit" value="Show List" />
-	</form>
 
 </body>
 </html>

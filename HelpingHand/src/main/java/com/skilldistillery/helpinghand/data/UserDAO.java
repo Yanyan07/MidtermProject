@@ -3,6 +3,7 @@ package com.skilldistillery.helpinghand.data;
 import java.util.List;
 import com.skilldistillery.helpinghand.entities.Cart;
 import com.skilldistillery.helpinghand.entities.Inventory;
+import com.skilldistillery.helpinghand.entities.Pantry;
 import com.skilldistillery.helpinghand.entities.User;
 
 public interface UserDAO {
@@ -19,4 +20,11 @@ public interface UserDAO {
 	
 	Cart getCart(int cartId);
 	
+	List<Inventory> getItemsInCart(int cartId);
+	
+	boolean deleteItem(int inventoryId, int pantryId);
+	
+	List<Pantry> findPantries();
+	
+	List<Inventory> getOrderHistory(User user);
 }

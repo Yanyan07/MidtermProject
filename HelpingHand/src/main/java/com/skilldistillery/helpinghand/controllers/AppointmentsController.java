@@ -23,7 +23,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.skilldistillery.helpinghand.data.AppointmentDAO;
 import com.skilldistillery.helpinghand.entities.Appointment;
+import com.skilldistillery.helpinghand.entities.Cart;
 import com.skilldistillery.helpinghand.entities.User;
+import com.skilldistillery.helpinghand.entities.Pantry;
 
 @Controller
 public class AppointmentsController {
@@ -50,12 +52,14 @@ public class AppointmentsController {
 	}
 
 	@RequestMapping(path = "newappointment.do", method = RequestMethod.POST)
-	public String createUserAppointment(Appointment appointment, HttpSession session,Model model) {
+	public String createUserAppointment(Appointment appointment, HttpSession session,Model model, Pantry pantry, Cart cart, String comment, int pantryId) {
 		System.out.println(appointment);
 		User user = (User) session.getAttribute("user");
 		if (user != null) {
 			appointment.setUser(user);
-//			FIX ME NEED CART & PANTRY
+			appointment.setPantry(pantry);
+			appointment.setComment(comment);
+			appointment.setCart(cart);
 		Appointment create = dao.CreateAppointment(appointment);
 		model.addAttribute("appointment", create);
 		return "appointment";
