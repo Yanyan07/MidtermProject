@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <!DOCTYPE html>
 <html>
@@ -51,35 +51,12 @@
 	<div id="Main">
 	
 	<h1>Welcome to Helping Hand</h1>
-
-	<%-- ${DEBUG.firstName}
-	${DEBUG.lastName}  --%>
-	<!-- <hr/> -->
-	
-	<%-- <h3>Show List</h3>
-	${list}  --%>
-	<%-- <ul>
-	<c:forEach var="i" items="list">
-		<li>${i}</li>
-	</c:forEach>
-	</ul> --%>
-	<!-- <hr/> -->
-	
-	<!-- image goes here -->
-	<img src="https://www.w3schools.com/images/lamp.jpg" alt="Food Pantry Homepage" width="500" height="500">
-	
-	
-	<!-- <form action="login.do" method="get" >
-		Username: <input type="text" name="username" /><br/>
-		Password: <input type="text" name="password" /><br/>
-		<input type="submit" value="Login as Recipient" >
+	<form action="signin.do" method="post" >
+		<input type="submit" value="Sign In" />
 	</form>
-	<br/>
-	<form action="login.do" method="get" >
-		Username: <input type="text" name="username" /><br/>
-		Password: <input type="text" name="password" /><br/>
-		<input type="submit" value="Login as Provider" >
-	</form>
+	<hr />
+	
+	<p>Some Text to introduce Helpinghand here</p>
 
 	<form action="list.do" method="get">
 		ID: <input type="text" value="id" />

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jstl/core" prefix="c" %>	
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>	
 	
 <!DOCTYPE html>
 <html>
@@ -48,16 +48,21 @@
 <body>
 
 	<h2>Show List:</h2>
-	${list} <br/>
-	<%-- <ul>
-	<c:forEach var="i" items="list">
-		<li>${i.id} ${i.name}</li><br/>
+	<ul>
+	<c:forEach var="i" items="${list}">
+		<li>${i.name}</li>
+		<form action="addToCart.do" method="post">
+ 			<input type="hidden" name="inventoryId" value="${i.id}"/>
+ 			<input type="submit" value="Add To Cart" />
+ 		</form>
 	</c:forEach>
-	</ul> --%>
- 
- 	<form action="addToCart.do" method="post">
- 		<input type="hidden" name="inventoryId" value="23"/>
- 		<input type="submit" value="Add Item To Cart" />
+	</ul>
+	
+ 	<hr/>
+ 	<h3>Show the order:</h3>
+ 	<form action="showOrder.do" method="get">
+ 		<!-- Cart Id: <input type="text" name="cartId" /><br/> -->
+ 		<input type="submit" value="Items in Cart" />
  	</form>
  	
 </body>

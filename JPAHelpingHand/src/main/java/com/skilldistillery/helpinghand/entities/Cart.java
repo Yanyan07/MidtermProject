@@ -39,6 +39,7 @@ public class Cart {
 	@OneToOne
 	@JoinColumn(name="appointment_id")
 	private Appointment appointment;
+	
 
 //	Getters and Setters
 
