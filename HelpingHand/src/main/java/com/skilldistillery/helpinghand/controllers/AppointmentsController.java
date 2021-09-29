@@ -58,7 +58,6 @@ public class AppointmentsController {
 		if (user != null) {
 			appointment.setUser(user);
 			appointment.setPantry(pantry);
-			appointment.setComment(comment);
 			appointment.setCart(cart);
 		Appointment create = dao.CreateAppointment(appointment);
 		model.addAttribute("appointment", create);
