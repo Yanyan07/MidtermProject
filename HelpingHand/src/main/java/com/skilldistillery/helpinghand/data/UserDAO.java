@@ -3,7 +3,9 @@ package com.skilldistillery.helpinghand.data;
 import java.util.List;
 import com.skilldistillery.helpinghand.entities.Cart;
 import com.skilldistillery.helpinghand.entities.Inventory;
+import com.skilldistillery.helpinghand.entities.InventoryItem;
 import com.skilldistillery.helpinghand.entities.Pantry;
+import com.skilldistillery.helpinghand.entities.ShoppingCartItem;
 import com.skilldistillery.helpinghand.entities.User;
 
 public interface UserDAO {
@@ -27,4 +29,13 @@ public interface UserDAO {
 	List<Pantry> findPantries();
 	
 	List<Inventory> getOrderHistory(User user);
+	
+	void clearCart();
+
+	List<ShoppingCartItem> getCartItemsInCart(int cartId);
+
+	boolean deleteCartItem(int cartItemId, User user);
+
+	List<InventoryItem> getAvailableInventory(int pantryId);
+	
 }

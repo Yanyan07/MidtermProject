@@ -43,7 +43,8 @@ public class LoginController {
 	public String logout(HttpSession session) {
 		session.removeAttribute("user");
 //		TO DO remove CART from session If more than one cart exists, it would remove all from session.  If only one, okay.
-		return "home";
+//		session.removeAttribute("cart");
+		return "logout";
 	}
 
 }

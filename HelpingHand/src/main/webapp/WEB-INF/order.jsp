@@ -12,14 +12,14 @@
 	<h3>Show Order:</h3>
 
 	<c:choose>
-		<c:when test="${empty orderMap}">
+		<c:when test="${empty orderItems}">
 				You haven't order yet!
 			</c:when>
 		<c:otherwise>
-			<c:forEach var="order" items="${orderMap}">
-					${order.key.name} ${order.value}<br />
+			<c:forEach var="order" items="${orderItems}">
+					${order.inventoryItem.inventory.name} <br />
 				<form action="delete.do" method="post">
-					<input type="hidden" name="inventoryId" value="${order.key.id}" /> 
+					<input type="hidden" name="cartItemId" value="${order.id}" /> 
 					<input type="submit" value="Delete" />
 				</form>
 			</c:forEach>
@@ -32,7 +32,7 @@
 		<input type="submit" value="Place Your Order" />
 	</form>
 	
-	<form action="backList.do" method="get">
+	<form action="list.do" method="get">
 		<input type="submit" value="Back To List" />
 	</form>
 

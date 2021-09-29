@@ -13,9 +13,9 @@
 	<h2>Show List:</h2>
 	<ul>
 	<c:forEach var="i" items="${list}">
-		<li>${i.name}</li>
+		<li>${i.inventory.name}</li>
 		<form action="addToCart.do" method="post">
- 			<input type="hidden" name="inventoryId" value="${i.id}"/>
+ 			<input type="hidden" name="inventoryItemId" value="${i.id}"/>
  			<input type="submit" value="Add To Cart" />
  		</form>
 	</c:forEach>
@@ -28,5 +28,14 @@
  		<input type="submit" value="Items in Cart" />
  	</form>
  	
+ 	<br/>
+	<form action="backRecipient.do" method="get">
+		<input type="submit" value="Back To Recipient" />
+	</form>
+	
+	<br/>
+	<form action="home.do" method="get">
+		<input type="submit" value="Back To Home" />
+	</form>
 </body>
 </html>

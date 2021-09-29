@@ -1,10 +1,13 @@
 package com.skilldistillery.helpinghand.data;
 
 import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
+
 import org.springframework.stereotype.Service;
+
 import com.skilldistillery.helpinghand.entities.Appointment;
 import com.skilldistillery.helpinghand.entities.Cart;
 import com.skilldistillery.helpinghand.entities.Inventory;
@@ -57,6 +60,17 @@ public class UserDAOImpl implements UserDAO {
 					    .getResultList();
 		return inventories;
 	}
+	
+	@Override
+	public List<InventoryItem> getAvailableInventory(int pantryId){
+		String spql = "select i from InventoryItem i "
+				+ "where i.inventory.pantry.id = :id and i.available= true "
+				+"order by i.inventory.name";
+		List<InventoryItem> inventories = em.createQuery(spql, InventoryItem.class)
+				.setParameter("id", pantryId)
+				.getResultList();
+		return inventories;
+	}
 
 	@Override
 	public Cart createCart(int userId) {
@@ -76,26 +90,26 @@ public class UserDAOImpl implements UserDAO {
 	
 	@Override
 	public boolean addItemToCart(int inventoryId, Cart cart) {
-		List<InventoryItem> items = null;
-		String itemsSql = "select item from InventoryItem item where item.inventory.id = :inventoryId";
-		
-		items = em.createQuery(itemsSql, InventoryItem.class)
-				  .setParameter("inventoryId", inventoryId)
-				  .getResultList();
-		if(items==null || items.size()==0) {
-			return false;
-		}
-		InventoryItem item = items.get(0);
-//		Inventory i = em.find(Inventory.class, inventoryId);
-//		item.setInventory(i);
-//		i.addInventoryItem(item);
+//		List<InventoryItem> items = null;
+//		String itemsSql = "select item from InventoryItem item "
+//				+ "where item.inventory.id = :inventoryId and item.available= :available";
+//		
+//		items = em.createQuery(itemsSql, InventoryItem.class)
+//				  .setParameter("inventoryId", inventoryId)
+//				  .setParameter("available", true)
+//				  .getResultList();
+//		if(items==null || items.size()==0) {
+//			return false;
+//		}
+		InventoryItem item = em.find(InventoryItem.class, inventoryId);
 		
 		if(item != null) { //add item to cart
 			ShoppingCartItem cartItem = new ShoppingCartItem();
 			cartItem.setInventoryItem(item);
 			cartItem.setCart(cart);
-//			em.remove(item);
+			item.setAvailable(false);
 			em.persist(cartItem);
+			em.persist(item);
 			return true;
 		}
 		return false;
@@ -117,6 +131,16 @@ public class UserDAOImpl implements UserDAO {
 				  .getResultList();
 		return items;
 	}
+	@Override
+	public List<ShoppingCartItem> getCartItemsInCart(int cartId){
+		List<ShoppingCartItem> items = null;
+		String spql = "select i from ShoppingCartItem i "
+				+ "where i.cart.id= :cartId";
+		items = em.createQuery(spql, ShoppingCartItem.class)
+				.setParameter("cartId", cartId)
+				.getResultList();
+		return items;
+	}
 	
 	@Override
 	public boolean deleteItem(int inventoryId, int pantryId) {
@@ -134,13 +158,25 @@ public class UserDAOImpl implements UserDAO {
 		if(items!=null && items.size()>0) {
 			item = items.get(0);
 		}
-//		String sql = "select ii from InventoryItem ii join ShoppingCartItem s "
-//				+ "on s.inventoryItem.id=ii.id where s.id = : sItemId";
-//		InventoryItem ii = em.createQuery(sql, InventoryItem.class)
-//							 .setParameter("sItemId", item.getId())
-//							 .getSingleResult();
+		String sql = "select ii from InventoryItem ii join ShoppingCartItem s "
+				+ "on s.inventoryItem.id=ii.id where s.id = : sItemId";
+		InventoryItem ii = em.createQuery(sql, InventoryItem.class)
+							 .setParameter("sItemId", item.getId())
+							 .getSingleResult();
 		em.remove(item);
-//		em.persist(ii);
+		ii.setAvailable(true);
+		
+		return false;
+	}
+	
+	@Override
+	public boolean deleteCartItem(int cartItemId, User user) {
+		ShoppingCartItem item = em.find(ShoppingCartItem.class, cartItemId);
+		if(item != null) {
+			item.getInventoryItem().setAvailable(true);
+			em.remove(item);
+			return true;
+		}
 		
 		return false;
 	}
@@ -162,6 +198,13 @@ public class UserDAOImpl implements UserDAO {
 				  .setParameter("uId", user.getId())
 				  .getResultList();
 		return lists;
+	}
+	
+	@Override
+	public void clearCart() {
+		String spql = "select s from ShoppingCartItem s "
+				+ "join Cart t on s.cart.id=c.id"
+				+ "join User u on t.us";
 	}
 
 }

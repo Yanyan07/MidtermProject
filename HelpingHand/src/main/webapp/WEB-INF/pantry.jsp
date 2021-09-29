@@ -29,14 +29,24 @@
 
 	<hr />
 	
-	<form action="orderHistory.do" method="get">
+	<!-- <form action="orderHistory.do" method="get">
 		<input type="submit" value="Show Order History" />
+	</form> -->
+	
+	
+	<h3>Your Order Is Placed!</h3>
+	<form>
+		
+	</form>
+	
+	<br/>
+	<form action="backRecipient.do" method="get">
+		<input type="submit" value="Back To Recipient" />
 	</form>
 	
 	<br/>
 	<form action="home.do" method="get">
 		<input type="submit" value="Back To Home" />
 	</form>
-	
 </body>
 </html>

@@ -22,8 +22,8 @@
 		</c:otherwise>
 	</c:choose>
 	<br/>
-	<form action="backPantry.do" method="get">
-		<input type="submit" value="Back To Pantry"  />
+	<form action="backRecipient.do" method="get">
+		<input type="submit" value="Back To Recipient"  />
 	</form>
 </body>
 </html>
