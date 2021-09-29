@@ -6,7 +6,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
+
+
 <title>Login</title>
+
 </head>
 <body>
 	<h3>Welcome ${user.username}</h3>

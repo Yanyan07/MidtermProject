@@ -28,7 +28,7 @@
 	
 	<form action="newappointment.do" method="POST">
 <h5>To create an appointment, please provide the following:</h5>
-<br> UserId: <input type="text" name="userId"><br>
+<br> UserId: <input type="text" name="userId"><br> 
 <br> Appointment Date: <input type="datetime-local" name="appointmentDate"><br>
 <br> Location: <input type="text" name="pantryId"><br>
 <br> <input class="btn btn-primary" type="submit"
