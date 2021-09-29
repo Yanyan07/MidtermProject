@@ -65,7 +65,7 @@
 	<form action="list.do" method="get">
 		ID: <input type="text" value="id" />
 		<input type="submit" value="Show List" />
-	</form> -->
+	</form>
 	</div>
 	
 	
