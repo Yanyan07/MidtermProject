@@ -113,6 +113,26 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
+-- Table `cart`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `cart` ;
+
+CREATE TABLE IF NOT EXISTS `cart` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `user_id` INT NOT NULL,
+  `create_date` DATETIME NULL,
+  `completed` TINYINT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_cart_user1_idx` (`user_id` ASC),
+  CONSTRAINT `fk_cart_user1`
+    FOREIGN KEY (`user_id`)
+    REFERENCES `user` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
 -- Table `appointment`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `appointment` ;
@@ -125,9 +145,11 @@ CREATE TABLE IF NOT EXISTS `appointment` (
   `rating` INT NULL,
   `comment` TEXT NULL,
   `create_date` DATETIME NULL,
+  `cart_id` INT NOT NULL,
   INDEX `fk_appointment_user1_idx` (`user_id` ASC),
   INDEX `fk_appointment_pantry1_idx` (`pantry_id` ASC),
   PRIMARY KEY (`id`),
+  INDEX `fk_appointment_cart1_idx` (`cart_id` ASC),
   CONSTRAINT `fk_appointment_user1`
     FOREIGN KEY (`user_id`)
     REFERENCES `user` (`id`)
@@ -136,6 +158,11 @@ CREATE TABLE IF NOT EXISTS `appointment` (
   CONSTRAINT `fk_appointment_pantry1`
     FOREIGN KEY (`pantry_id`)
     REFERENCES `pantry` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_appointment_cart1`
+    FOREIGN KEY (`cart_id`)
+    REFERENCES `cart` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -157,33 +184,6 @@ CREATE TABLE IF NOT EXISTS `inventory_item` (
   CONSTRAINT `fk_inventory_item_inventory1`
     FOREIGN KEY (`inventory_id`)
     REFERENCES `inventory` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `cart`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `cart` ;
-
-CREATE TABLE IF NOT EXISTS `cart` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `user_id` INT NOT NULL,
-  `create_date` DATETIME NULL,
-  `completed` TINYINT NULL,
-  `appointment_id` INT NULL,
-  PRIMARY KEY (`id`),
-  INDEX `fk_cart_user1_idx` (`user_id` ASC),
-  INDEX `fk_cart_appointment1_idx` (`appointment_id` ASC),
-  CONSTRAINT `fk_cart_user1`
-    FOREIGN KEY (`user_id`)
-    REFERENCES `user` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_cart_appointment1`
-    FOREIGN KEY (`appointment_id`)
-    REFERENCES `appointment` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -433,13 +433,25 @@ COMMIT;
 
 
 -- -----------------------------------------------------
+-- Data for table `cart`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `helpinghanddb`;
+INSERT INTO `cart` (`id`, `user_id`, `create_date`, `completed`) VALUES (1, 1, '2021-09-24 17:18:33.001', 0);
+INSERT INTO `cart` (`id`, `user_id`, `create_date`, `completed`) VALUES (2, 4, '2021-09-24 17:18:33.001', 0);
+INSERT INTO `cart` (`id`, `user_id`, `create_date`, `completed`) VALUES (3, 5, '2021-09-24 17:18:33.001', 0);
+
+COMMIT;
+
+
+-- -----------------------------------------------------
 -- Data for table `appointment`
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `helpinghanddb`;
-INSERT INTO `appointment` (`id`, `appointment_date`, `user_id`, `pantry_id`, `rating`, `comment`, `create_date`) VALUES (1, '2021-09-25 17:18:33.001', 1, 1, 4, 'this is a comment from Biff in the appointment', '2021-09-24 17:18:33.001');
-INSERT INTO `appointment` (`id`, `appointment_date`, `user_id`, `pantry_id`, `rating`, `comment`, `create_date`) VALUES (2, '2021-09-25 17:18:33.001', 2, 2, 5, 'this is a comment from Ralph Larson', '2021-09-24 17:18:33.001');
-INSERT INTO `appointment` (`id`, `appointment_date`, `user_id`, `pantry_id`, `rating`, `comment`, `create_date`) VALUES (3, '2021-09-25 17:18:33.001', 4, 2, 3, 'this is a comment from Cruz Barnes', '2021-09-24 17:18:33.001');
+INSERT INTO `appointment` (`id`, `appointment_date`, `user_id`, `pantry_id`, `rating`, `comment`, `create_date`, `cart_id`) VALUES (1, '2021-09-25 17:18:33.001', 1, 1, 4, 'this is a comment from Biff in the appointment', '2021-09-24 17:18:33.001', 1);
+INSERT INTO `appointment` (`id`, `appointment_date`, `user_id`, `pantry_id`, `rating`, `comment`, `create_date`, `cart_id`) VALUES (2, '2021-09-25 17:18:33.001', 2, 2, 5, 'this is a comment from Ralph Larson', '2021-09-24 17:18:33.001', 2);
+INSERT INTO `appointment` (`id`, `appointment_date`, `user_id`, `pantry_id`, `rating`, `comment`, `create_date`, `cart_id`) VALUES (3, '2021-09-25 17:18:33.001', 4, 2, 3, 'this is a comment from Cruz Barnes', '2021-09-24 17:18:33.001', 3);
 
 COMMIT;
 
@@ -541,16 +553,6 @@ INSERT INTO `inventory_item` (`id`, `inventory_id`, `available`, `expiration`, `
 INSERT INTO `inventory_item` (`id`, `inventory_id`, `available`, `expiration`, `create_date`) VALUES (90, 23, 1, '2022-10-14', '2021-09-25 17:18:53.001');
 INSERT INTO `inventory_item` (`id`, `inventory_id`, `available`, `expiration`, `create_date`) VALUES (91, 23, 1, '2022-10-14', '2021-09-25 17:18:53.001');
 INSERT INTO `inventory_item` (`id`, `inventory_id`, `available`, `expiration`, `create_date`) VALUES (92, 23, 1, '2022-10-14', '2021-09-25 17:18:53.001');
-
-COMMIT;
-
-
--- -----------------------------------------------------
--- Data for table `cart`
--- -----------------------------------------------------
-START TRANSACTION;
-USE `helpinghanddb`;
-INSERT INTO `cart` (`id`, `user_id`, `create_date`, `completed`, `appointment_id`) VALUES (1, 1, '2021-09-24 17:18:33.001', 0, 1);
 
 COMMIT;
 

@@ -52,7 +52,7 @@ public class AppointmentTest {
 		assertEquals(9, appointment.getAppointmentDate().getMonthValue());
 		assertEquals(25, appointment.getAppointmentDate().getDayOfMonth());
 		assertEquals(4, appointment.getRating());
-		assertEquals("this is a comment from the appointment", appointment.getComment());
+		assertEquals("this is a comment from Biff in the appointment", appointment.getComment());
 
 		
 	}

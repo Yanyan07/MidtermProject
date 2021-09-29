@@ -36,8 +36,7 @@ public class Cart {
 	@OneToMany(mappedBy="cart")
 	private List<ShoppingCartItem> shoppingCartItems;
 	
-	@OneToOne()
-	@JoinColumn(name="appointment_id")
+	@OneToOne(mappedBy="cart")
 	private Appointment appointment;
 
 //	Getters and Setters
