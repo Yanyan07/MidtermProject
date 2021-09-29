@@ -31,7 +31,8 @@ public class Appointment {
 	@JoinColumn(name = "pantry_id")
 	private Pantry pantry;
 
-	@OneToOne(mappedBy="appointment")
+	@OneToOne
+	@JoinColumn(name = "cart_id")
 	private Cart cart;
 
 	private int rating;
