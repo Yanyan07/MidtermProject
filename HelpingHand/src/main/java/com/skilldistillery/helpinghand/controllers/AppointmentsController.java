@@ -7,7 +7,6 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
-import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
@@ -24,6 +23,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.skilldistillery.helpinghand.data.AppointmentDAO;
 import com.skilldistillery.helpinghand.entities.Appointment;
 import com.skilldistillery.helpinghand.entities.Cart;
+import com.skilldistillery.helpinghand.entities.Pantry;
 import com.skilldistillery.helpinghand.entities.User;
 import com.skilldistillery.helpinghand.entities.Pantry;
 
@@ -52,22 +52,45 @@ public class AppointmentsController {
 	}
 
 	@RequestMapping(path = "newappointment.do", method = RequestMethod.POST)
-	public String createUserAppointment(Appointment appointment, HttpSession session,Model model, Pantry pantry, Cart cart, String comment, int pantryId) {
-		System.out.println(appointment);
+	public String createUserAppointment(Appointment appointment, HttpSession session,Model model) {
+//		System.out.println(appointment);
 		User user = (User) session.getAttribute("user");
+		Cart cart = (Cart) session.getAttribute("cart");
+		Pantry pantry = (Pantry) session.getAttribute("pantry");
 		if (user != null) {
 			appointment.setUser(user);
 			appointment.setPantry(pantry);
-			appointment.setComment(comment);
 			appointment.setCart(cart);
 		Appointment create = dao.CreateAppointment(appointment);
 		model.addAttribute("appointment", create);
-		return "appointment";
+		
+//		return "order";
+		return "createAppointment";
 		}
 		else {
 			return "home";
 		}
 	}
+	
+//	@RequestMapping(path = "newappointment.do", method = RequestMethod.POST)
+//	public String createUserAppointment(Appointment appointment, HttpSession session,Model model) {
+////		System.out.println(appointment);
+//		User user = (User) session.getAttribute("user");
+//		Cart cart = (Cart) session.getAttribute("cart");
+//		Pantry pantry = (Pantry) session.getAttribute("pantry");
+//		if (user != null) {
+//			appointment.setUser(user);
+//			appointment.setCart(cart);
+//			appointment.setPantry(pantry);
+////			FIX ME NEED CART & PANTRY
+//			Appointment create = dao.CreateAppointment(appointment);
+//			model.addAttribute("appointment", create);
+//			return "appointment";
+//		}
+//		else {
+//			return "home";
+//		}
+//	}
 
 	@RequestMapping(path = "newappointment.do", method = RequestMethod.GET)
 	public String appointment() {

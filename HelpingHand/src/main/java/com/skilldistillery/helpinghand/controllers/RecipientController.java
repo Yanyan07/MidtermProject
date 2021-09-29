@@ -83,9 +83,10 @@ public class RecipientController {
 		return "pantry";
 	}
 
-	@RequestMapping(path = {"placeOrder.do", "backPantry.do"})
+//	@RequestMapping(path = {"placeOrder.do", "backPantry.do"})
+	@RequestMapping(path = "placeOrder.do")
 	public String placeOrder() {
-		return "pantry";
+		return "createAppointment";
 	}
 	
 	@RequestMapping(path = {"backRecipient.do"})
