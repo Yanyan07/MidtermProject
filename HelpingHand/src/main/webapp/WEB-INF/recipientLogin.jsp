@@ -21,19 +21,13 @@
 		<input type="submit" value="Search The Closest Pantry" />
 	</form>
 	
-	<h3>Find My Pickup Appointment/s</h3>
-	<form action="appointments.do" method="get">
-	<input type="submit"/>
-	</form>
-	
-	<h3>Schedule a Pickup Appointment</h3>
-	<form action="newappointment.do" method="get">
-	<input type="submit"/>
-	</form>
-	
 	<h3>Show the Order History</h3>
 	<form action="orderHistory.do" method="get">
 		<input type="submit" value="Show Order History" />
+	</form>
+	
+	<form action="home.do" method="get">
+		<input type="submit" value="Back To Home" />
 	</form>
 	
 </body>

@@ -17,10 +17,25 @@
 	<input type="submit"/>
 	</form>
 	
-	<h3>Clear Order History</h3>
-	<form action="clear.do" >
-		<input type="submit" value="Clear" />
+	<h3>Show stuff short in stock:</h3>
+	<form action="short.do" >
+		<input type="submit" />
 	</form>
+	
+	<h3>Refill Inventory Item</h3>
+	<form action="refill.do" >
+		<input type="submit" />
+	</form>
+	
+	
+	<c:if test="${not empty appointments}">
+		<h3>Show appointments in this pantry</h3>
+		<c:forEach var="app" items="${appointments}">
+			${sessionScope.user.id}
+			${sessionScope.user.firstName}
+			${app.appointmentDate}<br/>
+		</c:forEach>
+	</c:if>
 	
 </body>
 </html>

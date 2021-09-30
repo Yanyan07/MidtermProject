@@ -71,6 +71,17 @@ public class UserDAOImpl implements UserDAO {
 				.getResultList();
 		return inventories;
 	}
+	
+//	@Override
+	public List<InventoryItem> getUnavailableInventory(int pantryId){
+		String spql = "select i from InventoryItem i "
+				+ "where i.inventory.pantry.id = :id and i.available= false "
+				+"order by i.inventory.name";
+		List<InventoryItem> inventories = em.createQuery(spql, InventoryItem.class)
+				.setParameter("id", pantryId)
+				.getResultList();
+		return inventories;
+	}
 
 	@Override
 	public Cart createCart(int userId) {
@@ -166,6 +177,24 @@ public class UserDAOImpl implements UserDAO {
 		em.remove(item);
 		ii.setAvailable(true);
 		
+		return false;
+	}
+	
+	@Override
+	public boolean deleteShoppingCartItem(int inventoryItemId) {
+		String spql = "select s from ShoppingCartItem s where s.inventoryItem.id=:id";
+		ShoppingCartItem item = null;
+		try {
+			item = em.createQuery(spql, ShoppingCartItem.class)
+									  .setParameter("id", inventoryItemId)
+									  .getSingleResult();
+		} catch (Exception e) {
+			System.err.println("No ShoppingCartItem object is found!S");
+		}
+		if(item != null) {
+			em.remove(item);
+			return true;
+		}
 		return false;
 	}
 	
