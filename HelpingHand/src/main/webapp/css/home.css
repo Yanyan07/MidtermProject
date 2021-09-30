@@ -1,5 +1,8 @@
 
-h1{ color: red;}
+h1{ color: red;
+
+font-family: cursive;
+}
 
 	#Main{
 	text-align: center;
