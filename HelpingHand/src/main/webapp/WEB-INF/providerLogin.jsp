@@ -6,6 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<<<<<<< HEAD
 <title>Login</title>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
@@ -13,9 +14,42 @@
 	integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
 	crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="css/home.css">
+
 </head>
+
 <body>
-	<h3>Login</h3>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Helping Hand</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="home.jsp">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="list.jsp">List</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">???</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Login/Create Account
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
 	Welcome ${user.username}
 
 	<h3>Find Our Pantry's Appointments</h3>
@@ -32,6 +66,7 @@
 	<form action="refill.do">
 		<input type="submit" />
 	</form>
+<<<<<<< HEAD
 
 
 	<c:if test="${not empty appointments}">
@@ -53,5 +88,25 @@
 		src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
 		integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
 		crossorigin="anonymous"></script>
+=======
+	
+	<c:if test="${not empty appointments}">
+		<h3>Show appointments in this pantry</h3>
+	<table>
+		<tr>
+			<th>Name<th>
+			<th>Appointment Time<th>
+		</tr>
+	<c:forEach var="app" items="${appointments}">
+		<tr>
+			<td>${sessionScope.user.firstName}</td>
+			<td>${app.appointmentDate}</td>
+		</tr>
+	</c:forEach>
+    </table>
+	</c:if>
+	
+	
+>>>>>>> 5fd171abf9d1a58640898f3a21599df3b796a6a9
 </body>
 </html>

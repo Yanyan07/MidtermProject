@@ -13,9 +13,10 @@
 	integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
 	crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="css/home.css">
+
 </head>
+
 <body>
-	<%-- <c:forEach>var=" </c:forEach>' --%>
 
 	<form action="updateappointment.do?id=${appointment.id }" method="POST">
 		<h5>To update an appointment, provide the following:</h5>
