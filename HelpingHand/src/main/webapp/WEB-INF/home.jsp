@@ -14,6 +14,8 @@
 	crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="css/home.css">
 
+</head>
+
 <!--Main Navigation-->
 <body>
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -33,52 +35,30 @@
 					<!-- <a class="nav-link disabled">Disabled</a> -->
 				</div>
 
-				<body>
+				<div id="Main">
+
+					<h1>Welcome to Helping Hand</h1>
+					<form action="signin.do" method="post">
+						<input type="submit" value="Sign In" />
+					</form>
+					<br />
+					<form action="logout.do" method="post">
+						<input type="submit" value="Sign Out" />
+					</form>
+					<hr />
 
 
+					<p>A food pantry is not only a resource for those in need. It
+						provides help and hope. Most of all it lifts those with the
+						greatest need in a community with a helping hand to rise above
+						their current economic status. Helping Hand aims to serve our
+						local communities by providing an online resource that connects
+						people in need with local food banks and pantries. We are only as
+						strong as the least among us. "There is no exercise better for the
+						heart than reaching down and lifting people up." -John Holmes,
+						army veteran and author</p>
 
-
-
-
-
-
-					<div id="Main">
-
-						<h1>Welcome to Helping Hand</h1>
-						<form action="signin.do" method="post">
-							<input type="submit" value="Sign In" />
-						</form>
-						<br />
-						<form action="logout.do" method="post">
-							<input type="submit" value="Sign Out" />
-						</form>
-						<hr />
-
-
-						<p>A food pantry is not only a resource for those in need. It
-							provides help and hope. Most of all it lifts those with the
-							greatest need in a community with a helping hand to rise above
-							their current economic status. Helping Hand aims to serve our
-							local communities by providing an online resource that connects
-							people in need with local food banks and pantries. We are only as
-							strong as the least among us. "There is no exercise better for
-							the heart than reaching down and lifting people up." -John
-							Holmes, army veteran and author</p>
-
-						<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-							integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-							crossorigin="anonymous"></script>
-						<script
-							src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-							integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-							crossorigin="anonymous"></script>
-						<script
-							src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
-							integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-							crossorigin="anonymous"></script>
-
-
-						<img
-							src=https://www.myarg.com/wp-content/uploads/2019/12/helpinghand-e1618002752539.jpeg>
-				</body>
+					<img
+						src=https://www.myarg.com/wp-content/uploads/2019/12/helpinghand-e1618002752539.jpeg>
+</body>
 </html>
