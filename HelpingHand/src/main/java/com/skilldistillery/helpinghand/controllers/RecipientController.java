@@ -41,7 +41,12 @@ public class RecipientController {
 
 	@RequestMapping(path = "showOrder.do")
 	public String showOrder(HttpSession session, Model model) {
+		User user = (User) session.getAttribute("user");
 		Cart cart = (Cart) session.getAttribute("cart");
+		if (cart == null) {
+			cart = userDao.createCart(user.getId());
+			session.setAttribute("cart", cart);
+		}
 		List<ShoppingCartItem> items = userDao.getCartItemsInCart(cart.getId());
 //		Map<Inventory, Integer> map = new HashMap<>();
 
@@ -113,7 +118,6 @@ public class RecipientController {
 		}
 		model.addAttribute("orderHistory", map);
 		return "history";
-//		return "recipientLogin";
 	}
 
 }

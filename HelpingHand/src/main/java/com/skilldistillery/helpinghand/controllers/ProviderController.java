@@ -18,21 +18,6 @@ public class ProviderController {
 	@Autowired
 	private UserDAO userDao;
 
-//	@RequestMapping(path = "clear.do")
-//	public String addToCart(HttpSession session, Model model, int inventoryId) {
-//		User user = (User) session.getAttribute("user");
-//		Cart cart = (Cart) session.getAttribute("cart");
-//		if (cart == null) {
-//			cart = userDao.createCart(user.getId());
-//			session.setAttribute("cart", cart);
-//		}
-////		Cart cart = userDao.getCart(4);
-////		session.setAttribute("cart", cart);
-//		boolean isAdded = userDao.addItemToCart(inventoryId, cart);
-//		model.addAttribute("isAdded", isAdded);
-//		return "addCart";
-//	}
-	
 	@RequestMapping(path = "short.do")
 	public String getShortList(HttpSession session, Model model) {
 		Pantry pantry = (Pantry) session.getAttribute("pantry");
