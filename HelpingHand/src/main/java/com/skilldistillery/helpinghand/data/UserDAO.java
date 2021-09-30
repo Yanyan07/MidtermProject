@@ -37,5 +37,9 @@ public interface UserDAO {
 	boolean deleteCartItem(int cartItemId, User user);
 
 	List<InventoryItem> getAvailableInventory(int pantryId);
+
+	List<InventoryItem> getUnavailableInventory(int pantryId);
+	
+	boolean deleteShoppingCartItem(int inventoryItemId);
 	
 }

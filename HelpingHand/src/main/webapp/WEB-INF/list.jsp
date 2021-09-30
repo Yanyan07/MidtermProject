@@ -61,7 +61,6 @@
  	<hr/>
  	<h3>Show the order:</h3>
  	<form action="showOrder.do" method="get">
- 		<!-- Cart Id: <input type="text" name="cartId" /><br/> -->
  		<input type="submit" value="Items in Cart" />
  	</form>
  	

@@ -34,7 +34,8 @@ public class AppointmentDAOImpl implements AppointmentDAO {
 	@Override
 	public List<Appointment> findAppointmentByPantryId(int pantryId) {
 
-		String jpql = "SELECT a From Appointment a WHERE a.pantryId = :pantry";
+//		String jpql = "SELECT a From Appointment a WHERE a.pantryId = :pantry";
+		String jpql = "SELECT a From Appointment a WHERE a.pantry.id = :pantry";
 
 		List<Appointment> appointments = em.createQuery(jpql, Appointment.class)
 				.setParameter("pantry", pantryId)

@@ -25,9 +25,6 @@ public class HomeController {
 	public String showList(HttpSession session, Model model) {
 		Pantry pantry = (Pantry) session.getAttribute("pantry");
 		List<InventoryItem> inventories = userDao.getAvailableInventory(pantry.getId());
-//		if(session.getAttribute("list") == null) {
-//			session.setAttribute("list", inventories);
-//		}
 		model.addAttribute("list", inventories);
 		return "list";
 	}
