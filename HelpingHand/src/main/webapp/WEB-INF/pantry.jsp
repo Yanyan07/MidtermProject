@@ -7,13 +7,13 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<<<<<<< HEAD
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
 	rel="stylesheet"
 	integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
 	crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="css/home.css">
+<link rel="stylesheet" type="text/css" href="css/page1.css">
 </head>
 
 <body>
@@ -50,6 +50,7 @@
   </div>
 </nav>
 
+<div class="page" >
 	<c:choose>
 		<c:when test="${empty sessionScope.pantry}">
 			No pantry is found, please go back to search again.
@@ -61,25 +62,12 @@
 			<h3>Thank you for choosing:</h3>
 			${sessionScope.pantry.name }<br />
 			<form action="list.do" method="get">
-<<<<<<< HEAD
-				<%-- <input type="hidden" name="pantryId" value="${sessionScope.pantry.id}" /><br/> --%>
-				<input type="submit" value="Show Inventory of the Pantry" />
-=======
 			<input type="submit" value="Show Inventory of the Pantry" />
->>>>>>> 5fd171abf9d1a58640898f3a21599df3b796a6a9
 			</form>
 		</c:otherwise>
 	</c:choose>
 	<hr />
-<<<<<<< HEAD
-
-	<h3>Your Order Is Placed!</h3>
-	<form></form>
-
-	<br />
-=======
 	<br/>
->>>>>>> 5fd171abf9d1a58640898f3a21599df3b796a6a9
 	<form action="backRecipient.do" method="get">
 		<input type="submit" value="Back To Recipient" />
 	</form>
@@ -88,6 +76,8 @@
 	<form action="home.do" method="get">
 		<input type="submit" value="Back To Home" />
 	</form>
+</div>
+
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
 		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
 		crossorigin="anonymous"></script>

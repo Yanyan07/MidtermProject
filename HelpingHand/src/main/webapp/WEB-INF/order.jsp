@@ -6,7 +6,6 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<<<<<<< HEAD
 <title>Your Order</title>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
@@ -14,6 +13,7 @@
 	integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
 	crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="css/home.css">
+<link rel="stylesheet" type="text/css" href="css/page1.css">
 
 </head>
 
@@ -50,21 +50,9 @@
     </div>
   </div>
 </nav>
+
+<div class="page" >
 	<h3>Show Order:</h3>
-<%-- <table>
-	<c:forEach var="i" items="${list}">
-		<tr>
-			<td>${i.id}</td>
-			<td>${i.inventory.name}</td>
-			<td>
-				<form action="addToCart.do" method="post">
- 				<input type="hidden" name="inventoryItemId" value="${i.id}"/>
- 				<input type="submit" value="Add To Cart" />
- 				</form>
-			</td>
-		</tr>
-	</c:forEach>
-</table> --%>
 
 <c:choose>
 	<c:when test="${empty orderItems}">
@@ -103,6 +91,8 @@
 	<form action="list.do" method="get">
 		<input type="submit" value="Back To List" />
 	</form>
+</div>
+
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
 		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
 		crossorigin="anonymous"></script>

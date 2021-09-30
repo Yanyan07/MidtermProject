@@ -7,18 +7,13 @@
 <head>
 <meta charset="UTF-8">
 <title>Show Available List</title>
-<<<<<<< HEAD
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
 	rel="stylesheet"
 	integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
 	crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="css/home.css">
-=======
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
- <link rel="stylesheet" type="text/css" href="css/home.css">
-
->>>>>>> 5fd171abf9d1a58640898f3a21599df3b796a6a9
+<link rel="stylesheet" type="text/css" href="css/page1.css">
 </head>
 
 <body>
@@ -55,6 +50,7 @@
   </div>
 </nav>
 
+<div class="page" >
 	<c:choose>
 		<c:when test="${empty availableList}">
 				Everything is Empty!
@@ -86,6 +82,8 @@
 	<form action="home.do" method="get">
 		<input type="submit" value="Back To Home" />
 	</form>
+<div class="page" >
+	
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
 		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
 		crossorigin="anonymous"></script>

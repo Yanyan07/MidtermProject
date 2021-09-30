@@ -14,11 +14,12 @@
 	integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
 	crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="css/home.css">
+<link rel="stylesheet" type="text/css" href="css/page1.css">
 
 </head>
 
 <body>
-
+<div class="page" >
 	<h3>Please SignIn</h3>
 	<br />
 
@@ -33,6 +34,8 @@
 			type="text" name="password" /><br /> <input type="submit"
 			value="Login as Provider">
 	</form>
+</div>
+
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
 		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
 		crossorigin="anonymous"></script>
