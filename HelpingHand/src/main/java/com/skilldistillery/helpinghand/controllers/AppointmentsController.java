@@ -7,9 +7,9 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
+import java.util.List;
 
 import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
@@ -19,7 +19,6 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-
 import com.skilldistillery.helpinghand.data.AppointmentDAO;
 import com.skilldistillery.helpinghand.entities.Appointment;
 import com.skilldistillery.helpinghand.entities.Cart;
@@ -33,15 +32,14 @@ public class AppointmentsController {
 	@Autowired
 	private AppointmentDAO dao;
 
-//	@RequestMapping(path = "appointment.do", method = RequestMethod.GET)
-//	public String showAppointment(Model model, @RequestParam int pantryId) {
-//		System.out.println(pantryId);
-//		AppointmentDAO appointment = dao.findAppointmentByPantryId(pantryId);
-//		System.out.println(appointment);
-//		model.addAttribute("appointment", appointment);
-//		return "appointment";
-//
-//	}
+	@RequestMapping(path = "appointments.do", method = RequestMethod.POST)
+	public String showAppointment(Model model, HttpSession session) {
+		Pantry pantry = (Pantry) session.getAttribute("pantry");
+		List<Appointment> appointments = dao.findAppointmentByPantryId(pantry.getId());
+		model.addAttribute("appointments", appointments);
+		return "providerLogin";
+
+	}
 
 	@RequestMapping(path = "appointments.do", method = RequestMethod.GET)
 	public String showUserAppointment(Model model, @RequestParam int userId) {
@@ -72,26 +70,6 @@ public class AppointmentsController {
 		}
 	}
 	
-//	@RequestMapping(path = "newappointment.do", method = RequestMethod.POST)
-//	public String createUserAppointment(Appointment appointment, HttpSession session,Model model) {
-////		System.out.println(appointment);
-//		User user = (User) session.getAttribute("user");
-//		Cart cart = (Cart) session.getAttribute("cart");
-//		Pantry pantry = (Pantry) session.getAttribute("pantry");
-//		if (user != null) {
-//			appointment.setUser(user);
-//			appointment.setCart(cart);
-//			appointment.setPantry(pantry);
-////			FIX ME NEED CART & PANTRY
-//			Appointment create = dao.CreateAppointment(appointment);
-//			model.addAttribute("appointment", create);
-//			return "appointment";
-//		}
-//		else {
-//			return "home";
-//		}
-//	}
-
 	@RequestMapping(path = "newappointment.do", method = RequestMethod.GET)
 	public String appointment() {
 
