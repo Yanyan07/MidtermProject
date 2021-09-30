@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<<<<<<< HEAD
+
 <title>Login</title>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
