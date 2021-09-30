@@ -46,21 +46,48 @@
   </div>
 </nav>
 	<h3>Show Order:</h3>
+<%-- <table>
+	<c:forEach var="i" items="${list}">
+		<tr>
+			<td>${i.id}</td>
+			<td>${i.inventory.name}</td>
+			<td>
+				<form action="addToCart.do" method="post">
+ 				<input type="hidden" name="inventoryItemId" value="${i.id}"/>
+ 				<input type="submit" value="Add To Cart" />
+ 				</form>
+			</td>
+		</tr>
+	</c:forEach>
+</table> --%>
 
-	<c:choose>
-		<c:when test="${empty orderItems}">
-				You haven't order yet!
-			</c:when>
-		<c:otherwise>
-			<c:forEach var="order" items="${orderItems}">
-					${order.inventoryItem.inventory.name} <br />
+<c:choose>
+	<c:when test="${empty orderItems}">
+		You haven't order yet!
+	</c:when>
+	<c:otherwise>
+	<table>
+		<tr>
+			<td>Item Id</td>
+			<td>Name</td>
+			<td>Operation</td>
+		</tr>
+		<c:forEach var="order" items="${orderItems}">
+		<tr>
+			<td>${order.id}</td>
+			<td>${order.inventoryItem.inventory.name}</td>
+			<td>
 				<form action="delete.do" method="post">
 					<input type="hidden" name="cartItemId" value="${order.id}" /> 
 					<input type="submit" value="Delete" />
 				</form>
-			</c:forEach>
-		</c:otherwise>
-	</c:choose>
+			</td>
+		</tr>
+		</c:forEach>
+	</table>
+	</c:otherwise>
+</c:choose>
+		
 	<br />
 	<hr />
 	

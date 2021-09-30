@@ -47,9 +47,20 @@
 </nav>
 
 	<h2>Show List:</h2>
-<table>
-	<c:forEach var="i" items="${list}">
+<c:choose>
+	<c:when test="${empty list}">
+		The List Is Empty!
+	</c:when>
+	<c:otherwise>	
+	<table>
 		<tr>
+			<td>Item Id</td>
+			<td>Name</td>
+			<td>Operation</td>
+		</tr>
+		<c:forEach var="i" items="${list}">
+		<tr>
+			<td>${i.id}</td>
 			<td>${i.inventory.name}</td>
 			<td>
 				<form action="addToCart.do" method="post">
@@ -58,9 +69,10 @@
  				</form>
 			</td>
 		</tr>
-	</c:forEach>
-</table>
-	
+		</c:forEach>
+	</table>
+	</c:otherwise>
+</c:choose>	
  	<hr/>
  	<h3>Show the order:</h3>
  	<form action="showOrder.do" method="get">
