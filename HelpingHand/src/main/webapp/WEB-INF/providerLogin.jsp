@@ -13,7 +13,6 @@
 	integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
 	crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="css/home.css">
-<link rel="stylesheet" type="text/css" href="css/page1.css">
 
 </head>
 
@@ -56,25 +55,25 @@
 
 	<h3>Find Our Pantry's Appointments</h3>
 	<form action="appointments.do" method="post">
-		<input type="submit" />
+		<input class="btn info" class="btn info" type="submit" />
 	</form>
 
 	<h3>Show stuff short in stock:</h3>
 	<form action="short.do">
-		<input type="submit" />
+		<input class="btn info" class="btn info" type="submit" />
 	</form>
 
 	<h3>Refill Inventory Item</h3>
 	<form action="refill.do">
-		<input type="submit" />
+		<input class="btn info" class="btn info" type="submit" />
 	</form>
 	
 	<c:if test="${not empty appointments}">
 		<h3>Show appointments in this pantry</h3>
 	<table>
 		<tr>
-			<th>Name<th>
-			<th>Appointment Time<th>
+			<th>Name</th>
+			<th>Appointment Time</th>
 		</tr>
 	<c:forEach var="app" items="${appointments}">
 		<tr>

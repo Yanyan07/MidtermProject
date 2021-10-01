@@ -14,7 +14,6 @@
 	integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
 	crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="css/home.css">
-<link rel="stylesheet" type="text/css" href="css/page1.css">
 
 </head>
 
@@ -67,7 +66,7 @@
 	</c:choose>
 	<br />
 	<form action="backRecipient.do" method="get">
-		<input type="submit" value="Back To Recipient" />
+		<input class="btn info" type="submit" value="Back To Recipient" />
 	</form>
 </div>
 

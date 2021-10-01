@@ -18,7 +18,6 @@
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
  <link rel="stylesheet" type="text/css" href="css/home.css">
- <link rel="stylesheet" type="text/css" href="css/page1.css">
 
 </head>
 
@@ -30,17 +29,17 @@
 
 	<h3>Search the closest pantry by zipcode</h3>
 	<form action="pantry.do" method="get">
-		zipcode:<input type="text" name="zipcode" /> <input type="submit"
+		<label>zipcode:</label><input type="text" name="zipcode" /> <input class="btn info" type="submit"
 			value="Search The Closest Pantry" />
 	</form>
 
 	<h3>Show the Order History</h3>
 	<form action="orderHistory.do" method="get">
-		<input type="submit" value="Show Order History" />
+		<input class="btn info" type="submit" value="Show Order History" />
 	</form>
 
 	<form action="home.do" method="get">
-		<input type="submit" value="Back To Home" />
+		<input class="btn info" type="submit" value="Back To Home" />
 	</form>
 </div>
 

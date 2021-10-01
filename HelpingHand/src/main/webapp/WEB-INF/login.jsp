@@ -14,7 +14,6 @@
 	integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
 	crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="css/home.css">
-<link rel="stylesheet" type="text/css" href="css/page1.css">
 
 </head>
 
@@ -24,15 +23,15 @@
 	<br />
 
 	<form action="login.do" method="get">
-		Username: <input type="text" name="username" /><br /> Password: <input
-			type="text" name="password" /><br /> <input type="submit"
-			value="Login as Recipient">
+		<label>Username:</label> <input type="text" name="username" /><br /> 
+		<label>Password:</label> <input type="text" name="password" /><br /> 
+		<input class="btn info" type="submit" value="Login as Recipient">
 	</form>
 	<br />
 	<form action="login.do" method="get">
-		Username: <input type="text" name="username" /><br /> Password: <input
-			type="text" name="password" /><br /> <input type="submit"
-			value="Login as Provider">
+		<label>Username:</label> <input type="text" name="username" /><br /> 
+		<label>Password:</label> <input type="text" name="password" /><br /> 
+		<input class="btn info" type="submit" value="Login as Provider">
 	</form>
 </div>
 

@@ -13,7 +13,6 @@
 	integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
 	crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="css/home.css">
-<link rel="stylesheet" type="text/css" href="css/page1.css">
 </head>
 
 <body>
@@ -58,9 +57,9 @@
 		<c:otherwise>
 		  <table>
 			<tr>
-			<th>Item Id<th>
-			<th>Name<th>
-			<th>Status<th>
+			<th>Item Id</th>
+			<th>Name</th>
+			<th>Status</th>
 			</tr>
 	  		<c:forEach var="order" items="${availableList}">
 			<tr>
@@ -76,11 +75,11 @@
 	<hr />
 
 	<form action="back.do" method="post">
-		<input type="submit" value="Back To Provider" />
+		<input class="btn info" type="submit" value="Back To Provider" />
 	</form>
 
 	<form action="home.do" method="get">
-		<input type="submit" value="Back To Home" />
+		<input class="btn info" type="submit" value="Back To Home" />
 	</form>
 <div class="page" >
 	

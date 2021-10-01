@@ -9,7 +9,6 @@
 <title>Make an appointment</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
  <link rel="stylesheet" type="text/css" href="css/home.css">
- <link rel="stylesheet" type="text/css" href="css/page1.css">
 
 </head>
 
@@ -50,9 +49,8 @@
 <div class="page" >
 	<form action="newappointment.do" method="POST">
 		<h3>Schedule a Pickup Appointment</h3>
-		Appointment Date: <input type="datetime-local" name="appointmentDate"><br>
-		<br> <input class="btn btn-primary" type="submit"
-			value="Submit Appointment" /><br> <br>
+		<lable>Appointment Date:</lable> <input type="datetime-local" name="appointmentDate"><br>
+		<input class="btn info" type="submit" value="Submit Appointment" />
 	</form>
 
 
@@ -66,12 +64,12 @@
 
 	<br />
 	<form action="backRecipient.do" method="get">
-		<input type="submit" value="Back To Recipient" />
+		<input class="btn info" type="submit" value="Back To Recipient" />
 	</form>
 
 	<br />
 	<form action="home.do" method="get">
-		<input type="submit" value="Back To Home" />
+		<input class="btn info" type="submit" value="Back To Home" />
 	</form>
 </div>	
 	

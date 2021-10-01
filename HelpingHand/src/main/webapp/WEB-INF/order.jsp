@@ -13,7 +13,6 @@
 	integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
 	crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="css/home.css">
-<link rel="stylesheet" type="text/css" href="css/page1.css">
 
 </head>
 
@@ -61,9 +60,9 @@
 	<c:otherwise>
 	<table>
 		<tr>
-			<td>Item Id</td>
-			<td>Name</td>
-			<td>Operation</td>
+			<th>ItemId</th>
+			<th>Name</th>
+			<th>Operation</th>
 		</tr>
 		<c:forEach var="order" items="${orderItems}">
 		<tr>
@@ -71,8 +70,8 @@
 			<td>${order.inventoryItem.inventory.name}</td>
 			<td>
 				<form action="delete.do" method="post">
-					<input type="hidden" name="cartItemId" value="${order.id}" /> <input
-						type="submit" value="Delete" />
+					<input type="hidden" name="cartItemId" value="${order.id}" /> 
+					<input class="btn warning" type="submit" value="Delete" />
 				</form>
 			</td>
 		</tr>
@@ -85,11 +84,11 @@
 	<hr />
 
 	<form action="placeOrder.do" method="post">
-		<input type="submit" value="Place Your Order" />
+		<input class="btn info" type="submit" value="Place Your Order" />
 	</form>
 
 	<form action="list.do" method="get">
-		<input type="submit" value="Back To List" />
+		<input class="btn info" type="submit" value="Back To List" />
 	</form>
 </div>
 

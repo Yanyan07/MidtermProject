@@ -17,7 +17,6 @@
 <title>Insert title here</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
  <link rel="stylesheet" type="text/css" href="css/home.css">
- <link rel="stylesheet" type="text/css" href="css/page1.css">
 
 </head>
 
@@ -65,9 +64,9 @@
 	<c:otherwise>	
 	<table>
 		<tr>
-			<td>Item Id</td>
-			<td>Name</td>
-			<td>Operation</td>
+			<th>ItemId</th>
+			<th>Name</th>
+			<th>Operation</th>
 		</tr>
 		<c:forEach var="i" items="${list}">
 		<tr>
@@ -76,7 +75,7 @@
 			<td>
 				<form action="addToCart.do" method="post">
  				<input type="hidden" name="inventoryItemId" value="${i.id}"/>
- 				<input type="submit" value="Add To Cart" />
+ 				<input class="btn info" type="submit" value="Add To Cart" />
  				</form>
 			</td>
 		</tr>
@@ -87,17 +86,17 @@
  	<hr/>
  	<h3>Show the order:</h3>
  	<form action="showOrder.do" method="get">
- 		<input type="submit" value="Items in Cart" />
+ 		<input class="btn info" type="submit" value="Items in Cart" />
  	</form>
  	
  	<br/>
 	<form action="backRecipient.do" method="get">
-		<input type="submit" value="Back To Recipient" />
+		<input class="btn info" type="submit" value="Back To Recipient" />
 	</form>
 
 	<br />
 	<form action="home.do" method="get">
-		<input type="submit" value="Back To Home" />
+		<input class="btn info" type="submit" value="Back To Home" />
 	</form>
 </div>
 
