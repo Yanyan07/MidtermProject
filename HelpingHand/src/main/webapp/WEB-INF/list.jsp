@@ -42,62 +42,53 @@
 				</div>
 				</nav>
 
+<div class="page" >
+
 	<h2>Show List:</h2>
-
-	<!--  <ul>-->
-	<div id="Main">
+<c:choose>
+	<c:when test="${empty list}">
+		The List Is Empty!
+	</c:when>
+	<c:otherwise>	
 	<table>
-	
-		<c:forEach var="i" items="${list}">
-			<tr>
-				<td>${i.inventory.name}</td>
-				<td>
-					<form action="addToCart.do" method="post">
-						<input type="hidden" name="inventoryItemId" value="${i.id}" /> <input
-							type="submit" value="Add To Cart" />
-					</form>
-				</td>
-			</tr>
-		</c:forEach>
-	</table>
-
-	<hr />
-	<h3>Show the order:</h3>
-	<form action="showOrder.do" method="get">
-		<input type="submit" value="Items in Cart" />
-	</form>
-
-	<br />
-<table>
-	<c:forEach var="i" items="${list}">
 		<tr>
+			<th>ItemId</th>
+			<th>Name</th>
+			<th>Operation</th>
+		</tr>
+		<c:forEach var="i" items="${list}">
+		<tr>
+			<td>${i.id}</td>
 			<td>${i.inventory.name}</td>
 			<td>
 				<form action="addToCart.do" method="post">
  				<input type="hidden" name="inventoryItemId" value="${i.id}"/>
- 				<input type="submit" value="Add To Cart" />
+ 				<input class="btn info" type="submit" value="Add To Cart" />
  				</form>
 			</td>
 		</tr>
-	</c:forEach>
-</table>
-	
+		</c:forEach>
+	</table>
+	</c:otherwise>
+</c:choose>	
  	<hr/>
  	<h3>Show the order:</h3>
  	<form action="showOrder.do" method="get">
- 		<input type="submit" value="Items in Cart" />
+ 		<input class="btn info" type="submit" value="Items in Cart" />
  	</form>
  	
  	<br/>
 	<form action="backRecipient.do" method="get">
-		<input type="submit" value="Back To Recipient" />
+		<input class="btn info" type="submit" value="Back To Recipient" />
 	</form>
 	</div>
 
 	<br />
 	<form action="home.do" method="get">
-		<input type="submit" value="Back To Home" />
+		<input class="btn info" type="submit" value="Back To Home" />
 	</form>
+</div>
+
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
 		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
 		crossorigin="anonymous"></script>

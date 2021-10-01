@@ -6,7 +6,6 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<<<<<<< HEAD
 <title>Item Restocking</title>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
@@ -39,6 +38,7 @@
 				</div>
 				</nav>
 
+<div class="page" >
 	<c:choose>
 		<c:when test="${empty shortList}">
 				Everything is full!
@@ -46,9 +46,9 @@
 		<c:otherwise>
 		  <table>
 			<tr>
-			<th>Item Id<th>
-			<th>Name<th>
-			<th>Status<th>
+			<th>ItemId</th>
+			<th>Name</th>
+			<th>Status</th>
 			</tr>
 	  		<c:forEach var="order" items="${shortList}">
 			<tr>
@@ -62,10 +62,7 @@
 	</c:choose>
 	<br />
 	<hr />
-<<<<<<< HEAD
 
-=======
-	
 	<c:if test="${not empty appointments}">
 		<h3>Show appointments in this pantry</h3>
 	<table>
@@ -82,14 +79,14 @@
     </table>
 	</c:if>
 	
->>>>>>> 5fd171abf9d1a58640898f3a21599df3b796a6a9
 	<form action="back.do" method="post">
-		<input type="submit" value="Back To Provider" />
+		<input class="btn info" type="submit" value="Back To Provider" />
 	</form>
 
 	<form action="home.do" method="get">
-		<input type="submit" value="Back To Home" />
+		<input class="btn info" type="submit" value="Back To Home" />
 	</form>
+</div>
 
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
 		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

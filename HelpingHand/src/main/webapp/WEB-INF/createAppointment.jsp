@@ -46,11 +46,11 @@
   </div>
 </nav>
 
+<div class="page" >
 	<form action="newappointment.do" method="POST">
 		<h3>Schedule a Pickup Appointment</h3>
-		Appointment Date: <input type="datetime-local" name="appointmentDate"><br>
-		<br> <input class="btn btn-primary" type="submit"
-			value="Submit Appointment" /><br> <br>
+		<lable>Appointment Date:</lable> <input type="datetime-local" name="appointmentDate"><br>
+		<input class="btn info" type="submit" value="Submit Appointment" />
 	</form>
 
 
@@ -64,13 +64,15 @@
 
 	<br />
 	<form action="backRecipient.do" method="get">
-		<input type="submit" value="Back To Recipient" />
+		<input class="btn info" type="submit" value="Back To Recipient" />
 	</form>
 
 	<br />
 	<form action="home.do" method="get">
-		<input type="submit" value="Back To Home" />
+		<input class="btn info" type="submit" value="Back To Home" />
 	</form>
+</div>	
+	
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
 		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
 		crossorigin="anonymous"></script>

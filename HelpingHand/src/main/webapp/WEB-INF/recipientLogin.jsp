@@ -22,6 +22,7 @@
 </head>
 
 <body>
+<div class="page" >
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
 		<div class="container-fluid">
@@ -48,18 +49,20 @@
 
 	<h3>Search the closest pantry by zipcode</h3>
 	<form action="pantry.do" method="get">
-		zipcode:<input type="text" name="zipcode" /> <input type="submit"
+		<label>zipcode:</label><input type="text" name="zipcode" /> <input class="btn info" type="submit"
 			value="Search The Closest Pantry" />
 	</form>
 
 	<h3>Show the Order History</h3>
 	<form action="orderHistory.do" method="get">
-		<input type="submit" value="Show Order History" />
+		<input class="btn info" type="submit" value="Show Order History" />
 	</form>
 
 	<form action="home.do" method="get">
-		<input type="submit" value="Back To Home" />
+		<input class="btn info" type="submit" value="Back To Home" />
 	</form>
+</div>
+
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
 		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
 		crossorigin="anonymous"></script>

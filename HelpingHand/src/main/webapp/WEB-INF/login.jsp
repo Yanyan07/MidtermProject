@@ -18,6 +18,7 @@
 </head>
 
 <body>
+<div class="page" >
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
 		<div class="container-fluid">
@@ -43,16 +44,18 @@
 	<br />
 
 	<form action="login.do" method="get">
-		Username: <input type="text" name="username" /><br /> Password: <input
-			type="text" name="password" /><br /> <input type="submit"
-			value="Login as Recipient">
+		<label>Username:</label> <input type="text" name="username" /><br /> 
+		<label>Password:</label> <input type="text" name="password" /><br /> 
+		<input class="btn info" type="submit" value="Login as Recipient">
 	</form>
 	<br />
 	<form action="login.do" method="get">
-		Username: <input type="text" name="username" /><br /> Password: <input
-			type="text" name="password" /><br /> <input type="submit"
-			value="Login as Provider">
+		<label>Username:</label> <input type="text" name="username" /><br /> 
+		<label>Password:</label> <input type="text" name="password" /><br /> 
+		<input class="btn info" type="submit" value="Login as Provider">
 	</form>
+</div>
+
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
 		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
 		crossorigin="anonymous"></script>

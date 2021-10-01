@@ -49,12 +49,16 @@
     </div>
   </div>
 </nav>
+
+<div class="page" >
 	<h3>You have signed out!</h3>
 
 	<br />
 	<form action="home.do" method="get">
-		<input type="submit" value="Back To Home" />
+		<input class="btn info" type="submit" value="Back To Home" />
 	</form>
+</div>
+	
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
 		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
 		crossorigin="anonymous"></script>
