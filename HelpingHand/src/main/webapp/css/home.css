@@ -9,7 +9,9 @@ font-family: cursive;
 	}
 
 	body {
+
 	background-color: gray;
+<<<<<<< HEAD
 	} 
  */
  
@@ -53,3 +55,9 @@ th{
 .warning {background-color: #e68a00;} /* Orange */
 .warning:hover {background: #ff9800;}
 
+	
+	p{ font-family: cursive;
+	
+	color: white;
+	
+	}
