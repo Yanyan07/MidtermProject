@@ -12,7 +12,15 @@
 In this project, we created a food pantry project called "Helping Hand." The project allows both a login for providers(pantries) and recipients(those who may need to receive assistance/food from a local pantry).  
 
 # How to Use
-On the Home page...  Menu options include...  Recipient access allows...  Provider access allows...  The shopping cart... 
+In your browser, please entering the following AWS IP and address:  18.118.127.156:8080/HelpingHand.  On the Home page, options are displayed in the navigation bar for Login as well as Logout.  Clicking Login, for the Username for "Login as Recipient" please use rlarson with the password ralphlarson and click Login as Recipient. He is one of several recipients in our database.  
+
+Recipient access allows a user to be able to find a pantry close to him/her based on zipcode.  Additional options on the page allow for showing an order history once generated from the pantry as well as returning to home.  Enter a zipcode into the search for finding a pantry.  The site will then provide you with the ability to see the MICA food pantry's inventory which they shared to our site.  Click "Show Inventory" and the items the pantry currently has are displayed.  Selecting "Add to Cart" for any items of interest and then "Items in Cart" will take you to a page to show your order/cart.
+
+From there, if you made a mistake, you can either "Delete" the choice, or click "Place Your Order" to schedule the appointment from the pantry for local pickup.  If you choose "Return to List" you can select additional items from the list as needed.  
+
+The Appointment page lets you select from a calender for the Date and Time (Local Date Time) and then "Submit Appointment." When the appointment is entered a confirmation form is provided on screen with the date time and the pantry address.  You can then choose to return to the Recipient or Home pages.  The site requires once the recipent has finished to the provide a provider's username and password.
+
+Selecting "Login" enter atate as the username and anntate as the password followed by "Login as Provider."  Please use Provider access allows...  The shopping cart... 
 
 # Technologies Used
 
