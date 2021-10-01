@@ -19,19 +19,43 @@
 
 <body>
 
-	<h3>add item:</h3>
-	<c:choose>
-		<c:when test="${empty isAdded}">
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<div class="container-fluid">
+			<a class="navbar-brand" href="#">Helping Hand</a>
+			<button class="navbar-toggler" type="button"
+				data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+				aria-controls="navbarNavAltMarkup" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+				<div class="navbar-nav">
+					<a class="nav-link active" aria-current="page" href="home.do">Home</a>
+					<!-- <a
+						class="nav-link" href="pantry.do">Pantry</a> -->
+					<a class="nav-link" href="signin.do">Login</a>
+					<!-- <a class="nav-link disabled">Disabled</a> -->
+				</div>
+			</div>
+		</div>
+	</nav>
+
+	<div class="page">
+		<h3>add item:</h3>
+		<c:choose>
+			<c:when test="${empty isAdded}">
 			Fail to add item to cart!
 		</c:when>
-		<c:otherwise>
+			<c:otherwise>
 			Congratulations! The item has been added to cart!
 		</c:otherwise>
-	</c:choose>
+		</c:choose>
 
-	<form action="backList.do" method="get">
-		<input type="submit" value="Back To List" />
-	</form>
+		<form action="backList.do" method="get">
+			<input class="btn info" type="submit" value="Back To List" />
+		</form>
+
+	</div>
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
 		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
 		crossorigin="anonymous"></script>

@@ -6,7 +6,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<<<<<<< HEAD
 
+=======
+>>>>>>> 65c37590b2b35cc0f80c7845668c8f2bdb97b91f
 <title>Your Order</title>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
@@ -19,7 +22,10 @@
 
 <body>
 
-	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+<div class="page" >
+
 		<div class="container-fluid">
 			<a class="navbar-brand" href="#">Helping Hand</a>
 			<button class="navbar-toggler" type="button"
@@ -41,30 +47,45 @@
 
 	<h3>Show Order:</h3>
 
-	<c:choose>
-		<c:when test="${empty orderItems}">
-				You haven't order yet!
-			</c:when>
-		<c:otherwise>
-			<c:forEach var="order" items="${orderItems}">
-					${order.inventoryItem.inventory.name} <br />
+<c:choose>
+	<c:when test="${empty orderItems}">
+		You haven't order yet!
+	</c:when>
+	<c:otherwise>
+	<table>
+		<tr>
+			<th>ItemId</th>
+			<th>Name</th>
+			<th>Operation</th>
+		</tr>
+		<c:forEach var="order" items="${orderItems}">
+		<tr>
+			<td>${order.id}</td>
+			<td>${order.inventoryItem.inventory.name}</td>
+			<td>
 				<form action="delete.do" method="post">
-					<input type="hidden" name="cartItemId" value="${order.id}" /> <input
-						type="submit" value="Delete" />
+					<input type="hidden" name="cartItemId" value="${order.id}" /> 
+					<input class="btn warning" type="submit" value="Delete" />
 				</form>
-			</c:forEach>
-		</c:otherwise>
-	</c:choose>
+			</td>
+		</tr>
+		</c:forEach>
+	</table>
+	</c:otherwise>
+</c:choose>
+		
 	<br />
 	<hr />
 
 	<form action="placeOrder.do" method="post">
-		<input type="submit" value="Place Your Order" />
+		<input class="btn info" type="submit" value="Place Your Order" />
 	</form>
 
 	<form action="list.do" method="get">
-		<input type="submit" value="Back To List" />
+		<input class="btn info" type="submit" value="Back To List" />
 	</form>
+</div>
+
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
 		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
 		crossorigin="anonymous"></script>

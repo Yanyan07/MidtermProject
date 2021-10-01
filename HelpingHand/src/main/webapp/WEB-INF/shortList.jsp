@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-
+<<<<<<< HEAD ======= >>>>>>> 65c37590b2b35cc0f80c7845668c8f2bdb97b91f
 <title>Item Restocking</title>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
@@ -31,66 +31,66 @@
 			<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 				<div class="navbar-nav">
 					<a class="nav-link active" aria-current="page" href="home.do">Home</a>
-					<!-- <a class="nav-link" href="pantry.do">Pantry</a>  --><a class="nav-link"
-						href="signin.do">Login</a>
+					<!-- <a class="nav-link" href="pantry.do">Pantry</a>  -->
+					<a class="nav-link" href="signin.do">Login</a>
 					<!-- <a class="nav-link disabled">Disabled</a> -->
 				</div>
 			</div>
 		</div>
 	</nav>
 
-	<c:choose>
-		<c:when test="${empty shortList}">
+	<div class="page">
+		<c:choose>
+			<c:when test="${empty shortList}">
 				Everything is full!
 		</c:when>
-		<c:otherwise>
+			<c:otherwise>
+
+				<table>
+					<tr>
+						<th>ItemId</th>
+						<th>Name</th>
+						<th>Status</th>
+					</tr>
+					<c:forEach var="order" items="${shortList}">
+						<tr>
+							<td>${order.id}</td>
+							<td>${order.inventory.name}</td>
+							<td>Empty</td>
+						</tr>
+					</c:forEach>
+				</table>
+			</c:otherwise>
+		</c:choose>
+		<br />
+		<hr />
+
+		<c:if test="${not empty appointments}">
+			<h3>Show appointments in this pantry</h3>
 			<table>
 				<tr>
-					<th>Item Id
-					<th>
 					<th>Name
 					<th>
-					<th>Status
+					<th>Appointment Time
 					<th>
 				</tr>
-				<c:forEach var="order" items="${shortList}">
+				<c:forEach var="app" items="${appointments}">
 					<tr>
-						<td>${order.id}</td>
-						<td>${order.inventory.name}</td>
-						<td>Empty</td>
+						<td>${sessionScope.user.firstName}</td>
+						<td>${app.appointmentDate}</td>
 					</tr>
 				</c:forEach>
 			</table>
-		</c:otherwise>
-	</c:choose>
-	<br />
-	<hr />
+		</c:if>
 
-	<c:if test="${not empty appointments}">
-		<h3>Show appointments in this pantry</h3>
-		<table>
-			<tr>
-				<th>Name
-				<th>
-				<th>Appointment Time
-				<th>
-			</tr>
-			<c:forEach var="app" items="${appointments}">
-				<tr>
-					<td>${sessionScope.user.firstName}</td>
-					<td>${app.appointmentDate}</td>
-				</tr>
-			</c:forEach>
-		</table>
-	</c:if>
+		<form action="back.do" method="post">
+			<input class="btn info" type="submit" value="Back To Provider" />
+		</form>
 
-	<form action="back.do" method="post">
-		<input type="submit" value="Back To Provider" />
-	</form>
-
-	<form action="home.do" method="get">
-		<input type="submit" value="Back To Home" />
-	</form>
+		<form action="home.do" method="get">
+			<input class="btn info" type="submit" value="Back To Home" />
+		</form>
+	</div>
 
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
 		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

@@ -13,9 +13,16 @@
 	rel="stylesheet"
 	integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
 	crossorigin="anonymous">
+
+<title>Insert title here</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+ <link rel="stylesheet" type="text/css" href="css/home.css">
+
+</head>
+
 <body>
 
-	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
 		<div class="container-fluid">
 			<a class="navbar-brand" href="#">Helping Hand</a>
 			<button class="navbar-toggler" type="button"
@@ -26,48 +33,62 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 				<div class="navbar-nav">
-					<a class="nav-link active" aria-current="page" href="home.do">Home</a>
-					<!-- <a class="nav-link" href="pantry.do">Pantry</a> --> <a class="nav-link"
+					<a class="nav-link active" aria-current="page" href="home.do">Home</a> <a
+						class="nav-link" href="pantry.do">Pantry</a> <a class="nav-link"
 						href="signin.do">Login</a>
 					<!-- <a class="nav-link disabled">Disabled</a> -->
 				</div>
-			</div>
-		</div>
-	</nav>
-<h2>Show List:</h2>
-	<div id="Main">
-		<table>
+				</div>
+				</div>
+				</nav>
 
-			<c:forEach var="i" items="${list}">
-				<tr>
-					<td>${i.inventory.name}</td>
-					<td>
-						<form action="addToCart.do" method="post">
-							<input type="hidden" name="inventoryItemId" value="${i.id}" /> <input
-								type="submit" value="Add To Cart" />
-						</form>
-					</td>
-				</tr>
-			</c:forEach>
-		</table>
+<div class="page" >
 
-		<hr />
-		<h3>Show the order:</h3>
-		<form action="showOrder.do" method="get">
-			<input type="submit" value="Items in Cart" />
-		</form>
-
-		<br />
-
-		<form action="backRecipient.do" method="get">
-			<input type="submit" value="Back To Recipient" />
-		</form>
+	<h2>Show List:</h2>
+<c:choose>
+	<c:when test="${empty list}">
+		The List Is Empty!
+	</c:when>
+	<c:otherwise>	
+	<table>
+		<tr>
+			<th>ItemId</th>
+			<th>Name</th>
+			<th>Operation</th>
+		</tr>
+		<c:forEach var="i" items="${list}">
+		<tr>
+			<td>${i.id}</td>
+			<td>${i.inventory.name}</td>
+			<td>
+				<form action="addToCart.do" method="post">
+ 				<input type="hidden" name="inventoryItemId" value="${i.id}"/>
+ 				<input class="btn info" type="submit" value="Add To Cart" />
+ 				</form>
+			</td>
+		</tr>
+		</c:forEach>
+	</table>
+	</c:otherwise>
+</c:choose>	
+ 	<hr/>
+ 	<h3>Show the order:</h3>
+ 	<form action="showOrder.do" method="get">
+ 		<input class="btn info" type="submit" value="Items in Cart" />
+ 	</form>
+ 	
+ 	<br/>
+	<form action="backRecipient.do" method="get">
+		<input class="btn info" type="submit" value="Back To Recipient" />
+	</form>
 	</div>
 
 	<br />
 	<form action="home.do" method="get">
-		<input type="submit" value="Back To Home" />
+		<input class="btn info" type="submit" value="Back To Home" />
 	</form>
+</div>
+
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
 		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
 		crossorigin="anonymous"></script>

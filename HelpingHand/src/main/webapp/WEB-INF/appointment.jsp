@@ -17,32 +17,55 @@
 </head>
 
 <body>
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<div class="container-fluid">
+			<a class="navbar-brand" href="#">Helping Hand</a>
+			<button class="navbar-toggler" type="button"
+				data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+				aria-controls="navbarNavAltMarkup" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+				<div class="navbar-nav">
+					<a class="nav-link active" aria-current="page" href="home.do">Home</a>
+					<!-- <a
+						class="nav-link" href="pantry.do">Pantry</a> -->
+					<a class="nav-link" href="signin.do">Login</a>
+					<!-- <a class="nav-link disabled">Disabled</a> -->
+				</div>
+			</div>
+		</div>
+	</nav>
+	<div class="page">
+		<form action="updateappointment.do?id=${appointment.id }"
+			method="POST">
+			<h5>To update an appointment, provide the following:</h5>
 
-	<form action="updateappointment.do?id=${appointment.id }" method="POST">
-		<h5>To update an appointment, provide the following:</h5>
+			<br> Date: <input type="text" name="name"
+				value=${appointment.date }><br> <br> Time: <input
+				type="text" name="name" value=${appointment.time }><br>
+			<br> <br> <br> <input class="btn btn-primary"
+				type="submit" value="Edit Appointment" />
+		</form>
+		<br> <br>
 
-		<br> Date: <input type="text" name="name"
-			value=${appointment.date }><br> <br> Time: <input
-			type="text" name="name" value=${appointment.time }><br>
-		<br> <br> <br> <input class="btn btn-primary"
-			type="submit" value="Edit Appointment" />
-	</form>
-	<br>
-	<br>
+		<form class="form" action="create.do" method="GET">
+			Update Appointment: <input type="text" name="id" /> <input
+				class="btn btn-primary" type="submit" value="Update Appointment" />
+		</form>
 
-	<form class="form" action="create.do" method="GET">
-		Update Appointment: <input type="text" name="id" /> <input
-			class="btn btn-primary" type="submit" value="Update Appointment" />
-	</form>
+		<form action="newappointment.do" method="POST">
+			<h5>To create an appointment, please provide the following:</h5>
+			<br> UserId: <input type="text" name="userId"><br>
+			<br> Appointment Date: <input type="datetime-local"
+				name="appointmentDate"><br> <br> Location: <input
+				type="text" name="pantryId"><br> <br> <input
+				class="btn btn-primary" type="submit" value="Submit Appointment" /><br>
+			<br>
+		</form>
+	</div>
 
-	<form action="newappointment.do" method="POST">
-		<h5>To create an appointment, please provide the following:</h5>
-		<br> UserId: <input type="text" name="userId"><br> <br>
-		Appointment Date: <input type="datetime-local" name="appointmentDate"><br>
-		<br> Location: <input type="text" name="pantryId"><br>
-		<br> <input class="btn btn-primary" type="submit"
-			value="Submit Appointment" /><br> <br>
-	</form>
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
 		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
 		crossorigin="anonymous"></script>

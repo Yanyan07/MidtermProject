@@ -29,8 +29,10 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 				<div class="navbar-nav">
-					<a class="nav-link active" aria-current="page" href="home.do">Home</a> <!-- <a
-						class="nav-link" href="pantry.do">Pantry</a> --> <a class="nav-link"
+					<a class="nav-link active" aria-current="page" href="home.do">Home</a>
+					<!-- <a
+						class="nav-link" href="pantry.do">Pantry</a> -->
+					<a class="nav-link"
 						href="signin.do">Login</a>
 					<!-- <a class="nav-link disabled">Disabled</a> -->
 				</div>
@@ -43,14 +45,14 @@
 		<c:when test="${empty sessionScope.pantry}">
 			No pantry is found, please go back to search again.
 			<form action="login.do" method="get">
-				<input type="submit" value="Search Again" />
+				<input class="btn info" type="submit" value="Search Again" />
 			</form>
 		</c:when>
 		<c:otherwise>
 			<h3>Thank you for choosing:</h3>
 			${sessionScope.pantry.name }<br />
 			<form action="list.do" method="get">
-			<input type="submit" value="Show Inventory of the Pantry" />
+			<input class="btn info" type="submit" value="Show Inventory" />
 			</form>
 		</c:otherwise>
 	</c:choose>
@@ -58,12 +60,12 @@
 
 	<br/>
 	<form action="backRecipient.do" method="get">
-		<input type="submit" value="Back To Recipient" />
+		<input class="btn info" type="submit" value="Back To Recipient" />
 	</form>
 
 	<br />
 	<form action="home.do" method="get">
-		<input type="submit" value="Back To Home" />
+		<input class="btn info" type="submit" value="Back To Home" />
 	</form>
 </div>
 
