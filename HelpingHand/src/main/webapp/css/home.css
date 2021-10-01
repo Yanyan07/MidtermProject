@@ -1,49 +1,63 @@
 
-h1{ color:	RGB 205,92,92;
-
-/* h3{ color: white; */
-
-font-family: Georgia (serif);
+/* h1{ color: red;
+​
+font-family: cursive;
 }
-
+​
 	#Main{
 	text-align: center;
 	}
-
+​
 	body {
-<<<<<<< HEAD
-	background-color:	Cornflower Blue;
-	}
-	
-	#submit {
-    background-color: #ccc;
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
-    border-radius:6px;
-    color: #fff;
-    font-family: 'Oswald';
-    font-size: 20px;
-    text-decoration: none;
-    cursor: pointer;
-    border:none;
-}
-
-
-
-#submit:hover {
-    border: none;
-    background:red;
-    box-shadow: 0px 0px 1px #777;
-}
-=======
-
 	background-color: gray;
+	} 
+ */
+ 
+​
+div.page{
+	margin: 0;
+	padding: 100px;
+  	background-color:  #f1f1f1;
+}
+​
+form label{
+	display: inline_block;
+	width:100px;
+	text-align: right;
+}
+input{
+	width: 220px;
+    margin: 1px;
+  	display: inline-block;
+  	border: 1px solid #999999;
+  	border-radius: 4px;
+  	box-sizing: border-box;
+}
+​
+th{
+	text-align: left;
+} 
+​
+.btn {
+  border: none; /* Remove borders */
+  color: white; /* Add a text color */
+  /* padding: 14px 28px; Add some padding */
+  cursor: pointer; /* Add a pointer cursor on mouse-over */
+}
+.info {background-color: #4CAF50;} /* Blue #46a049*/
+.info:hover {background: #00cc99;}
+.warning {background-color: #e68a00;} /* Orange */
+.warning:hover {background: #ff9800;}
+​
+Collapse
 
-	}
-	
-	p{ font-family: cursive;
-	
-	color: white;
-	
-	}
->>>>>>> a274f2756bf00648655551e3100412f5bd6c3cbd
+
+
+white_check_mark
+eyes
+raised_hands
+
+
+
+
+

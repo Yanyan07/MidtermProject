@@ -15,8 +15,6 @@
 	crossorigin="anonymous">
 <body>
 
-	<h2>Show List:</h2>
-
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
 		<div class="container-fluid">
 			<a class="navbar-brand" href="#">Helping Hand</a>
@@ -29,14 +27,14 @@
 			<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 				<div class="navbar-nav">
 					<a class="nav-link active" aria-current="page" href="home.do">Home</a>
-					<a class="nav-link" href="pantry.do">Pantry</a> <a class="nav-link"
+					<!-- <a class="nav-link" href="pantry.do">Pantry</a> --> <a class="nav-link"
 						href="signin.do">Login</a>
 					<!-- <a class="nav-link disabled">Disabled</a> -->
 				</div>
 			</div>
 		</div>
 	</nav>
-
+<h2>Show List:</h2>
 	<div id="Main">
 		<table>
 

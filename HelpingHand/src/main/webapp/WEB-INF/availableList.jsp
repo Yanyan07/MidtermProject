@@ -7,7 +7,6 @@
 <head>
 <meta charset="UTF-8">
 <title>Show Available List</title>
-<<<<<<< HEAD
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
 	rel="stylesheet"

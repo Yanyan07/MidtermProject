@@ -33,8 +33,8 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 				<div class="navbar-nav">
-					<a class="nav-link active" aria-current="page" href="home.do">Home</a> <a
-						class="nav-link" href="pantry.do">Pantry</a> <a class="nav-link"
+					<a class="nav-link active" aria-current="page" href="home.do">Home</a> <!-- <a
+						class="nav-link" href="pantry.do">Pantry</a> --> <a class="nav-link"
 						href="signin.do">Login</a>
 					<!-- <a class="nav-link disabled">Disabled</a> -->
 				</div>
