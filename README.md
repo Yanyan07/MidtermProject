@@ -20,7 +20,9 @@ From there, if you made a mistake, you can either "Delete" the choice, or click 
 
 The Appointment page lets you select from a calender for the Date and Time (Local Date Time) and then "Submit Appointment." When the appointment is entered a confirmation form is provided on screen with the date time and the pantry address.  You can then choose to return to the Recipient or Home pages.  The site requires once the recipent has finished to the provide a provider's username and password.
 
-Selecting "Login" enter atate as the username and anntate as the password followed by "Login as Provider."  Please use Provider access allows...  The shopping cart... 
+Selecting "Login" from the navigation pane, enter atate as the username and anntate as the password followed by "Login as Provider."  The Provider access page allows for finding all appointments for the pantry, showing what items at the pantry are currently out of stock,  and refilling inventory for the pantry (under the assumption that the inventory items being provided are staples and are replenished frequently). Each of the respective pages allows for a return to the Provider page or to return Home.  Lastly, Logout from the navigation pane will end the current session.
+
+Thank you for reviewing our project.  We hope you enjoyed it as much as we did creating it!
 
 # Technologies Used
 
