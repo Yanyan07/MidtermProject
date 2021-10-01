@@ -19,7 +19,7 @@
 
 <body>
 
-	<h3>Please SignIn</h3>
+	<h3>Please Sign In</h3>
 	<br />
 
 	<form action="login.do" method="get">

@@ -1,7 +1,9 @@
 
-h1{ color: red;
+h1{ color:	RGB 205,92,92;
 
-font-family: cursive;
+/* h3{ color: white; */
+
+font-family: Georgia (serif);
 }
 
 	#Main{
@@ -9,5 +11,26 @@ font-family: cursive;
 	}
 
 	body {
-	background-color: gray;
+	background-color:	Cornflower Blue;
 	}
+	
+	#submit {
+    background-color: #ccc;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius:6px;
+    color: #fff;
+    font-family: 'Oswald';
+    font-size: 20px;
+    text-decoration: none;
+    cursor: pointer;
+    border:none;
+}
+
+
+
+#submit:hover {
+    border: none;
+    background:red;
+    box-shadow: 0px 0px 1px #777;
+}

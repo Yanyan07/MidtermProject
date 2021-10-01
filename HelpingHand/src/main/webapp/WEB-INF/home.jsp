@@ -48,14 +48,14 @@
 					<hr />
 
 
-					<p>A food pantry is not only a resource for those in need. It
+					<p><b>A food pantry is not only a resource for those in need. It
 						provides help and hope. Most of all it lifts those with the
 						greatest need in a community with a helping hand to rise above
 						their current economic status. Helping Hand aims to serve our
 						local communities by providing an online resource that connects
 						people in need with local food banks and pantries. We are only as
 						strong as the least among us. "There is no exercise better for the
-						heart than reaching down and lifting people up." -John Holmes,
+						heart than reaching down and lifting people up."</b><br> -John Holmes,
 						army veteran and author</p>
 
 					<img
