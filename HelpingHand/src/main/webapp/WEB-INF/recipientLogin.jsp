@@ -51,25 +51,25 @@
 		<h3>Welcome ${user.username}</h3>
 
 <br>
-		<center><h3>Find Closest Pantry by Zip Code:</h3>
+		<center><h3>Find Closest Pantry by Zip Code:</h3></center>
 		<form action="pantry.do" method="get">
-			<label>Zip Code:</label><input type="text" name="zipcode" /> <input
-				class="btn info" type="submit" value="Find Closest Pantry" />
-		</form><center>
+			<center><label>Zip Code:</label><input type="text" name="zipcode" /></center> 
+			<center><input class="btn info" type="submit" value="Find Closest Pantry" /></center> 
+		</form>
 <br>
 <br>
-		<center><h3>Your Order History:</h3>
+		<center><h3>Your Order History:</h3></center>
 		<form action="orderHistory.do" method="get">
-			<input class="btn info" type="submit" value="Show Order History" />
-		</form></center>
+			<center><input class="btn info" type="submit" value="Show Order History" /></center>
+		</form>
 <br>
-		<center><form action="home.do" method="get">
-			<input class="btn info" type="submit" value="Back To Home" />
-		</form></center>
+		<form action="home.do" method="get">
+			<center><input class="btn info" type="submit" value="Back To Home" /></center>
+		</form>
 	</div>
 	<br>
 	
-	<center><img src="https://img.i-scmp.com/cdn-cgi/image/fit=contain,width=1098,format=auto/sites/default/files/styles/1200x800/public/d8/images/methode/2019/08/22/507c0954-c3ea-11e9-ad8c-27551fb90b05_image_hires_131152.jpg?itok=QzBw0fxs&v=1566450728" width="800" height="600"></center>
+	<center></center>
 
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
 		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

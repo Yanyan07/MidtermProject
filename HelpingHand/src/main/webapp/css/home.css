@@ -13,12 +13,6 @@ font-family: cursive;
 	} 
  */
  
-​
-div.page{
-
-	} 
- */
- 
 body{
 
 	margin: 0;
@@ -61,8 +55,8 @@ th{
 .warning {background-color: #e68a00;} /* Orange */
 .warning:hover {background: #ff9800;}
 	
-	p{ font-family: cursive;
+	p{ font-family: Arial(sans serif);
 	
-	color: white;
+	color: black;
 	
 	}

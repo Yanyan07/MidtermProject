@@ -44,21 +44,21 @@
 	Welcome ${user.username}
 	<br>
 	<center>
-		<h3>Find Our Pantry's Appointments</h3>
+		<h3>Find Our Pantry's Appointments:</h3>
 		<form action="appointments.do" method="post">
 			<input class="btn info" class="btn info" type="submit" />
 		</form></center>
-
+<br>
 		<center><h3>Show Inventory Short Stock:</h3>
 		<form action="short.do">
-			<input class="btn info" class="btn info" type="submit" />
+			<center><input class="btn info" class="btn info" type="submit" />
 		</form></center>
-
+<br>
 		<center><h3>Refill Inventory Item:</h3>
 		<form action="refill.do">
 			<input class="btn info" class="btn info" type="submit" />
 		</form></center>
-
+<br>
 		<c:if test="${not empty appointments}">
 			<center><h3>Show This Pantry's Appointments:</h3>
 			<table>
@@ -75,9 +75,7 @@
 			</table></center>
 		</c:if>
 		</div>
-		
-		<center><img src="https://moneytamer.com/wp-content/uploads/2020/08/paper-bag-with-groceries-spilled-out.jpg"></center>
-
+		<center><img src="https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F24%2F2021%2F04%2F12%2FGettyImages-1253294428-2000.jpg" width="800" height="500"></center>
 		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
 			integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
 			crossorigin="anonymous"></script>

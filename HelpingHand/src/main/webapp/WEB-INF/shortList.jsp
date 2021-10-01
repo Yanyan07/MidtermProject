@@ -41,7 +41,7 @@
 	<div class="page">
 		<c:choose>
 			<c:when test="${empty shortList}">
-				Items are now restocked.  Everything is full!
+				Everything is full!
 		</c:when>
 			<c:otherwise>
 
@@ -65,7 +65,7 @@
 		<hr />
 
 		<c:if test="${not empty appointments}">
-			<center><h3>Show This Pantry's Appointments:</h3>
+			<h3>Show appointments in this pantry</h3>
 			<table>
 				<tr>
 					<th>Name
@@ -79,16 +79,16 @@
 						<td>${app.appointmentDate}</td>
 					</tr>
 				</c:forEach>
-			</table></center>
+			</table>
 		</c:if>
 
-		<center><form action="back.do" method="post">
+		<form action="back.do" method="post">
 			<input class="btn info" type="submit" value="Back To Provider" />
-		</form></center>
+		</form>
 
-		<center><form action="home.do" method="get">
+		<form action="home.do" method="get">
 			<input class="btn info" type="submit" value="Back To Home" />
-		</form></center>
+		</form>
 	</div>
 
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
