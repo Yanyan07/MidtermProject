@@ -9,7 +9,7 @@
 
 # Overview
 
-In this project, we created a food pantry project called "Helping Hand." The project allows both a login for providers(pantries) and recipients(those who may need to receive assistance/food from a local pantry).  
+In this project, we created a food pantry project called "Helping Hand." The project allows both a login for providers(pantries) and recipients(those who may need to receive assistance/food from a local pantry) and associated CRUD functions where applicable for both.  
 
 # How to Use
 In your browser, please entering the following AWS IP and address:  18.118.127.156:8080/HelpingHand.  On the Home page, options are displayed in the navigation bar for Login as well as Logout.  Clicking Login, for the Username for "Login as Recipient" please use "rlarson" with the password "ralphlarson" and click Login as Recipient. He is one of several recipients in our database.  
