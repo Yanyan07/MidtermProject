@@ -6,7 +6,6 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<<<<<<< HEAD ======= >>>>>>> 65c37590b2b35cc0f80c7845668c8f2bdb97b91f
 <title>Item Restocking</title>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"

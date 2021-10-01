@@ -41,31 +41,33 @@
 
 		<div class="page">
 			<form action="newappointment.do" method="POST">
-				<h3>Schedule a Pickup Appointment</h3>
-				<lable>Appointment Date:</lable>
+				<center><h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Schedule a Pickup Appointment&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h3></center>
+				<label>Date:</label>
 				<input type="datetime-local" name="appointmentDate"><br>
-				<input class="btn info" type="submit" value="Submit Appointment" />
+				<center><input class="btn info" type="submit" value="Submit Appointment" /></center>
 			</form>
 
 
 			<c:if test="${not empty appointment}">
-				<h4>You have appointment at:</h4>
-	${appointment.appointmentDate}<br />
-	Pick up at:<br /> 
-	${appointment.pantry.address.streetAddress }
-	${appointment.pantry.address.city }
+				<center><h4>You have appointment at:</h4></center>
+	<center>${appointment.appointmentDate}</center><br />
+	<center>Pick up at:</center><br /> 
+	<center>${appointment.pantry.address.streetAddress }</center>
+	<center>${appointment.pantry.address.city }</center>
 	</c:if>
 
 			<br />
-			<form action="backRecipient.do" method="get">
+			<center><form action="backRecipient.do" method="get">
 				<input class="btn info" type="submit" value="Back To Recipient" />
-			</form>
+			</form></center>
 
 			<br />
-			<form action="home.do" method="get">
+			<center><form action="home.do" method="get">
 				<input class="btn info" type="submit" value="Back To Home" />
-			</form>
+			</form></center>
 		</div>
+		
+		<center><img src="https://www.gannett-cdn.com/presto/2021/07/05/NAAS/0bbd2250-5e90-4eea-8492-cfeea171f0ee-Calendar.JPG?crop=851,479,x0,y0&width=851&height=479&format=pjpg&auto=webp" width="700" height="500">
 
 		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
 			integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

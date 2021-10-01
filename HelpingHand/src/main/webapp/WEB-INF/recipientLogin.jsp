@@ -50,22 +50,26 @@
 
 		<h3>Welcome ${user.username}</h3>
 
-
-		<h3>Search the closest pantry by zipcode</h3>
+<br>
+		<center><h3>Find Closest Pantry by Zip Code:</h3></center>
 		<form action="pantry.do" method="get">
-			<label>zipcode:</label><input type="text" name="zipcode" /> <input
-				class="btn info" type="submit" value="Search The Closest Pantry" />
+			<center><label>Zip Code:</label><input type="text" name="zipcode" /></center> 
+			<center><input class="btn info" type="submit" value="Find Closest Pantry" /></center> 
 		</form>
-
-		<h3>Show the Order History</h3>
+<br>
+<br>
+		<center><h3>Your Order History:</h3></center>
 		<form action="orderHistory.do" method="get">
-			<input class="btn info" type="submit" value="Show Order History" />
+			<center><input class="btn info" type="submit" value="Show Order History" /></center>
 		</form>
-
+<br>
 		<form action="home.do" method="get">
-			<input class="btn info" type="submit" value="Back To Home" />
+			<center><input class="btn info" type="submit" value="Back To Home" /></center>
 		</form>
 	</div>
+	<br>
+	
+	<center></center>
 
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
 		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
