@@ -19,47 +19,71 @@
 
 <body>
 
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<div class="container-fluid">
+			<a class="navbar-brand" href="#">Helping Hand</a>
+			<button class="navbar-toggler" type="button"
+				data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+				aria-controls="navbarNavAltMarkup" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+				<div class="navbar-nav">
+					<a class="nav-link active" aria-current="page" href="home.do">Home</a>
+					<a class="nav-link" href="pantry.do">Pantry</a> <a class="nav-link"
+						href="signin.do">Login</a>
+					<!-- <a class="nav-link disabled">Disabled</a> -->
+				</div>
+			</div>
+		</div>
+	</nav>
+
 	<c:choose>
 		<c:when test="${empty shortList}">
 				Everything is full!
 		</c:when>
 		<c:otherwise>
-		  <table>
-			<tr>
-			<th>Item Id<th>
-			<th>Name<th>
-			<th>Status<th>
-			</tr>
-	  		<c:forEach var="order" items="${shortList}">
-			<tr>
-			<td>${order.id}</td>
-			<td>${order.inventory.name}</td>
-			<td>Empty</td>
-			</tr>
-	     	</c:forEach>
-      	   </table>
+			<table>
+				<tr>
+					<th>Item Id
+					<th>
+					<th>Name
+					<th>
+					<th>Status
+					<th>
+				</tr>
+				<c:forEach var="order" items="${shortList}">
+					<tr>
+						<td>${order.id}</td>
+						<td>${order.inventory.name}</td>
+						<td>Empty</td>
+					</tr>
+				</c:forEach>
+			</table>
 		</c:otherwise>
 	</c:choose>
 	<br />
 	<hr />
-	
+
 	<c:if test="${not empty appointments}">
 		<h3>Show appointments in this pantry</h3>
-	<table>
-		<tr>
-			<th>Name<th>
-			<th>Appointment Time<th>
-		</tr>
-	<c:forEach var="app" items="${appointments}">
-		<tr>
-			<td>${sessionScope.user.firstName}</td>
-			<td>${app.appointmentDate}</td>
-		</tr>
-	</c:forEach>
-    </table>
+		<table>
+			<tr>
+				<th>Name
+				<th>
+				<th>Appointment Time
+				<th>
+			</tr>
+			<c:forEach var="app" items="${appointments}">
+				<tr>
+					<td>${sessionScope.user.firstName}</td>
+					<td>${app.appointmentDate}</td>
+				</tr>
+			</c:forEach>
+		</table>
 	</c:if>
-	
->>>>>>> 5fd171abf9d1a58640898f3a21599df3b796a6a9
+
 	<form action="back.do" method="post">
 		<input type="submit" value="Back To Provider" />
 	</form>

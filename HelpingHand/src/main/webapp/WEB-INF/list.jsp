@@ -13,34 +13,58 @@
 	rel="stylesheet"
 	integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
 	crossorigin="anonymous">
-
 <body>
-	<h2>Show List:</h2>
-<table>
-	<c:forEach var="i" items="${list}">
-		<tr>
-			<td>${i.inventory.name}</td>
-			<td>
-				<form action="addToCart.do" method="post">
- 				<input type="hidden" name="inventoryItemId" value="${i.id}"/>
- 				<input type="submit" value="Add To Cart" />
- 				</form>
-			</td>
-		</tr>
-	</c:forEach>
-</table>
-	
- 	<hr/>
- 	<h3>Show the order:</h3>
- 	<form action="showOrder.do" method="get">
- 		<input type="submit" value="Items in Cart" />
- 	</form>
- 	
- 	<br/>
 
-	<form action="backRecipient.do" method="get">
-		<input type="submit" value="Back To Recipient" />
-	</form>
+	<h2>Show List:</h2>
+
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<div class="container-fluid">
+			<a class="navbar-brand" href="#">Helping Hand</a>
+			<button class="navbar-toggler" type="button"
+				data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+				aria-controls="navbarNavAltMarkup" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+				<div class="navbar-nav">
+					<a class="nav-link active" aria-current="page" href="home.do">Home</a>
+					<a class="nav-link" href="pantry.do">Pantry</a> <a class="nav-link"
+						href="signin.do">Login</a>
+					<!-- <a class="nav-link disabled">Disabled</a> -->
+				</div>
+			</div>
+		</div>
+	</nav>
+
+	<div id="Main">
+		<table>
+
+			<c:forEach var="i" items="${list}">
+				<tr>
+					<td>${i.inventory.name}</td>
+					<td>
+						<form action="addToCart.do" method="post">
+							<input type="hidden" name="inventoryItemId" value="${i.id}" /> <input
+								type="submit" value="Add To Cart" />
+						</form>
+					</td>
+				</tr>
+			</c:forEach>
+		</table>
+
+		<hr />
+		<h3>Show the order:</h3>
+		<form action="showOrder.do" method="get">
+			<input type="submit" value="Items in Cart" />
+		</form>
+
+		<br />
+
+		<form action="backRecipient.do" method="get">
+			<input type="submit" value="Back To Recipient" />
+		</form>
+	</div>
 
 	<br />
 	<form action="home.do" method="get">

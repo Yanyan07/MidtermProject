@@ -11,6 +11,7 @@ font-family: Georgia (serif);
 	}
 
 	body {
+<<<<<<< HEAD
 	background-color:	Cornflower Blue;
 	}
 	
@@ -34,3 +35,15 @@ font-family: Georgia (serif);
     background:red;
     box-shadow: 0px 0px 1px #777;
 }
+=======
+
+	background-color: gray;
+
+	}
+	
+	p{ font-family: cursive;
+	
+	color: white;
+	
+	}
+>>>>>>> a274f2756bf00648655551e3100412f5bd6c3cbd
