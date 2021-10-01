@@ -19,54 +19,43 @@
 
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Helping Hand</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="home.jsp">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="list.jsp">List</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">???</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Login/Create Account
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<div class="container-fluid">
+			<a class="navbar-brand" href="#">Helping Hand</a>
+			<button class="navbar-toggler" type="button"
+				data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+				aria-controls="navbarNavAltMarkup" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+				<div class="navbar-nav">
+					<a class="nav-link active" aria-current="page" href="home.do">Home</a>
+					<!-- <a
+						class="nav-link" href="pantry.do">Pantry</a> -->
+					<a class="nav-link" href="signin.do">Login</a>
+					<!-- <a class="nav-link disabled">Disabled</a> -->
+				</div>
+			</div>
+		</div>
+	</nav>
 
-<div class="page" >
-	<h3>add item:</h3>
-	<c:choose>
-		<c:when test="${empty isAdded}">
+	<div class="page">
+		<h3>add item:</h3>
+		<c:choose>
+			<c:when test="${empty isAdded}">
 			Fail to add item to cart!
 		</c:when>
-		<c:otherwise>
+			<c:otherwise>
 			Congratulations! The item has been added to cart!
 		</c:otherwise>
-	</c:choose>
+		</c:choose>
 
-	<form action="backList.do" method="get">
-		<input class="btn info" type="submit" value="Back To List" />
-	</form>
-	
-</div>	
+		<form action="backList.do" method="get">
+			<input class="btn info" type="submit" value="Back To List" />
+		</form>
+
+	</div>
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
 		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
 		crossorigin="anonymous"></script>

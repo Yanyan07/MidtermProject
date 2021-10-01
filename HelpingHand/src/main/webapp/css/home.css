@@ -3,23 +3,29 @@
 
 font-family: cursive;
 }
-
+​
 	#Main{
 	text-align: center;
 	}
-
+​
 	body {
-
 	background-color: gray;
-<<<<<<< HEAD
+	} 
+ */
+ 
+​
+div.page{
+
 	} 
  */
  
 body{
+
 	margin: 0;
 	padding: 100px;
   	background-color:  #f1f1f1;
 }
+
 /* div.page{
 	margin: 0;
 	padding: 100px;
@@ -54,7 +60,14 @@ th{
 .info:hover {background: #00cc99;}
 .warning {background-color: #e68a00;} /* Orange */
 .warning:hover {background: #ff9800;}
+​
+Collapse
 
+
+
+white_check_mark
+eyes
+raised_hands
 	
 	p{ font-family: cursive;
 	

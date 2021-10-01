@@ -6,6 +6,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<<<<<<< HEAD
+
+=======
+>>>>>>> 65c37590b2b35cc0f80c7845668c8f2bdb97b91f
 <title>Your Order</title>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
@@ -21,6 +25,7 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
 
 <div class="page" >
+
 		<div class="container-fluid">
 			<a class="navbar-brand" href="#">Helping Hand</a>
 			<button class="navbar-toggler" type="button"
@@ -31,15 +36,15 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 				<div class="navbar-nav">
-					<a class="nav-link active" aria-current="page" href="home.do">Home</a> <a
-						class="nav-link" href="pantry.do">Pantry</a> <a class="nav-link"
+					<a class="nav-link active" aria-current="page" href="home.do">Home</a>
+					<!-- <a class="nav-link" href="pantry.do">Pantry</a>  --><a class="nav-link"
 						href="signin.do">Login</a>
 					<!-- <a class="nav-link disabled">Disabled</a> -->
 				</div>
-				</div>
-				</div>
-				</nav>
-				
+			</div>
+		</div>
+	</nav>
+
 	<h3>Show Order:</h3>
 
 <c:choose>

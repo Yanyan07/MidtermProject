@@ -7,6 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
 	rel="stylesheet"
@@ -28,8 +29,10 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 				<div class="navbar-nav">
-					<a class="nav-link active" aria-current="page" href="home.do">Home</a> <a
-						class="nav-link" href="pantry.do">Pantry</a> <a class="nav-link"
+					<a class="nav-link active" aria-current="page" href="home.do">Home</a>
+					<!-- <a
+						class="nav-link" href="pantry.do">Pantry</a> -->
+					<a class="nav-link"
 						href="signin.do">Login</a>
 					<!-- <a class="nav-link disabled">Disabled</a> -->
 				</div>
@@ -54,6 +57,7 @@
 		</c:otherwise>
 	</c:choose>
 	<hr />
+
 	<br/>
 	<form action="backRecipient.do" method="get">
 		<input class="btn info" type="submit" value="Back To Recipient" />
