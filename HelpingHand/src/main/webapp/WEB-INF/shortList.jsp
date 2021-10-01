@@ -69,9 +69,9 @@
 			<table>
 				<tr>
 					<th>Name
-					<th>
+					</th>
 					<th>Appointment Time
-					<th>
+					</th>
 				</tr>
 				<c:forEach var="app" items="${appointments}">
 					<tr>

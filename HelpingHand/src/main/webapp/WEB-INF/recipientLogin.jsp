@@ -26,7 +26,6 @@
 </head>
 
 <body>
-	<div class="page">
 
 		<nav class="navbar navbar-expand-lg navbar-light bg-light">
 			<div class="container-fluid">
@@ -48,7 +47,8 @@
 			</div>
 		</nav>
 
-		<h3>Welcome ${user.username}</h3>
+	<div class="page">
+		Welcome ${user.username}
 
 <br>
 		<center><h3>Find Closest Pantry by Zip Code:</h3></center>

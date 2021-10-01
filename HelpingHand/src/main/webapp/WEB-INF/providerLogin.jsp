@@ -6,7 +6,6 @@
 <html>
 <head>
 <meta charset="UTF-8">
-
 <title>Login</title>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
@@ -21,7 +20,6 @@
 
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
 
-		<div class="page">
 			<div class="container-fluid">
 				<a class="navbar-brand" href="#">Helping Hand</a>
 				<button class="navbar-toggler" type="button"
@@ -41,6 +39,8 @@
 				</div>
 			</div>
 	</nav>
+	
+<div class="page">
 	Welcome ${user.username}
 	<br>
 	<center>
@@ -74,7 +74,7 @@
 				</c:forEach>
 			</table></center>
 		</c:if>
-		</div>
+</div>
 		<center><img src="https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F24%2F2021%2F04%2F12%2FGettyImages-1253294428-2000.jpg" width="800" height="500"></center>
 		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
 			integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

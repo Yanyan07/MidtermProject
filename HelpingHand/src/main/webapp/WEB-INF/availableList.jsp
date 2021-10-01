@@ -38,7 +38,7 @@
 		</div>
 	</nav>
 
-	<div class="page">
+<div class="page">
 		<c:choose>
 			<c:when test="${empty availableList}">
 				No product remaining.
@@ -46,9 +46,9 @@
 			<c:otherwise>
 				<center><table>
 					<tr>
-						<th>Item Id:</th>
-						<th>Name:</th>
-						<th>Status:</th>
+						<th>ItemId</th>
+						<th>Name</th>
+						<th>Status</th>
 					</tr>
 					<c:forEach var="order" items="${availableList}">
 						<tr>
@@ -70,7 +70,7 @@
 		<center><form action="home.do" method="get">
 			<input class="btn info" type="submit" value="Back To Home" />
 		</form>
-		<div class="page"></center>
+</div>
 
 			<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
 				integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

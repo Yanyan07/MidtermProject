@@ -6,7 +6,6 @@
 <html>
 <head>
 <meta charset="UTF-8">
-
 <title>Your Order</title>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
@@ -21,7 +20,6 @@
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
 
-<div class="page" >
 
 		<div class="container-fluid">
 			<a class="navbar-brand" href="#">Helping Hand</a>
@@ -42,6 +40,7 @@
 		</div>
 	</nav>
 
+<div class="page" >
 	<center><h3>Show Order:</h3></center>
 
 <c:choose>
