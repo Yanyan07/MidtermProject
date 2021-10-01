@@ -52,7 +52,7 @@
 		You haven't order yet!
 	</c:when>
 	<c:otherwise>
-	<table>
+	<center><table>
 		<tr>
 			<th>ItemId</th>
 			<th>Name</th>
@@ -70,20 +70,20 @@
 			</td>
 		</tr>
 		</c:forEach>
-	</table>
+	</table></center>
 	</c:otherwise>
 </c:choose>
 		
 	<br />
 	<hr />
 
-	<form action="placeOrder.do" method="post">
+	<center><form action="placeOrder.do" method="post">
 		<input class="btn info" type="submit" value="Place Your Order" />
-	</form>
+	</form></center>
 
-	<form action="list.do" method="get">
+	<center><form action="list.do" method="get">
 		<input class="btn info" type="submit" value="Back To List" />
-	</form>
+	</form></center>
 </div>
 
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

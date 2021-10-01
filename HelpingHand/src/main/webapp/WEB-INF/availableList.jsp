@@ -41,14 +41,14 @@
 	<div class="page">
 		<c:choose>
 			<c:when test="${empty availableList}">
-				Everything is Empty!
+				No product remaining.
 		</c:when>
 			<c:otherwise>
-				<table>
+				<center><table>
 					<tr>
-						<th>Item Id</th>
-						<th>Name</th>
-						<th>Status</th>
+						<th>Item Id:</th>
+						<th>Name:</th>
+						<th>Status:</th>
 					</tr>
 					<c:forEach var="order" items="${availableList}">
 						<tr>
@@ -57,20 +57,20 @@
 							<td>Available</td>
 						</tr>
 					</c:forEach>
-				</table>
+				</table></center>
 			</c:otherwise>
 		</c:choose>
 		<br />
 		<hr />
 
-		<form action="back.do" method="post">
+		<center><form action="back.do" method="post">
 			<input class="btn info" type="submit" value="Back To Provider" />
-		</form>
+		</form></center>
 
-		<form action="home.do" method="get">
+		<center><form action="home.do" method="get">
 			<input class="btn info" type="submit" value="Back To Home" />
 		</form>
-		<div class="page">
+		<div class="page"></center>
 
 			<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
 				integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

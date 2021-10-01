@@ -33,8 +33,8 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 				<div class="navbar-nav">
-					<a class="nav-link active" aria-current="page" href="home.do">Home</a> <a
-						class="nav-link" href="pantry.do">Pantry</a> <a class="nav-link"
+					<a class="nav-link active" aria-current="page" href="home.do">Home</a> <!-- <a
+						class="nav-link" href="pantry.do">Pantry</a>  --><a class="nav-link"
 						href="signin.do">Login</a>
 					<!-- <a class="nav-link disabled">Disabled</a> -->
 				</div>
@@ -44,17 +44,17 @@
 
 <div class="page" >
 
-	<h2>Show List:</h2>
+	<center><h2>Show List:</h2></center>
 <c:choose>
 	<c:when test="${empty list}">
 		The List Is Empty!
 	</c:when>
 	<c:otherwise>	
-	<table>
+	<center><table>
 		<tr>
-			<th>ItemId</th>
-			<th>Name</th>
-			<th>Operation</th>
+			<th>Item Id:</th>
+			<th>Name:</th>
+			<th>Operation:</th>
 		</tr>
 		<c:forEach var="i" items="${list}">
 		<tr>
@@ -68,25 +68,26 @@
 			</td>
 		</tr>
 		</c:forEach>
-	</table>
+	</table></center>
 	</c:otherwise>
 </c:choose>	
  	<hr/>
- 	<h3>Show the order:</h3>
+ 	<center><img src= "https://st4.depositphotos.com/10614052/i/600/depositphotos_198302598-stock-photo-paper-bag-fresh-fruits-vegetables.jpg"width="450" height="400"></center>
+ 	<center><h3>Show the order:</h3>
  	<form action="showOrder.do" method="get">
  		<input class="btn info" type="submit" value="Items in Cart" />
- 	</form>
+ 	</form></center>
  	
  	<br/>
-	<form action="backRecipient.do" method="get">
+	<center><form action="backRecipient.do" method="get">
 		<input class="btn info" type="submit" value="Back To Recipient" />
 	</form>
-	</div>
+	</div></center>
 
 	<br />
-	<form action="home.do" method="get">
+	<center><form action="home.do" method="get">
 		<input class="btn info" type="submit" value="Back To Home" />
-	</form>
+	</form></center>
 </div>
 
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

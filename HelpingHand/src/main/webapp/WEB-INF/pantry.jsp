@@ -49,26 +49,29 @@
 			</form>
 		</c:when>
 		<c:otherwise>
-			<h3>Thank you for choosing:</h3>
+			<center><h3>Thank you for choosing:</h3>
 			${sessionScope.pantry.name }<br />
 			<form action="list.do" method="get">
 			<input class="btn info" type="submit" value="Show Inventory" />
-			</form>
+			</form></center>
 		</c:otherwise>
 	</c:choose>
 	<hr />
 
 	<br/>
-	<form action="backRecipient.do" method="get">
+	<center><form action="backRecipient.do" method="get">
 		<input class="btn info" type="submit" value="Back To Recipient" />
-	</form>
+	</form></center>
 
 	<br />
-	<form action="home.do" method="get">
+	<center><form action="home.do" method="get">
 		<input class="btn info" type="submit" value="Back To Home" />
-	</form>
+	</form></center>
+	<br>
+	<br>
 </div>
 
+<center><img src="https://239167-858267-raikfcquaxqncofqfm.stackpathdns.com/wp-content/uploads/2017/06/slider-002-produce.jpg"width="565" height="485"></center>
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
 		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
 		crossorigin="anonymous"></script>

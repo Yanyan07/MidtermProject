@@ -50,22 +50,26 @@
 
 		<h3>Welcome ${user.username}</h3>
 
-
-		<h3>Search the closest pantry by zipcode</h3>
+<br>
+		<center><h3>Find Closest Pantry by Zip Code:</h3>
 		<form action="pantry.do" method="get">
-			<label>zipcode:</label><input type="text" name="zipcode" /> <input
-				class="btn info" type="submit" value="Search The Closest Pantry" />
-		</form>
-
-		<h3>Show the Order History</h3>
+			<label>Zip Code:</label><input type="text" name="zipcode" /> <input
+				class="btn info" type="submit" value="Find Closest Pantry" />
+		</form><center>
+<br>
+<br>
+		<center><h3>Your Order History:</h3>
 		<form action="orderHistory.do" method="get">
 			<input class="btn info" type="submit" value="Show Order History" />
-		</form>
-
-		<form action="home.do" method="get">
+		</form></center>
+<br>
+		<center><form action="home.do" method="get">
 			<input class="btn info" type="submit" value="Back To Home" />
-		</form>
+		</form></center>
 	</div>
+	<br>
+	
+	<center><img src="https://img.i-scmp.com/cdn-cgi/image/fit=contain,width=1098,format=auto/sites/default/files/styles/1200x800/public/d8/images/methode/2019/08/22/507c0954-c3ea-11e9-ad8c-27551fb90b05_image_hires_131152.jpg?itok=QzBw0fxs&v=1566450728" width="800" height="600"></center>
 
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
 		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

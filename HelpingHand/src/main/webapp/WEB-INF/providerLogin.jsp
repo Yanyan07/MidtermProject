@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<<<<<<< HEAD ======= >>>>>>> 65c37590b2b35cc0f80c7845668c8f2bdb97b91f
+
 <title>Login</title>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
@@ -47,20 +47,20 @@
 		<h3>Find Our Pantry's Appointments</h3>
 		<form action="appointments.do" method="post">
 			<input class="btn info" class="btn info" type="submit" />
-		</form>
+		</form></center>
 
-		<h3>Show stuff short in stock:</h3>
+		<center><h3>Show Inventory Short Stock:</h3>
 		<form action="short.do">
 			<input class="btn info" class="btn info" type="submit" />
-		</form>
+		</form></center>
 
-		<h3>Refill Inventory Item</h3>
+		<center><h3>Refill Inventory Item:</h3>
 		<form action="refill.do">
 			<input class="btn info" class="btn info" type="submit" />
-		</form>
+		</form></center>
 
 		<c:if test="${not empty appointments}">
-			<h3>Show appointments in this pantry</h3>
+			<center><h3>Show This Pantry's Appointments:</h3>
 			<table>
 				<tr>
 					<th>Name</th>
@@ -72,9 +72,11 @@
 						<td>${app.appointmentDate}</td>
 					</tr>
 				</c:forEach>
-			</table>
+			</table></center>
 		</c:if>
 		</div>
+		
+		<center><img src="https://moneytamer.com/wp-content/uploads/2020/08/paper-bag-with-groceries-spilled-out.jpg"></center>
 
 		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
 			integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
