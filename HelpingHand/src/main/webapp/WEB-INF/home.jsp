@@ -27,6 +27,7 @@
 				<a class="nav-link active" aria-current="page" href="#">Home</a> <!-- <a
 					class="nav-link" href="#">Pantry</a> --> <a class="nav-link"
 					href="signin.do">Login</a>
+				<a class="nav-link" href="logout.do">Logout</a>
 				<!-- <a class="nav-link disabled">Disabled</a> -->
 			</div>
 		</div>

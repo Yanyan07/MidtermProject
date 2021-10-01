@@ -6,7 +6,6 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<<<<<<< HEAD ======= >>>>>>> 65c37590b2b35cc0f80c7845668c8f2bdb97b91f
 <title>Login</title>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
@@ -21,7 +20,6 @@
 
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
 
-		<div class="page">
 			<div class="container-fluid">
 				<a class="navbar-brand" href="#">Helping Hand</a>
 				<button class="navbar-toggler" type="button"
@@ -41,6 +39,8 @@
 				</div>
 			</div>
 	</nav>
+	
+<div class="page">
 	Welcome ${user.username}
 	<br>
 	<center>
@@ -74,7 +74,8 @@
 				</c:forEach>
 			</table>
 		</c:if>
-		</div>
+		
+</div>
 
 		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
 			integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

@@ -54,6 +54,10 @@
 		<label>Password:</label> <input type="text" name="password" /><br /> 
 		<input class="btn info" type="submit" value="Login as Provider">
 	</form>
+	
+	<form action="logout.do" method="post">
+		<input class="btn info" type="submit" value="Sign Out" />
+	</form>
 </div>
 
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

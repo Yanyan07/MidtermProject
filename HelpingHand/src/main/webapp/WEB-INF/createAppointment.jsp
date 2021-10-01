@@ -42,7 +42,7 @@
 		<div class="page">
 			<form action="newappointment.do" method="POST">
 				<h3>Schedule a Pickup Appointment</h3>
-				<lable>Appointment Date:</lable>
+				<label>Appointment Date:</label>
 				<input type="datetime-local" name="appointmentDate"><br>
 				<input class="btn info" type="submit" value="Submit Appointment" />
 			</form>

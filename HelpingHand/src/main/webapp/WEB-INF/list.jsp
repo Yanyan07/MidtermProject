@@ -81,7 +81,6 @@
 	<form action="backRecipient.do" method="get">
 		<input class="btn info" type="submit" value="Back To Recipient" />
 	</form>
-	</div>
 
 	<br />
 	<form action="home.do" method="get">

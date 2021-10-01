@@ -67,6 +67,7 @@
 	<form action="home.do" method="get">
 		<input class="btn info" type="submit" value="Back To Home" />
 	</form>
+	
 </div>
 
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
