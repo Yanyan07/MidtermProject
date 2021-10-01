@@ -42,19 +42,19 @@
 
 	<div class="page">
 		<c:choose>
-			<center><c:when test="${empty orderHistory}">
-				You haven't order yet!</center>
+			<c:when test="${empty orderHistory}">
+				<center>You haven't order yet!</center>
 		</c:when>
 			<c:otherwise>
-				<ul>
-					<center><c:forEach var="order" items="${orderHistory}">
-						<li>${order.key.name}${order.value}</li></center>
+				<center><ul>
+					<c:forEach var="order" items="${orderHistory}">
+						<li>${order.key.name}${order.value}</li>
 					</c:forEach>
-				</ul>
+				</ul></center>
 			</c:otherwise>
 		</c:choose>
 		<br />
-		</center><form action="backRecipient.do" method="get">
+		<center><form action="backRecipient.do" method="get">
 			<input class="btn info" type="submit" value="Back To Recipient" />
 		</form></center>
 	</div>
