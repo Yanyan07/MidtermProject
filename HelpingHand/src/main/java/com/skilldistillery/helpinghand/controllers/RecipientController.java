@@ -17,6 +17,7 @@ import com.skilldistillery.helpinghand.entities.Inventory;
 import com.skilldistillery.helpinghand.entities.Pantry;
 import com.skilldistillery.helpinghand.entities.ShoppingCartItem;
 import com.skilldistillery.helpinghand.entities.User;
+import com.skilldistillery.helpinghand.entities.InventoryItem;
 
 @Controller
 public class RecipientController {
@@ -32,10 +33,12 @@ public class RecipientController {
 			cart = userDao.createCart(user.getId());
 			session.setAttribute("cart", cart);
 		}
-//		Cart cart = userDao.getCart(4);
+//		Cart cart = userDao.getCart(5);
 //		session.setAttribute("cart", cart);
 		boolean isAdded = userDao.addItemToCart(inventoryItemId, cart);
-		model.addAttribute("isAdded", isAdded);
+		if(isAdded) {
+			model.addAttribute("isAdded", isAdded);
+		}
 		return "redirect:list.do";
 	}
 
@@ -57,7 +60,9 @@ public class RecipientController {
 //				map.put(i, map.get(i) + 1);
 //			}
 //		}
-		model.addAttribute("orderItems", items);
+		if(items != null) {
+			model.addAttribute("orderItems", items);
+		}
 		return "order";
 	}
 
@@ -82,7 +87,7 @@ public class RecipientController {
 				pantry = p;
 			}
 		}
-		if (session.getAttribute("pantry") == null) {
+		if(pantry != null) {
 			session.setAttribute("pantry", pantry);
 		}
 		return "pantry";
@@ -106,17 +111,21 @@ public class RecipientController {
 	@RequestMapping(path = "orderHistory.do")
 	public String getOrderHistory(HttpSession session, Model model) {
 		User user = (User) session.getAttribute("user");
-		List<Inventory> orderHistory = userDao.getOrderHistory(user);
-		Map<Inventory, Integer> map = new HashMap<>();
+		List<InventoryItem> orderHistory = userDao.getOrderHistory(user);
+//		Map<Inventory, Integer> map = new HashMap<>();
 
-		for (Inventory i : orderHistory) {
-			if (!map.keySet().contains(i)) {
-				map.put(i, 1);
-			} else {
-				map.put(i, map.get(i) + 1);
-			}
+//		for (Inventory i : orderHistory) {
+//			if (!map.keySet().contains(i)) {
+//				map.put(i, 1);
+//			} else {
+//				map.put(i, map.get(i) + 1);
+//			}
+//		}
+//		model.addAttribute("orderHistory", map);
+		if(orderHistory != null) {
+			model.addAttribute("orderHistory", orderHistory);
 		}
-		model.addAttribute("orderHistory", map);
+		
 		return "history";
 	}
 

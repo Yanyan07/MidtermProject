@@ -8,7 +8,7 @@
 <title>Helping Hand</title>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
-	rel="stylesheet"
+	rel="stylesheet" 
 	integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
 	crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="css/home.css">
@@ -24,11 +24,9 @@
 		</button>
 		<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 			<div class="navbar-nav">
-				<a class="nav-link active" aria-current="page" href="#">Home</a> <!-- <a
-					class="nav-link" href="#">Pantry</a> --> <a class="nav-link"
-					href="signin.do">Login</a>
-					<a class="nav-link" href="logout.do">Logout</a>
-				<!-- <a class="nav-link disabled">Disabled</a> -->
+				<a class="nav-link active" aria-current="page" href="#">Home</a> 
+				<a class="nav-link" href="signin.do">Login</a>
+				<a class="nav-link" href="logout.do">Logout</a>
 			</div>
 		</div>
 	</div>
@@ -40,14 +38,6 @@
 		<center><h1>Welcome to Helping Hand</h1></center>
 		<br>
 		<br>
-		<!-- 	<form action="signin.do" method="post">
-						<input type="submit" value="Sign In" />
-					</form>
-					<br />
-					<form action="logout.do" method="post">
-						<input type="submit" value="Sign Out" />
-					</form>
-					<hr /> -->
 
 <div>
 		<p><b>A food pantry is not only a resource for those in need. It

@@ -15,7 +15,6 @@ public class LoginController {
 	
 	@RequestMapping(path="signin.do")
 	public String signIn() {
-		
 		return "login";
 	}
 	
@@ -32,7 +31,7 @@ public class LoginController {
 				return "home";
 			}
 		} else {
-			return "home";
+			return "signup";
 		}
 	}
 
@@ -42,6 +41,16 @@ public class LoginController {
 		session.removeAttribute("cart");
 		session.removeAttribute("pantry");
 		return "logout";
+	}
+	
+	@RequestMapping(path = "signup.do")
+	public String signup(User user) {
+		boolean registered = userDao.register(user);
+		if(registered) {
+			return "login";
+		}else {
+			return "signup";
+		}
 	}
 
 }

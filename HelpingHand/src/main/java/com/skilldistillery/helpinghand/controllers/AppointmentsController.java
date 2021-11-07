@@ -37,7 +37,7 @@ public class AppointmentsController {
 		Pantry pantry = (Pantry) session.getAttribute("pantry");
 		List<Appointment> appointments = dao.findAppointmentByPantryId(pantry.getId());
 		model.addAttribute("appointments", appointments);
-		return "providerLogin";
+		return "providerList";
 
 	}
 

@@ -1,36 +1,22 @@
 
-/* h1{ color: red;
-
-font-family: cursive;
-}
-​
-	#Main{
-	text-align: center;
-	}
-​
-	body {
-	background-color: gray;
-	} 
- */
- 
 body{
 
 	margin: 0;
-	padding: 100px;
   	background-color:  #f1f1f1;
 }
 
-/* div.page{
-	margin: 0;
-	padding: 100px;
-  	background-color:  #f1f1f1;
-} */
+.page{
+	width: 450px;
+	height: 400px;
+	margin: 0 auto;
+	padding-top: 100px;
+}
 
 form label{
 	display: inline_block;
 	width:100px;
 	text-align: right;
-}
+} 
 input{
 	width: 220px;
     margin: 1px;
@@ -55,8 +41,9 @@ th{
 .warning {background-color: #e68a00;} /* Orange */
 .warning:hover {background: #ff9800;}
 	
-	p{ font-family: Arial(sans serif);
-	
+p{ font-family: Arial(sans serif);
 	color: black;
-	
-	}
+}
+
+
+

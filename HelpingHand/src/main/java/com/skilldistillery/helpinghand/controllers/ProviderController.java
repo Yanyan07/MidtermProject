@@ -7,10 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import com.skilldistillery.helpinghand.data.UserDAO;
-import com.skilldistillery.helpinghand.entities.Cart;
 import com.skilldistillery.helpinghand.entities.InventoryItem;
 import com.skilldistillery.helpinghand.entities.Pantry;
-import com.skilldistillery.helpinghand.entities.User;
 
 @Controller
 public class ProviderController {
@@ -18,6 +16,13 @@ public class ProviderController {
 	@Autowired
 	private UserDAO userDao;
 
+	@RequestMapping(path = "pantryId.do")
+	public String findPantryById(HttpSession session, Integer pantryId) {
+		Pantry pantry = userDao.findPantryById(pantryId);
+		session.setAttribute("pantry", pantry);
+		return "providerList";
+	}
+	
 	@RequestMapping(path = "short.do")
 	public String getShortList(HttpSession session, Model model) {
 		Pantry pantry = (Pantry) session.getAttribute("pantry");
@@ -49,8 +54,13 @@ public class ProviderController {
 	}
 	
 	
-	@RequestMapping(path = "back.do")
+	@RequestMapping(path = "backProviderList.do")
 	public String getBackToProvider() {
+		return "providerList";
+	}
+	
+	@RequestMapping(path = "backLogin.do")
+	public String getBackToLogin() {
 		return "providerLogin";
 	}
 	

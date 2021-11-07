@@ -10,11 +10,7 @@ import com.skilldistillery.helpinghand.entities.User;
 
 public interface UserDAO {
 
-	User findUserById(String username);
-
-	User findUserByUsernameAndPassword(String username, String password);
-	
-	List<Inventory> getInventory(int pantryId);
+User findUserByUsernameAndPassword(String username, String password);
 	
 	Cart createCart(int userId);
 	
@@ -22,16 +18,14 @@ public interface UserDAO {
 	
 	Cart getCart(int cartId);
 	
-	List<Inventory> getItemsInCart(int cartId);
-	
 	boolean deleteItem(int inventoryId, int pantryId);
 	
 	List<Pantry> findPantries();
 	
-	List<Inventory> getOrderHistory(User user);
+	Pantry findPantryById(int pantryId);
 	
-	void clearCart();
-
+	List<InventoryItem> getOrderHistory(User user);
+	
 	List<ShoppingCartItem> getCartItemsInCart(int cartId);
 
 	boolean deleteCartItem(int cartItemId, User user);
@@ -42,4 +36,5 @@ public interface UserDAO {
 	
 	boolean deleteShoppingCartItem(int inventoryItemId);
 	
+	boolean register(User user);
 }

@@ -23,21 +23,6 @@ public class UserDAOImpl implements UserDAO {
 	@PersistenceContext
 	private EntityManager em;
 
-	@Override
-	public User findUserById(String username) {
-		
-		String jpql = "SELECT u FROM User u WHERE u.username = :uname";
-		User user = null;
-		try {
-			user = em.createQuery(jpql, User.class)
-					.setParameter("uname", username)
-					.getSingleResult();
-		} catch (Exception e) {
-			System.err.println("No user found with username " + username);
-		}
-		return user;
-	}
-
 	@Override //login with username and password
 	public User findUserByUsernameAndPassword(String username, String password) {
 		String spql = "select u from User u where u.username=:username and u.password=:password";
@@ -52,15 +37,6 @@ public class UserDAOImpl implements UserDAO {
 		return user;
 	}
 	
-	@Override //list all food available
-	public List<Inventory> getInventory(int pantryId){
-		String spql = "select i from Inventory i where i.pantry.id = :id";
-		List<Inventory> inventories = em.createQuery(spql, Inventory.class)
-						.setParameter("id", pantryId)
-					    .getResultList();
-		return inventories;
-	}
-	
 	@Override
 	public List<InventoryItem> getAvailableInventory(int pantryId){
 		String spql = "select i from InventoryItem i "
@@ -72,7 +48,7 @@ public class UserDAOImpl implements UserDAO {
 		return inventories;
 	}
 	
-//	@Override
+	@Override
 	public List<InventoryItem> getUnavailableInventory(int pantryId){
 		String spql = "select i from InventoryItem i "
 				+ "where i.inventory.pantry.id = :id and i.available= false "
@@ -88,30 +64,14 @@ public class UserDAOImpl implements UserDAO {
 		User user = em.find(User.class, userId);
 		Cart cart = new Cart();
 		cart.setUser(user);
-//	    Appointment appointment = new Appointment();
-//	    appointment.setPantry(em.find(Pantry.class, 1));
-//	    appointment.setUser(user);
-//	    cart.setAppointment(appointment);
-//	    appointment.setCart(cart);
 		user.addCart(cart);
-//		em.persist(appointment);
 		em.persist(cart);
+		em.flush();
 		return cart;
 	}
 	
 	@Override
 	public boolean addItemToCart(int inventoryId, Cart cart) {
-//		List<InventoryItem> items = null;
-//		String itemsSql = "select item from InventoryItem item "
-//				+ "where item.inventory.id = :inventoryId and item.available= :available";
-//		
-//		items = em.createQuery(itemsSql, InventoryItem.class)
-//				  .setParameter("inventoryId", inventoryId)
-//				  .setParameter("available", true)
-//				  .getResultList();
-//		if(items==null || items.size()==0) {
-//			return false;
-//		}
 		InventoryItem item = em.find(InventoryItem.class, inventoryId);
 		
 		if(item != null) { //add item to cart
@@ -121,6 +81,7 @@ public class UserDAOImpl implements UserDAO {
 			item.setAvailable(false);
 			em.persist(cartItem);
 			em.persist(item);
+			em.flush();
 			return true;
 		}
 		return false;
@@ -131,17 +92,6 @@ public class UserDAOImpl implements UserDAO {
 		return em.find(Cart.class, cartId);
 	}
 	
-	@Override
-	public List<Inventory> getItemsInCart(int cartId){
-		List<Inventory> items = null;
-		String spql = "select i from Inventory i join InventoryItem ii on i.id=ii.inventory.id "
-				+ "join ShoppingCartItem s on ii.id=s.inventoryItem.id "
-				+ "where s.cart.id= :cartId";
-		items = em.createQuery(spql, Inventory.class)
-				  .setParameter("cartId", cartId)
-				  .getResultList();
-		return items;
-	}
 	@Override
 	public List<ShoppingCartItem> getCartItemsInCart(int cartId){
 		List<ShoppingCartItem> items = null;
@@ -206,7 +156,6 @@ public class UserDAOImpl implements UserDAO {
 			em.remove(item);
 			return true;
 		}
-		
 		return false;
 	}
 
@@ -217,23 +166,39 @@ public class UserDAOImpl implements UserDAO {
 	}
 	
 	@Override
-	public List<Inventory> getOrderHistory(User user){
-		String spql = "select i from Inventory i join InventoryItem ii on i.id=ii.inventory.id "
-				+ "join ShoppingCartItem s on ii.id=s.inventoryItem.id "
-				+ "join Cart c on s.cart.id=c.id "
-				+ "join User u on c.user.id=u.id "
-				+ "where u.id = :uId";
-		List<Inventory> lists = em.createQuery(spql, Inventory.class)
-				  .setParameter("uId", user.getId())
-				  .getResultList();
+	public Pantry findPantryById(int pantryId) {
+		String spql = "select p from Pantry p where p.id = : pantryId ";
+		List<Pantry> pantries = em.createQuery(spql, Pantry.class)
+				.setParameter("pantryId", pantryId)
+				.getResultList();
+		Pantry pantry = null;
+		if(pantries != null) {
+			pantry = pantries.get(0);
+		}
+		return pantry;
+	}
+	
+	@Override
+	public List<InventoryItem> getOrderHistory(User user){
+		String spql = "select ii from InventoryItem ii "
+				+ "join ShoppingCartItem s on s.inventoryItem.id=ii.id "
+				+ "join Cart c on c.id=s.cart.id "
+				+ "where c.user.id = :uId";
+		List<InventoryItem> lists = em.createQuery(spql, InventoryItem.class)
+				.setParameter("uId", user.getId())
+				.getResultList();
 		return lists;
 	}
 	
 	@Override
-	public void clearCart() {
-		String spql = "select s from ShoppingCartItem s "
-				+ "join Cart t on s.cart.id=c.id"
-				+ "join User u on t.us";
+	public boolean register(User user) {
+		User u = findUserByUsernameAndPassword(user.getUsername(), user.getPassword());
+		if(user!=null && u==null) {
+			em.persist(user);
+			em.flush();
+			return true;
+		}
+		return false;
 	}
 
 }
