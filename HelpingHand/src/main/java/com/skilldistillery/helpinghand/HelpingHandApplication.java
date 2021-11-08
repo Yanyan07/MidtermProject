@@ -6,11 +6,11 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
 @SpringBootApplication
-public class HelpingHandApplication  extends SpringBootServletInitializer {
-	  @Override
-	  protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-	    return application.sources(HelpingHandApplication.class);
-	  }
+public class HelpingHandApplication extends SpringBootServletInitializer {
+	@Override
+	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+		return application.sources(HelpingHandApplication.class);
+	}
 
 	public static void main(String[] args) {
 		SpringApplication.run(HelpingHandApplication.class, args);

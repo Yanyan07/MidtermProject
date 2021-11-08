@@ -4,7 +4,7 @@
 This is a team project. In this project, we created a food pantry project called "Helping Hand." The project allows both a login for providers(pantries) and recipients(those who may need to receive assistance/food from a local pantry) and associated CRUD functions where applicable for both.  
 
 # How to Use
-In your browser, please entering the following AWS IP and address:  18.118.127.156:8080/HelpingHand.  On the Home page, options are displayed in the navigation bar for Login as well as Logout.  Clicking Login, for the Username for "Login as Recipient" please use "rlarson" with the password "ralphlarson" and click Login as Recipient. He is one of several recipients in our database.  
+In your browser, please entering the following AWS IP and address: http://18.118.127.156:8080/HelpingHand.  On the Home page, options are displayed in the navigation bar for Login as well as Logout.  Clicking Login, for the Username for "Login as Recipient" please use "rlarson" with the password "ralphlarson" and click Login as Recipient. He is one of several recipients in our database.  
 
 Recipient access allows a user to be able to find a pantry close to him/her based on zipcode.  Additional options on the page allow for showing an order history once generated from the pantry as well as returning to home.  Enter a zipcode into the search for finding a pantry.  The site will then provide you with the ability to see the MICA food pantry's inventory which they shared to our site.  Click "Show Inventory" and the items the pantry currently has are displayed.  Selecting "Add to Cart" for any items of interest and then "Items in Cart" will take you to a page to show your order/cart.
 
